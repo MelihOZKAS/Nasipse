@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Tüm Şiir Kategorileri{% endblock %}
+{% block description %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en
+    güzel şiirleri keşfedin.{% endblock %}
+{% block keywords %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, islam, atatürk{% endblock %}
+{% block ogtitle %}Tüm Şiir Kategorileri{% endblock %}
+{% block ogDes %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en güzel
+    şiirleri keşfedin.{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk{% endblock %}
+{% block twdesc %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en
+    güzel şiirleri keşfedin.{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <!-- main-area -->
+    <main>
+        <!-- featured-area -->
+        <section class="featured-post-area section__hover-line pt-75">
+            <div class="container">
+                <h4 class="widget-title">Tüm Kategoriler</h4>
+                <div class="row">
+                    {% for KategoriPopuler in tum_alt_kategoriler %}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="featured__post">
+                                <div class="featured__thumb"
+                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}">
+                                </div>
+                                <div class="featured__content">
+                                    <h4 class="title tgcommon__hover"><a
+                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+        <!-- featured-area-end -->
+
+
+        <!-- En son eklenen Şiirler -->
+        <section class="latest-post-area pt-80 pb-80">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="section__title-wrap mb-40">
+                            <div class="row align-items-end">
+                                <div class="col-sm-6">
+                                    <div class="section__title">
+
+                                        <h3 class="section__main-title">Pöpüler Şiirler</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="section__read-more text-start text-sm-end">
+                                        <a href="{% url 'siir:populer-siirler' %}">Popüler Şiirler<i
+                                                class="far fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="latest__post-wrap">
+                            {% for populersiir in random_populer %}
+                                <div class="latest__post-item">
+                                    <div class="latest__post-thumb tgImage__hover">
+                                        {% if populersiir.usermi %}
+                                            <a href="{% url 'siir:siir_detail' siir_slug=populersiir.slug %}"><img
+                                                    src="{{ populersiir.yazar.kapak_resmi.url }}"
+                                                    alt="{{ populersiir.title }}"></a>
+                                        {% else %}
+                                            <a href="{% url 'siir:siir_detail' siir_slug=populersiir.slug %}"><img
+                                                    src="{{ populersiir.sair.kapak_resmi.url }}"
+                                                    alt="{{ populersiir.title }}"></a>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="latest__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+
+                                            <li>Ekleme Tarihi: {{ populersiir.olusturma_tarihi|date }}</li>
+                                        </ul>
+                                        <h3 class="title tgcommon__hover"><a
+                                                href="{% url 'siir:siir_detail' siir_slug=populersiir.slug %}">{{ populersiir.title }}</a>
+                                        </h3>
+                                        <p>{{ populersiir.title|truncatechars:50 }}</p>
+                                        <ul class="post__activity list-wrap">
+                                            <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
+                                            {% for alt_kategori in populersiir.alt_kategorisi.all %}
+                                                <li>
+                                                    <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <aside class="blog-sidebar">
+                            {% include 'parcali/bizi_takip.html' %}
+                            <div class="widget sidebar-widget widget_categories">
+                                <h4 class="widget-title">Kategoriler</h4>
+                                <ul class="list-wrap">
+                                    {% for KategoriPopuler in TumSiirBannerKategorileri %}
+                                        <li>
+                                            <div class="thumb"><a href="blog.html"><img
+                                                    src="{{ KategoriPopuler.kapak_resmi.url }}"
+                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
+                                            <a href="blog.html">{{ KategoriPopuler.alt_kategori_adi }}</a>
+
+                                        </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                            <div class="widget sidebar-widget">
+                                <div class="sidePost-active">
+                                    {% for randonsiir in siirRandom %}
+                                        {% if randonsiir.usermi %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                        {% else %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                        {% endif %}
+
+                                    <div class="sidePost__content">
+                                        <h5 class="title tgcommon__hover"><a
+                                                href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
+                                        </h5>
+                                    </div>
+                                    </div>
+                                    {% endfor %}
+
+
+                                    </div>
+
+                                </div>
+                                <div class="widget sidebar-widget">
+                                    <div class="sidePost-active">
+                                        {% for randonsair in sairRandomsag %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsair.kapak_resmi.url }}">
+                                                <div class="sidePost__content">
+                                                    <h5 class="title tgcommon__hover"><a
+                                                            href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
+                                                        - Hayatı</a></h5>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+
+                                    </div>
+
+                                </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  En son eklenen Şiirler -end -->
+
+
+    </main>
+    <!-- main-area-end -->
+
+
+
+
+
+{% endblock %}

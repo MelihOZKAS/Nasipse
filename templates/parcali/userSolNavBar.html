@@ -1,0 +1,147 @@
+{% load static %}
+<!-- Sidebar -->
+<nav class="sidebar" data-trigger="scrollbar">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header d-none d-lg-block">
+        <!-- Sidebar Toggle Pin Button -->
+        <div class="sidebar-toogle-pin">
+            <i class="icofont-tack-pin"></i>
+        </div>
+        <!-- End Sidebar Toggle Pin Button -->
+    </div>
+    <!-- End Sidebar Header -->
+
+    <!-- Sidebar Body -->
+    <div class="sidebar-body">
+        <!-- Nav -->
+        <ul class="nav">
+            <li class="nav-category">Hoş Geldiniz</li>
+            <li>
+                <a href="{% url 'konsol:home' %}">
+                    <i class="icofont-pie-chart"></i>
+                    <span class="link-title">Genel Özet</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:siir-detay-listesi' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Şiir Detaylarım</span>
+                </a>
+
+
+            </li>
+
+            <li>
+                <a href="{% url 'konsol:soz-detay-listesi' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Söz Detaylarım</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="{% url 'konsol:hikaye-detay-listesi' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Hikaye Detaylarım</span>
+                </a>
+            </li>
+
+
+            <li class="nav-category">Beğendikleriniz</li>
+
+            <li>
+                <a href="{% url 'konsol:begeni-sairler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Beğendiğiniz Şairleriniz</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'konsol:begeni-kullanici' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Beğendiğiniz Üye Şairleriniz</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="{% url 'konsol:begeni-siirler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Beğendiğiniz Şiirleriniz</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:begeni-sozler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Beğendiğiniz Sözleriniz</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'konsol:begeni-hikayeler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Beğendiğiniz Hikayeleriniz</span>
+                </a>
+            </li>
+
+            <li class="nav-category">Favorileriniz</li>
+            <li>
+                <a href="{% url 'konsol:favori-sair' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Favori Şairleriniz</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:favori-kullanici' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Favori Üye Şairleriniz</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:favori-siirler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Favori Şiirleriniz</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:favori-sozler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Favori Sözleriniz</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:favori-hikayeler' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Favori Hikayeleriniz</span>
+                </a>
+            </li>
+
+
+            <li class="nav-category">Herkesle Paylaş</li>
+
+            <li>
+                <a href="{% url 'konsol:siir-ekle' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Şiir Ekle</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:soz-ekle' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Söz Ekle</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'konsol:hikaye-ekle' %}">
+                    <i class="icofont-dashboard"></i>
+                    <span class="link-title">Hikaye Ekle</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <!-- End Nav -->
+    </div>
+    <!-- End Sidebar Body -->
+</nav>
+<!-- End Sidebar -->

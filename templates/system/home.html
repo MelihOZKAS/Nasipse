@@ -1,0 +1,426 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ keyler.title }}{% endblock %}
+{% block description %}{{ keyler.meta_description }}{% endblock %}
+{% block keywords %}{{ keyler.keywords }}{% endblock %}
+{% block ogtitle %}{{ keyler.title }}{% endblock %}
+{% block ogDes %}{{ keyler.meta_description }}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ keyler.title }}{% endblock %}
+{% block twdesc %}{{ keyler.meta_description }}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
+
+
+
+{% block content %}
+    <!-- slider-area -->
+    <!-- assets/img/bg/banner_bg.jpg    Arka Plan rengi istersen değiştrebilrsin -->
+    <section class="slider__area slider__style-two fix" data-background="{% static 'assets/img/bg/banner_bg.jpg' %}">
+        <div class="container">
+            <div class="slider-active">
+                {% for banner in Banner %}
+                    <div class="slider__item">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="slider__content">
+                                    <ul class="tgbanner__content-meta list-wrap" data-animation-in="tg-fadeInUp"
+                                        data-delay-in=".2">
+                                        {% if banner.Model == "Şiirler" %}
+                                            <li class="category"><a href="{% url 'siir:home' %}">{{ banner.Model }}</a>
+                                            </li>
+                                        {% elif banner.Model == "Şairler" %}
+                                            <li class="category"><a
+                                                    href="{% url 'sairler:home' %}">{{ banner.Model }}</a></li>
+
+                                        {% endif %}
+
+                                        <li>{{ banner.olusturma_tarihi|date:"d F Y" }}</li>
+                                    </ul>
+                                    <h2 class="title" data-animation-in="tg-fadeInUp"
+                                        data-delay-in=".6">{{ banner.title }}</h2>
+
+                                    {% if banner.Model == "Şiirler" %}
+                                        <a href="{% url 'siir:siir_detail'  siir_slug=banner.slug %}"
+                                           class="btn border-btn"
+                                           data-animation-in="tg-fadeInUp"
+                                           data-delay-in="1"><span class="btn-text">Devamını Oku</span> <i
+                                                class="far fa-long-arrow-right"></i></a>
+                                    {% elif banner.Model == "Şairler" %}
+                                        <a href="{% url 'sairler:sair_detail'  sair_slug=banner.slug %}"
+                                           class="btn border-btn"
+                                           data-animation-in="tg-fadeInUp"
+                                           data-delay-in="1"><span class="btn-text">Devamını Oku</span> <i
+                                                class="far fa-long-arrow-right"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="slider__img-wrap">
+                                    {% if banner.usermi %}
+                                        <img src="{{ banner.yazar.kapak_resmi.url }}" class="main-img"
+                                             alt="{{ banner.title }}">
+                                    {% else %}
+                                        {% if banner.Model == "Şiirler" %}
+                                            <img src="{{ banner.sair.kapak_resmi.url }}" class="main-img"
+                                                 alt="{{ banner.title }}">
+                                        {% elif banner.Model == "Şairler" %}
+                                            <img src="{{ banner.kapak_resmi.url }}" class="main-img"
+                                                 alt="{{ banner.title }}">
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="slider__marquee clearfix">
+                <div class="marquee_mode">
+                    {% for soz in Banner_Soz %}
+                        <h6 class="item">{{ soz.sair }} <span> {{ soz.icerik|safe }} </span></h6>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- slider-area-end -->
+
+
+    <!-- trending-area -->
+    <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
+        <div class="container">
+            <div class="section__title-wrap mb-40">
+                <div class="row align-items-end">
+                    <div class="col-sm-6">
+                        <div class="section__title">
+                            <h3 class="section__main-title">Popüler Şiirler</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section__read-more text-start text-sm-end">
+                            <a href={% url 'siir:populer-siirler' %}>Tüm Şiirler<i class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending__slider">
+                <div class="swiper-container trending-active">
+                    <div class="swiper-wrapper">
+
+                        {% for sbanr in Small_Banner %}
+                            <div class="swiper-slide">
+                                <div class="trending__post">
+                                    <div class="trending__post-thumb tgImage__hover">
+                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        {% if sbanr.usermi %}
+                                            <a href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}"><img
+                                                    src="{{ sbanr.yazi.kapak_resmi.url }}" alt="{{ sbanr.title }}"></a>
+                                        {% else %}
+                                            <a href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}"><img
+                                                    src="{{ sbanr.sair.kapak_resmi.url }}" alt="{{ sbanr.title }}"></a>
+                                        {% endif %}
+
+                                        <span class="is_trend"><i class="fas fa-bolt"></i></span>
+                                    </div>
+                                    <div class="trending__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <!--  <li class="category"><a
+                                                    href="{% url 'siir:home' %}">{{ sbanr.kategorisi }}</a>
+                                            </li> -->
+
+                                        </ul>
+                                        <h4 class="title tgcommon__hover"><a
+                                                href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}">{{ sbanr.title }}</a>
+                                        </h4>
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                            <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
+                                            {% for alt_kategori in sbanr.alt_kategorisi.all %}
+                                                <li>
+                                                    <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
+                                                </li>
+                                            {% endfor %}
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- trending-area-end -->
+
+
+
+    <!-- En Son eklenen şiirler  -->
+    <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
+        <div class="container">
+            <div class="section__title-wrap mb-40">
+                <div class="row align-items-end">
+                    <div class="col-sm-6">
+                        <div class="section__title">
+                            <h3 class="section__main-title">En Son Eklenen Şiirler</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section__read-more text-start text-sm-end">
+                            <a href={% url 'siir:en-son-eklenen-siirler' %}>En Son Eklenen Şiirlerin Tümü<i
+                                    class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending__slider">
+                <div class="swiper-container trending-active">
+                    <div class="swiper-wrapper">
+
+                        {% for soneklenensiir in son_eklenen_siirler %}
+                            <div class="swiper-slide">
+                                <div class="trending__post">
+                                    <div class="trending__post-thumb tgImage__hover">
+                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        {% if soneklenensiir.usermi %}
+                                            <a href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}"><img
+                                                    src="{{ soneklenensiir.yazar.kapak_resmi.url }}"
+                                                    alt="{{ soneklenensiir.title }}"></a>
+                                        {% else %}
+                                            <a href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}"><img
+                                                    src="{{ soneklenensiir.sair.kapak_resmi.url }}"
+                                                    alt="{{ soneklenensiir.title }}"></a>
+                                        {% endif %}
+
+                                        <span class="is_trend"><i class="fas fa-bolt"></i></span>
+                                    </div>
+                                    <div class="trending__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <!--  <li class="category"><a
+                                                    href="{% url 'siir:home' %}">{{ soneklenensiir.kategorisi }}</a>
+                                            </li> -->
+
+                                        </ul>
+                                        <h4 class="title tgcommon__hover"><a
+                                                href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}">{{ soneklenensiir.title }}</a>
+                                        </h4>
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                            <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
+                                            {% for alt_kategori in soneklenensiir.alt_kategorisi.all %}
+                                                <li>
+                                                    <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- trending-area-end -->
+
+    <!-- featured-area -->
+    <section class="featured-post-area section__hover-line pt-75">
+        <div class="container">
+            <div class="section__title-wrap mb-40">
+                <div class="row align-items-end">
+                    <div class="col-sm-6">
+                        <div class="section__title">
+                            <h3 class="section__main-title">Popüler Şairler</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section__read-more text-start text-sm-end">
+                            <a href="{% url 'sairler:home' %}">Tüm Şairler<i class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for PopulerS_ in Populer_sair %}
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="featured__post">
+                            <div class="featured__thumb" data-background="{{ PopulerS_.kapak_resmi.url }}">
+                            </div>
+                            <div class="featured__content">
+                                <ul class="tgbanner__content-meta list-wrap">
+                                    <li class="category"><a href="{% url 'sairler:home' %}">Şair</a></li>
+
+                                </ul>
+                                <h4 class="title tgcommon__hover"><a
+                                        href="{% url 'sairler:sair_detail' sair_slug=PopulerS_.slug %}">{{ PopulerS_.title }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- featured-area-end -->
+
+
+
+
+
+
+    <!-- Son Eklenen Siirler -->
+
+    <!-- Son Eklenen Siirler END -->
+
+
+
+    <!-- trending-area -->
+    <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
+        <div class="container">
+            <div class="section__title-wrap mb-40">
+                <div class="row align-items-end">
+                    <div class="col-sm-6">
+                        <div class="section__title">
+                            <h3 class="section__main-title">Popüler Sözler</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section__read-more text-start text-sm-end">
+                            <a href='{% url 'sozler:populer-guzel-sozler' %}'>Tüm Popüler Sözler<i
+                                    class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending__slider">
+                <div class="swiper-container trending-active">
+                    <div class="swiper-wrapper">
+
+                        {% for pSozler in Populer_Sozler %}
+                            <div class="swiper-slide">
+                                <div class="trending__post">
+                                    <div class="trending__post-thumb tgImage__hover">
+                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        <a href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}"><img
+                                                src="{{ pSozler.sair.kapak_resmi.url }}" alt="{{ pSozler.title }}"></a>
+                                        <span class="is_trend"><i class="fas fa-bolt"></i></span>
+                                    </div>
+                                    <div class="trending__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+
+                                        </ul>
+                                        <h4 class="title tgcommon__hover"><a
+                                                href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}">{{ pSozler.title }}</a>
+                                        </h4>
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                            <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
+                                            {% for alt_kategori in pSozler.alt_kategorisi.all %}
+                                                <li>
+                                                    <a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=alt_kategori.sozler_slug %}">{{ alt_kategori.sozler_title }}</a>
+                                                </li>
+                                            {% endfor %}
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- trending-area-end -->
+
+
+
+    <!-- En Son eklenen şiirler  -->
+    <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
+        <div class="container">
+            <div class="section__title-wrap mb-40">
+                <div class="row align-items-end">
+                    <div class="col-sm-6">
+                        <div class="section__title">
+                            <h3 class="section__main-title">En Son Eklenen Sözler</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section__read-more text-start text-sm-end">
+                            <a href={% url 'sozler:en-son-eklenen-guzel-sozler' %}>Tüm Sözler<i
+                                    class="far fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending__slider">
+                <div class="swiper-container trending-active">
+                    <div class="swiper-wrapper">
+
+                        {% for soneklenensozler in son_eklenen_Sozler %}
+                            <div class="swiper-slide">
+                                <div class="trending__post">
+                                    <div class="trending__post-thumb tgImage__hover">
+                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        <a href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}"><img
+                                                src="{{ soneklenensozler.sair.kapak_resmi.url }}"
+                                                alt="{{ soneklenensozler.title }}"></a>
+                                        <span class="is_trend"><i class="fas fa-bolt"></i></span>
+                                    </div>
+                                    <div class="trending__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+
+                                        </ul>
+                                        <h4 class="title tgcommon__hover"><a
+                                                href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}">{{ soneklenensozler.title }}</a>
+                                        </h4>
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                            <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
+                                            {% for alt_kategori in soneklenensozler.alt_kategorisi.all %}
+                                                <li>
+                                                    <a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=alt_kategori.sozler_slug %}">{{ alt_kategori.sozler_title }}</a>
+                                                </li>
+                                            {% endfor %}
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- trending-area-end -->
+
+
+
+
+{% endblock %}

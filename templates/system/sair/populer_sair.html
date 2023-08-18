@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ siir.title }}{% endblock %}
+{% block description %}{{ siir.meta_description }}{% endblock %}
+{% block keywords %}{{ siir.keywords }}{% endblock %}
+{% block ogtitle %}{{ siir.title }}{% endblock %}
+{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ siir.title }}{% endblock %}
+{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <!-- adventure-post-area -->
+    <div class="adventure__post-area pt-20 pb-70">
+        <div class="container">
+            <div class="adventure__post-wrapper">
+                {% for GelenSair in icerik %}
+                    <div class="adventure__post-item grid-item tg-img-reveal-item" data-author="{{ GelenSair.yazar }}"
+                         data-title="{{ GelenSair.title }}" data-date="{{ GelenSair.olusturma_tarihi|date }}"
+                         data-fx="1">
+                        <div class="adventure__post-thumb tgImage__hover">
+                            <a href="{% url 'sairler:sair_detail' sair_slug=GelenSair.slug %}"><img
+                                    src="{{ GelenSair.kapak_resmi.url }}"
+                                    alt="{{ GelenSair.title }}"></a>
+                        </div>
+                        <div class="mobile-title">
+                            <a href="{% url 'sairler:sair_detail' sair_slug=GelenSair.slug %}"
+                               class="btn btn-primary">{{ GelenSair.title }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="pagination__wrap">
+                <ul class="list-wrap">
+                    {% if icerik.has_previous %}
+                        <li><a href="?sayfa={{ icerik.previous_page_number }}"><i
+                                class="fas fa-angle-double-left"></i></a></li>
+                    {% endif %}
+                    {% for page_num in icerik.paginator.page_range %}
+                        {% if page_num == icerik.number %}
+                            <li class="active"><a href="?sayfa={{ page_num }}">{{ page_num }}</a></li>
+                        {% elif page_num > icerik.number|add:'-3' and page_num < icerik.number|add:'3' %}
+                            <li><a href="?sayfa={{ page_num }}">{{ page_num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if icerik.has_next %}
+                        <li><a href="?sayfa={{ icerik.next_page_number }}"><i
+                                class="fas fa-angle-double-right"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- adventure-post-area-end -->
+
+    </main>
+    <!-- main-area-end -->
+
+
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'system/user/userBase.html' %}
+{% load static %}
+
+
+{% block userContent %}
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+                    {% if Begenilerim %}
+                        <!-- Card -->
+                        <div class="card bg-transparent">
+                            <div class="card-body card_color-bg">
+                                <h4 class="pl-2 pt-2 pb-2">{{ Begeni_Name }}</h4>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="order-list-table text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Başlık</th>
+                                        <th>Yazarı</th>
+                                        <th>Okunma Sayısı</th>
+                                        <th>Ekleme Tarihi</th>
+                                        <th>Yayın durumu</th>
+                                        <th>Yayın Durumu</th>
+                                        <th>Durumu</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody class="card_color-bg">
+                                    {% for siir in Begenilerim %}
+                                        <tr>
+                                            {% if Begeni_Name == "Beğeniye Aldığınız Üye Yazarlar" %}
+                                                <td>{{ siir.id }}123</td>
+                                                <td>{{ siir.first_name|title }} {{ siir.last_name|upper }}</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>{{ siir.Kayit_Tarihi }}</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>
+                                                    <a href="{% url 'konsol:blog-yazar-detay' yazar=siir.slug %}"
+                                                       target="_blank">
+                                                        <button type="button" class="status-btn paid">Yazara Git</button>
+                                                    </a>
+                                                </td>
+
+
+                                            {% else %}
+                                                <td>{{ siir.id }}</td>
+                                                <td>{{ siir.title }}</td>
+                                                <td>{{ siir.yazar }}</td>
+                                                <td>{{ siir.okunma_sayisi }}</td>
+                                                <td>{{ siir.olusturma_tarihi }}</td>
+                                                <td>{{ siir.status }}</td>
+                                                <td>{{ siir.status }}</td>
+                                                {% if Begeni_Name == "Beğeniye Aldığınız Şairler" %}
+                                                                                                    <td>
+                                                    <a href="{% url 'sairler:sair_detail' sair_slug=siir.slug %}"
+                                                       target="_blank">
+                                                        <button type="button" class="status-btn paid">Yazara Git</button>
+                                                    </a>
+                                                </td>
+
+                                                {% else %}
+                                                    <td>-</td>
+                                                {% endif %}
+
+                                            {% endif %}
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+
+
+                    {% else %}
+                        <!-- şiir Yoksa -->
+                        <div class="col-xl-3 col-lg-6">
+                            <!-- Card -->
+                            <div class="card mb-30">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="">
+                                            <h4>Maalesef Hiç Favori Öğeniz Bulunamadı</h4>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div>
+                                        <p class="font-14 mb-1">Bulunan Öğe Sayısı</p>
+                                        <h2>0</h2>
+                                    </div>
+
+                                    <div class="process-bar-wrapper style--three">
+                                        <span class="process-name mb-2">Yayınlanan Öğe</span>
+                                        <span class="process-width mb-2">0%</span>
+                                        <span class="process-bar style--two" data-process-width="0"></span>
+                                    </div>
+                                    <p class="font-14 mt-10 c4 mb-30">*Hadi sakın durma paylaş bizimle !</p>
+
+                                    <a href="{% url 'konsol:siir-ekle' %}" class="btn mb-10">Yeni Şiir Ekle</a>
+
+                                </div>
+                            </div>
+                            <!-- End Card -->
+                        </div>
+
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Content -->
+
+
+{% endblock userContent %}

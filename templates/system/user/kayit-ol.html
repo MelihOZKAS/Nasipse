@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Page Title -->
+    <title>En Güzel Şiirler - Kayıt OL</title>
+
+    <!-- Meta Data -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="En güzel şiirlere kayıt olma paneli">
+    <meta name="keywords" content="şiir,masal,hikaye,yazar,şair,en güzel sözler">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assetsPanel/img/favicon.png' %}">
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+
+
+    <!-- ======= BEGIN GLOBAL MANDATORY STYLES ======= -->
+    <link rel="stylesheet" href="{% static 'assetsPanel/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assetsPanel/fonts/icofont/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assetsPanel/plugins/perfect-scrollbar/perfect-scrollbar.min.css' %}">
+    <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
+
+    <!-- ======= MAIN STYLES ======= -->
+    <link rel="stylesheet" href="{% static 'assetsPanel/css/style.css' %}">
+    <!-- ======= END MAIN STYLES ======= -->
+
+</head>
+
+<body>
+<div class="mn-vh-100 d-flex align-items-center">
+    <div class="container">
+        <!-- Card -->
+        <div class="card justify-content-center auth-card">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <h4 class="mb-5 font-20">En Güzel Şiirlere Hoş Geldiniz</h4>
+
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="f_name" class="mb-2 font-14 bold">İsim</label>
+                                    <input type="text" id="f_name" name="first_name" value="{{ form.first_name.value }}"
+                                           class="theme-input-style" placeholder="İsim">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="l_name" class="mb-2 font-14 bold">Soyisim</label>
+                                    <input type="text" id="l_name" name="last_name" value="{{ form.last_name.value }}"
+                                           class="theme-input-style" placeholder="Soyisim">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="u_name" class="mb-2 font-14 bold">Kullanıcı Adınız</label>
+                                    <input type="text" id="u_name" name="username" value="{{ form.username.value }}"
+                                           class="theme-input-style"
+                                           placeholder="Kullanıcı Adınız">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="phone_number" class="mb-2 font-14 bold">Cep Telefonu Numaranız</label>
+                                    <input type="text" id="phone_number" name="phone_number"
+                                           value="{{ form.phone_number.value }}" class="theme-input-style"
+                                           placeholder="5551112233 Formatında Giriniz">
+                                    <small class="form-text text-muted">*Sadece Doğrulama için SMS
+                                        Gönderilecektir.</small>
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="email" class="mb-2 font-14 bold">Email Adresiniz</label>
+                                    <input type="email" id="email" name="email" value="{{ form.email.value }}"
+                                           class="theme-input-style" placeholder="Email Adresiniz">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="password" class="mb-2 font-14 bold">Şifreniz</label>
+                                    <input type="password" id="password" name="password1"
+                                           value="{{ form.password1.value }}" class="theme-input-style"
+                                           placeholder="Şifreniz">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group mb-20">
+                                    <label for="r_password" class="mb-2 font-14 bold">Tekrar Şifreniz</label>
+                                    <input type="password" id="r_password" name="password2"
+                                           value="{{ form.password2.value }}" class="theme-input-style"
+                                           placeholder="Tekrar Şifreniz">
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center pt-4">
+                            <button type="submit" class="btn long mr-20">Kayıt OL</button>
+                            <span class="font-12 d-block"><a href="{% url 'giris-yap' %}" class="bold">Giriş Ekranına Git</a> ,Zaten üyeyseniz </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer style--two">
+    www.enguzelsiirler.com © 2023 - Melih ÖZKAŞ - <a href="https://www.enguzelsiirler.com/"> En Güzel Şiirler</a>
+</footer>
+<!-- End Footer -->
+
+<!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
+<script src="{% static 'assetsPanel/js/jquery.min.js' %}"></script>
+<script src="{% static 'assetsPanel/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assetsPanel/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'assetsPanel/js/script.js' %}"></script>
+<!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
+</body>
+
+</html>

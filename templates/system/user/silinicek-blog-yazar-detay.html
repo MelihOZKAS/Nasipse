@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ siir.title }}{% endblock %}
+{% block description %}{{ siir.meta_description }}{% endblock %}
+{% block keywords %}{{ siir.keywords }}{% endblock %}
+{% block ogtitle %}{{ siir.title }}{% endblock %}
+{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block ogimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ siir.kapak_resmi.url }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ siir.title }}{% endblock %}
+{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ siir.kapak_resmi.url }}{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+    <!-- main-area -->
+    <main>
+        <!-- breadcrumb-area -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Ana Sayfa</a></li>
+                                    <li class="breadcrumb-item"><a href="{% url 'sairler:home' %}">{{ sair.Model }}</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ sair.title }}
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb-area-end -->
+
+        <!-- blog-details-area -->
+        <section class="blog-details-area pt-80 pb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-1">
+                        <div class="blog-details-social">
+
+                            <ul class="list-wrap">
+                                <li class="list-inline-item"><a
+                                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://www.behance.net/sharer?url={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-behance"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://www.instagram.com/sharer.php?u={{ request.build_absolute_uri }}"
+                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fas fa-share"></i></a></li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="blog-details-wrap">
+                            <ul class="tgbanner__content-meta list-wrap">
+                                <li class="category"><a href="{% url 'sairler:home' %}">{{ sair.Model }}</a></li>
+                                <li><span class="by">Yazar</span> <a href="blog.html">{{ sair.yazar }}</a></li>
+                                <li>Oluşturma Tarihi: {{ sair.olusturma_tarihi|date:"d F Y" }}</li>
+                                <li>Son Güncelleme Tarihi: {{ sair.guncelleme_tarihi|date:"d F Y" }}</li>
+                            </ul>
+                            <h2 class="title">{{ sair.title }}</h2>
+                            <div class="blog-details-thumb" style="text-align: center;">
+                                <img src="{{ sair.kapak_resmi.url }}" alt="{{ sair.title }}">
+                            </div>
+                            <div class="blog-details-content">
+
+                                <div>{{ sair.title }} Hayatını okumaya başlamadan hemen önce...<br/>
+                                    <em> <strong> “ {{ sozbasligi }} ” <br/> </strong> </em>
+                                    Diye düşünüp aşadaki satırları sizlerle paylaşmayı istedik...
+                                </div>
+
+                                <blockquote>
+                                    <p>{{ random_Soz.icerik|safe }}</p>
+                                    <div class="blockquote-cite">
+                                        <div class="image">
+                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <h5>{{ random_Soz.sair }}</h5>
+
+                                        </div>
+                                    </div>
+                                </blockquote>
+
+
+                                <div>
+                                    <h3 class="text-center"> {{ sair.title }} Tüm Hayatı</h3>
+                                </div>
+
+
+                                <div>
+                                    {{ sair.icerik|safe }}
+                                </div>
+
+                            </div>
+
+
+                            <style>
+                                /* Buttonların arasına boşluk için margin */
+                                .btn-group {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    justify-content: center;
+                                    gap: 10px;
+                                }
+
+                                /* Butonları ortalamak için text-align */
+                                .container {
+                                    text-align: center;
+                                }
+
+                                /* Mobil cihazlar için özel stil */
+                                @media (max-width: 767px) {
+                                    .btn-group {
+                                        flex-direction: column;
+                                        align-items: center;
+                                    }
+                                }
+                            </style>
+
+                            <div class="container">
+                                <div class="btn-group">
+                                    {% if request.user.is_authenticated %}
+                                        {% if favoride %}
+                                            <form action="{% url 'sairler:favori-kaldir' sair.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-outline-danger">
+                                                    <i class="bi bi-heart-fill"></i> Favorilerden Çıkar
+                                                </button>
+                                            </form>
+                                        {% else %}
+                                            <form action="{% url 'sairler:favori' sair.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="bi bi-heart"></i> Favorilere Ekle
+                                                </button>
+                                            </form>
+                                        {% endif %}
+
+                                        {% if begenildi %}
+                                            <form action="{% url 'sairler:begen-kaldir' sair.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-outline-danger">
+                                                    <i class="bi bi-hand-thumbs-down-fill"></i> Beğeniden Kaldır
+                                                </button>
+                                            </form>
+                                        {% else %}
+                                            <form action="{% url 'sairler:begen' sair.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="bi bi-hand-thumbs-up"></i> Beğen
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    {% else %}
+                                        <a href="{% url 'giris-yap' %}" class="btn btn-outline-primary"><i
+                                                class="bi bi-heart"></i> Favorilere Ekle</a>
+                                        <a href="{% url 'giris-yap' %}" class="btn btn-outline-primary"><i
+                                                class="bi bi-hand-thumbs-up"></i> Beğen</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+                            <div class="blog-avatar-wrap">
+                                <div class="blog-avatar-img">
+                                    <a href="#"><i class="far fa-check"></i><img
+                                            src="{{ sair.kapak_resmi.url }}"
+                                            alt="{{ sair.title }}"></a>
+                                </div>
+                                <div class="blog-avatar-content">{{ sair.SairOzet|safe }}
+                                    <h5 class="name">{{ sair.title }}</h5>
+                                    <!--  <span class="designation">OG Author</span> -->
+                                </div>
+                                <div class="button-group">
+                                    <a href="{% url 'sairler:sair_detail' sair_slug=sair.slug %}"
+                                       class="btn btn-primary">Şair
+                                        Detayı</a>
+                                    {% if siir_var_mi %}
+                                        <a href="{% url 'siir:sair-eserleri' sair_slug=sair.slug %}"
+                                           class="btn btn-secondary">Tüm Eserleri</a>
+                                    {% endif %}
+
+
+
+                                    {% if soz_var_mi %}
+                                        <a href="{% url 'sozler:TumSozler' sair_slug=sair.slug %}"
+                                           class="btn btn-success">Tüm Sözleri</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="blog-details-bottom">
+                                <div class="row align-items-baseline">
+
+                                    <div class="col-xl-6 col-md-5">
+                                        <div class="blog-details-share">
+                                            <h6 class="share-title">Share Now:</h6>
+                                            <ul class="list-wrap mb-0">
+                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- alt kucuk rastgele baslangic -->
+                            {% include 'parcali/rastgele.html' %}
+                            <!-- alt kucuk rastgele baslangic bitis -->
+
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <aside class="blog-sidebar">
+                            {% include 'parcali/bizi_takip.html' %}
+                            <div class="widget sidebar-widget">
+                                <div class="sidePost-active">
+                                    {% for randonsiir in siirRandomsag %}
+                                        <div class="sidePost__item"
+                                             data-background="{{ randonsiir.kapak_resmi.url }}">
+                                            <div class="sidePost__content">
+                                                <h5 class="title tgcommon__hover"><a
+                                                        href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="widget sidebar-widget">
+                                <div class="sidePost-active">
+                                    {% for randonsair in sairRandomsag %}
+                                        <div class="sidePost__item"
+                                             data-background="{{ randonsair.kapak_resmi.url }}">
+                                            <div class="sidePost__content">
+                                                <h5 class="title tgcommon__hover"><a
+                                                        href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
+                                                    - Hayatı</a></h5>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+
+                                </div>
+
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- blog-details-area-end -->
+
+    </main>
+    <!-- main-area-end -->
+
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  postgressiir:
+    container_name: postgressiir
+    hostname: postgressiir
+    image: postgres:latest
+    env_file:
+      - Nasipsiir/docker.env
+    ports:
+      - "5436:5432"
+    volumes:
+      - "postgresql-data-siir:/var/lib/postgresql/data"
+    networks:
+      - main_siir
+    command: -p 5436
+  app_siir:
+    container_name: app_siir
+    hostname: app_siir
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - Nasipsiir/docker.env
+    volumes:
+      - static-data-siir:/srv/public
+      - .:/srv/app_siir
+    expose:
+      - 8006
+    depends_on:
+      - postgressiir
+    command: gunicorn Nasipsiir.wsgi:application --bind 0.0.0.0:8006
+    networks:
+      - main_siir
+      - bridge_network
+
+networks:
+  main_siir:
+  bridge_network:
+    name: nginx_network
+    driver: bridge
+
+volumes:
+  postgresql-data-siir:
+  static-data-siir:
