@@ -138,7 +138,10 @@ class Siirler(models.Model):
         self.save()
         if self.sair:
             self.sair.okunma_sayisi += 1
+            self.yazar.okunma_sayisi += 1
+            self.yazar.save()
             self.sair.save()
+
 
     def save(self, *args, **kwargs):
         # Eğer şiirin şairi belirtilmişse ve şiir ilk kez kaydediliyorsa

@@ -56,12 +56,17 @@ class CustomUser(AbstractBaseUser):
     Son_Giris_Tarihi =models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,blank=True,null=True)
+    okunma_sayisi = models.PositiveBigIntegerField(default=0)
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['hakkinda_ozet', 'hakkinda_detay','first_name','last_name','phone_number','email']
 
+
+    def okundu(self):
+        self.okunma_sayisi += 1
+        self.save()
     def __str__(self):
         return self.username
 
@@ -75,11 +80,11 @@ class CustomUser(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
-
     def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         if not self.slug:
             self.slug = slugify(f"{self.first_name}-{self.last_name}-{self.id}")
-        super().save(*args, **kwargs)
+            super().save(*args, **kwargs)
 
 
 class FavoriSairUser(models.Model):

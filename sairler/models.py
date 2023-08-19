@@ -91,7 +91,6 @@ class Sairler(models.Model):
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     guncelleme_tarihi = models.DateTimeField(auto_now=True)
 
-
     def okundu(self):
         self.okunma_sayisi += 1
         self.save()

@@ -268,6 +268,8 @@ def SiirEkle(request):
         hakkinda = request.POST['hakkinda']
         print("Nasip1")
 
+        icerik = icerik.replace('\n', '<br>')
+
         # form verilerini kullanarak bir Siirler örneği oluşturun
         siir = Siirler.objects.create(
             title=title,
