@@ -40,6 +40,7 @@ CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS',cast=list)
 
 # Application definition
 
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
