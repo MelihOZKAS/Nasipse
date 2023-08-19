@@ -20,7 +20,6 @@ def sair_home_detail(request, ):
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
 
     context = {
-
         'CokOkunanSiirler': CokOkunanSiirler,
         'son_eklenen_Yazarlar': son_eklenen_Yazarlar,
         'siirRandom': siirRandom,
