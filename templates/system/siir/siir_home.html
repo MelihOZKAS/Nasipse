@@ -2,11 +2,11 @@
 {% load static %}
 
 
-{% block title %}{{ siir.title }}{% endblock %}
-{% block description %}{{ siir.meta_description }}{% endblock %}
-{% block keywords %}{{ siir.keywords }}{% endblock %}
-{% block ogtitle %}{{ siir.title }}{% endblock %}
-{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block title %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
+{% block description %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
+{% block keywords %}şiir, aşk şiirleri, atatürk şiirleri, 10 kasım şiirleri, sevgiliye şiirler, anne şiirleri, baba şiirleri{% endblock %}
+{% block ogtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
+{% block ogDes %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
 
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
@@ -15,8 +15,8 @@
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ siir.title }}{% endblock %}
-{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
+{% block twdesc %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
@@ -325,15 +325,13 @@
                                     <div class="sidePost-active">
                                         {% for randonsair in sairRandomsag %}
 
-                                            {% if randonsair.usermi %}
-                                                <div class="sidePost__item"
-                                                     data-background="{{ randonsair.yazar.kapak_resmi.url }}">
-                                            {% else %}
-                                                <div class="sidePost__item"
-                                                     data-background="{{ randonsair.sair.kapak_resmi.url }}">
-
-                                            {% endif %}
-
+                                          {% if randonsair.usermi %}
+                                                <div class="sidePost__item" data-background="{{ randonsair.yazar.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
+                                                </div>
+                                          {% else %}
+                                                <div class="sidePost__item" data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
+                                                </div>
+                                          {% endif %}
 
 
                                         <div class="sidePost__content">
