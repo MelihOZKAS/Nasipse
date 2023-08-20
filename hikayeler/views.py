@@ -25,12 +25,12 @@ def alt_kategori_detail(request, alt_kategori_slug):
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
 
-    random_populer = Hikayeler.objects.filter(small_banner=True).order_by('?')[:6]
-    CokOkunanSiirler = Hikayeler.objects.order_by('-okunma_sayisi')[:15]
+    random_populer = Hikayeler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:6]
+    CokOkunanSiirler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(banner=True)
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'icerik': icerik,
@@ -49,10 +49,10 @@ def alt_kategori_detail(request, alt_kategori_slug):
 def hikaye_home(request):
     tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(banner=True)
     hikayePopuler = Hikayeler.objects.filter(small_banner=True)[:15]
-    CokOkunanHikayeler = Hikayeler.objects.order_by('-okunma_sayisi')[:15]
-    son_eklenen_Hikayeler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:6]
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    CokOkunanHikayeler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
+    son_eklenen_Hikayeler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     CokBeginiAlan = Hikayeler.objects.annotate(begeni_sayisi=Count('begenihikayeler')).order_by('-begeni_sayisi')[:15]
 
@@ -76,7 +76,7 @@ def hikaye_detail(request, hikaye_slug):
 
 
     tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(banner=True)
-    random_Soz = Sozler.objects.filter(small_banner=True).order_by('?').first()
+    random_Soz = Sozler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?').first()
     siirRandomsag, sairRandomsag, sozRandom, siirRandom, yazarRandom, hikayeRandom = bunlarLazim(siir)
 
     quotes = [
@@ -155,13 +155,13 @@ def coklu_sayfa(request):
     icerik = paginator.get_page(page_number)
 
     random_populer = Siirler.objects.filter(small_banner=True).order_by('?')[:6]
-    CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
+    CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     #CokBeginiAlan = Hikayeler.objects.annotate(favori_sayisi=Count('favori')).order_by('-favori_sayisi')[:10]
 
-    tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(banner=True)
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(aktif=True,banner=True)
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'icerik': icerik,
@@ -178,10 +178,10 @@ def coklu_sayfa(request):
 def all_Kategori(request):
     tum_alt_kategoriler = HikayeAltKategori.objects.all()
     cok_okunan_Hikaye = Hikayeler.objects.filter(small_banner=True,status="Yayinda",aktif=True).order_by('-okunma_sayisi')[:8]
-    CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
+    CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'tum_alt_kategoriler': tum_alt_kategoriler,

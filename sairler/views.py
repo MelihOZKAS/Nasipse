@@ -11,11 +11,11 @@ from django.contrib.auth.models import AnonymousUser
 def sair_home_detail(request, ):
     # tum_alt_kategoriler = SiirAltKategori.objects.all()
 
-    populersiir = Siirler.objects.filter(small_banner=True)[:15]
-    CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
+    populersiir = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True)[:15]
+    CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
     son_eklenen_Yazarlar = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairpopuler = Sairler.objects.filter(aktif=True, small_banner=True, status="Yayinda").order_by('?')[:15]
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
 
@@ -35,8 +35,8 @@ def sair_home_detail(request, ):
 def sair_detail(request,  sair_slug):
     sair = get_object_or_404(Sairler, slug=sair_slug)
     sair.okundu()
-    siir = Siirler.objects.order_by('?').first()
-    random_Soz = Sozler.objects.filter(small_banner=True).order_by('?').first()
+    siir = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?').first()
+    random_Soz = Sozler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?').first()
 
     if not isinstance(request.user, AnonymousUser):
         favoride = FavoriSair.objects.filter(sair=sair, kullanici=request.user).exists()
@@ -74,7 +74,7 @@ def sair_detail(request,  sair_slug):
     return render(request, 'system/sair/sair_detail.html', context)
 
 def populer_sair_detail(request):
-    sairler = Sairler.objects.filter(small_banner=True)
+    sairler = Sairler.objects.filter(aktif=True,status="Yayinda",small_banner=True)
     paginator = Paginator(sairler, 12)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)

@@ -13,11 +13,11 @@ from django.contrib.auth.models import AnonymousUser
 def yazar_home_detail(request, ):
     # tum_alt_kategoriler = SiirAltKategori.objects.all()
 
-    populersiir = Siirler.objects.filter(small_banner=True)[:15]
-    CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
+    populersiir = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True)[:15]
+    CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
     son_eklenen_sozler = Sozler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairpopuler = Sairler.objects.filter(aktif=True, small_banner=True, status="Yayinda").order_by('?')[:15]
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
 
@@ -41,7 +41,7 @@ def yazar_home_detail(request, ):
 def TumSozlerSade(request):
     url_name = request.resolver_match.url_name
     if url_name == "populer-guzel-sozler":
-        siir = Sozler.objects.filter(small_banner=True).order_by('-olusturma_tarihi')
+        siir = Sozler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('-olusturma_tarihi')
     elif url_name == "en-son-eklenen-guzel-sozler":
         siir = Sozler.objects.all().order_by('-olusturma_tarihi')
 
@@ -49,17 +49,14 @@ def TumSozlerSade(request):
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
 
     context = {
         'icerik': icerik,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
-
-
-
     }
     return render(request, 'system/sozler/coklu_sayfa.html', context)
 
@@ -68,11 +65,11 @@ def TumSozlerSade(request):
 
 def all_Kategori(request):
     tum_alt_kategoriler = SiirAltKategori.objects.all()
-    random_populer = Siirler.objects.filter(small_banner=True).order_by('?')[:6]
-    CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
+    random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
+    CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'tum_alt_kategoriler': tum_alt_kategoriler,
@@ -121,12 +118,12 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
 
-    random_populer = Siirler.objects.filter(small_banner=True).order_by('?')[:6]
+    random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
-    siirRandom = Siirler.objects.order_by('?')[:8]
-    sairRandomsag = Sairler.objects.order_by('?')[:8]
+    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'icerik': icerik,
@@ -167,9 +164,6 @@ def soz_detail(request,  soz_slug):
     else:
         favoride = False
         begenildi = False
-
-
-
 
     quotes = [
         "Sözlerin gücü, insanların kalplerini fetheden ve dünyayı değiştiren güzellikte gizlidir.",
