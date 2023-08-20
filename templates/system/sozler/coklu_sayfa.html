@@ -2,19 +2,22 @@
 {% load static %}
 
 
-{% block title %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block description %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block keywords %}{{ alt_kategori.keywords }}{% endblock %}
-{% block ogtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block ogDes %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ alt_kategori.kapak_resmi.url }}{% endblock %}
+
+{% block title %}{{ icerik.title }}{% endblock %}
+{% block description %}{{ icerik.meta_description }}{% endblock %}
+{% block keywords %}{{ icerik.keywords }}{% endblock %}
+{% block ogtitle %}{{ icerik.title }}{% endblock %}
+{% block ogDes %}{{ icerik.meta_description }}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block twdesc %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block twimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ alt_kategori.kapak_resmi.url }}{% endblock %}
+{% block twtitle %}{{ icerik.title }}{% endblock %}
+{% block twdesc %}{{ icerik.meta_description }}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 
 
@@ -119,7 +122,7 @@
                                 <div class="sidePost-active">
                                     {% for randonsiir in siirRandom %}
                                         <div class="sidePost__item"
-                                             data-background="{{ randonsiir.kapak_resmi.url }}">
+                                             data-background="{{ randonsiir.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                             <div class="sidePost__content">
                                                 <h5 class="title tgcommon__hover"><a
                                                         href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
@@ -136,7 +139,7 @@
                                 <div class="sidePost-active">
                                     {% for randonsair in sairRandomsag %}
                                         <div class="sidePost__item"
-                                             data-background="{{ randonsair.kapak_resmi.url }}">
+                                             data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                             <div class="sidePost__content">
                                                 <h5 class="title tgcommon__hover"><a
                                                         href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}

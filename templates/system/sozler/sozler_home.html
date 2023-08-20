@@ -2,19 +2,19 @@
 {% load static %}
 
 
-{% block title %}{{ siir.title }}{% endblock %}
-{% block description %}{{ siir.meta_description }}{% endblock %}
-{% block keywords %}{{ siir.keywords }}{% endblock %}
-{% block ogtitle %}{{ siir.title }}{% endblock %}
-{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block title %}En Güzel ve Anlamlı Sözler | www.enguzelsiirler.com{% endblock %}
+{% block description %}Kendi yazdığın sözleri bizimle paylaşabilir veya paylaşınları takip edebilir beğene bilir yada favorilerine alabilirsin{% endblock %}
+{% block keywords %}Aşk sözleri, sevgiliye güzel sözler, cuma mesajı, anlamlı sözler, baba sözler, ilginç sözler, kısa sözler, ağır sözler, sert sözler{% endblock %}
+{% block ogtitle %}En Güzel ve Anlamlı Sözler | www.enguzelsiirler.com{% endblock %}
+{% block ogDes %}Kendi yazdığın sözleri bizimle paylaşabilir veya paylaşınları takip edebilir beğene bilir yada favorilerine alabilirsin{% endblock %}
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ siir.title }}{% endblock %}
-{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twtitle %}En Güzel ve Anlamlı Sözler | www.enguzelsiirler.com{% endblock %}
+{% block twdesc %}Kendi yazdığın sözleri bizimle paylaşabilir veya paylaşınları takip edebilir beğene bilir yada favorilerine alabilirsin{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
@@ -97,7 +97,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
                                 <div class="featured__thumb"
-                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}">
+                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.alt_kategori_adi }}">
 
                                 </div>
                                 <div class="featured__content">
@@ -267,10 +267,10 @@
                                     {% for randonsiir in siirRandom %}
                                         {% if randomsiir.usermi %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% else %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
 
                                         {% endif %}
                                     <div class="sidePost__content">
@@ -289,7 +289,7 @@
                                     <div class="sidePost-active">
                                         {% for randonsair in sairRandomsag %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                                 <div class="sidePost__content">
                                                     <h5 class="title tgcommon__hover"><a
                                                             href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
