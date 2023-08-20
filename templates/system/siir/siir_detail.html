@@ -117,7 +117,7 @@
                                     <p>{{ random_Soz.icerik|safe }}</p>
                                     <div class="blockquote-cite">
                                         <div class="image">
-                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}" alt="">
+                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}" alt="{{ random_Soz.title }}">
                                         </div>
                                         <div class="info">
                                             <h5>{{ random_Soz.sair }}</h5>
@@ -326,9 +326,9 @@
                                 <div class="sidePost-active">
                                     {% for randonsiir in siirRandomsag %}
                                         {% if randonsiir.usermi %}
-                                        <div class="sidePost__item" data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                        <div class="sidePost__item" data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                             {% else %}
-                                            <div class="sidePost__item" data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                            <div class="sidePost__item" data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% endif %} 
 
                                             <div class="sidePost__content">
@@ -347,7 +347,7 @@
                                 <div class="sidePost-active">
                                     {% for randonsair in sairRandomsag %}
                                         <div class="sidePost__item"
-                                             data-background="{{ randonsair.kapak_resmi.url }}">
+                                             data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                             <div class="sidePost__content">
                                                 <h5 class="title tgcommon__hover"><a
                                                         href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}

@@ -2,9 +2,9 @@
 {% load static %}
 
 
-{% block title %}Tüm Şiir Kategorileri{% endblock %}
+{% block title %}Tüm Şiir Kategorileri | www.enguzelsiirler.com{% endblock %}
 {% block description %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en
-    güzel şiirleri keşfedin.{% endblock %}
+    güzel şiirleri keşfedin veya kendi şiirlerinizi paylaşın{% endblock %}
 {% block keywords %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, islam, atatürk{% endblock %}
 {% block ogtitle %}Tüm Şiir Kategorileri{% endblock %}
 {% block ogDes %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en güzel
@@ -17,7 +17,7 @@
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk{% endblock %}
 {% block twdesc %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en
-    güzel şiirleri keşfedin.{% endblock %}
+    güzel şiirleri keşfedin{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
@@ -38,7 +38,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
                                 <div class="featured__thumb"
-                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}">
+                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.alt_kategori_adi }}">
                                 </div>
                                 <div class="featured__content">
                                     <h4 class="title tgcommon__hover"><a
@@ -139,10 +139,10 @@
                                     {% for randonsiir in siirRandom %}
                                         {% if randonsiir.usermi %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% else %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% endif %}
 
                                     <div class="sidePost__content">
@@ -161,7 +161,7 @@
                                     <div class="sidePost-active">
                                         {% for randonsair in sairRandomsag %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                                 <div class="sidePost__content">
                                                     <h5 class="title tgcommon__hover"><a
                                                             href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}

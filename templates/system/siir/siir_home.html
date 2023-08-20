@@ -3,10 +3,10 @@
 
 
 {% block title %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block description %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
+{% block description %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş ya da meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
 {% block keywords %}şiir, aşk şiirleri, atatürk şiirleri, 10 kasım şiirleri, sevgiliye şiirler, anne şiirleri, baba şiirleri{% endblock %}
 {% block ogtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block ogDes %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
+{% block ogDes %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş ya da meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
 
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
@@ -16,7 +16,7 @@
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block twdesc %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş yada meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
+{% block twdesc %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş ya da meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
@@ -127,7 +127,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
                                 <div class="featured__thumb"
-                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}"></div>
+                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.alt_kategori_adi }}"></div>
                                 <div class="featured__content">
                                     <h4 class="title tgcommon__hover"><a
                                             href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
@@ -302,10 +302,10 @@
                                     {% for randonsiir in siirRandom %}
                                         {% if randonsiir %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                         {% else %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
 
                                         {% endif %}
 

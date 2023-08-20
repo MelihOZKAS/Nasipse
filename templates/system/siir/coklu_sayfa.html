@@ -126,10 +126,10 @@
                                     {% for randonsiir in siirRandom %}
                                         {% if randonsiir.usermi %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% else %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
                                         {% endif %}
                                     <div class="sidePost__content">
                                         <h5 class="title tgcommon__hover"><a
@@ -147,7 +147,7 @@
                                     <div class="sidePost-active">
                                         {% for randonsair in sairRandomsag %}
                                             <div class="sidePost__item"
-                                                 data-background="{{ randonsair.kapak_resmi.url }}">
+                                                 data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                                 <div class="sidePost__content">
                                                     <h5 class="title tgcommon__hover"><a
                                                             href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
