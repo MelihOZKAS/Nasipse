@@ -50,7 +50,7 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-                                            <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+
                                             <a href="{% url 'sairler:sair_detail'  sair_slug=pSair.slug %}"><img src="{{ pSair.kapak_resmi.url }}" alt="{{ pSair.title }}"></a>
                                             <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                         </div>
@@ -147,7 +147,7 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-                                            <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+
                                             {% if pSiir.usermi %}
                                             <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
                                                 {% else %}
