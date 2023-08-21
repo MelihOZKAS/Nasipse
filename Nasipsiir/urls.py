@@ -20,12 +20,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.contrib.sitemaps.views import index, sitemap
-from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap
+from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap,HikayeAltKategoriSitemap,HikayelerSitemap,SairlerSitemap,SozlerSitemap
 from django.views.generic.base import TemplateView
 
 sitemaps = {
     'siir_alt_kategoriler': SiirAltKategoriSitemap,
     'siirler': SiirlerSitemap,
+    'hikaye_alt_kategoriler': HikayeAltKategoriSitemap,
+    'hikayeler': HikayelerSitemap,
+    'sairler': SairlerSitemap,
+    'sozler': SozlerSitemap,
 }
 
 
