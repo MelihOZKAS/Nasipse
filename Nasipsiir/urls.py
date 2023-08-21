@@ -43,7 +43,7 @@ urlpatterns = [
     path("giris-yap/",views.girisyap, name="giris-yap"),
     path("sms-kontrol/",views.SMSKontrol, name="sms-kontrol"),
     path("cikis-yap/",views.cikis, name="cikis-yap"),
-    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+    path("robots.txt",views.robots_txt, name="robots"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
 
 

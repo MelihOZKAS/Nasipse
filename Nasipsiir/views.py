@@ -8,6 +8,7 @@ from sairler.models import Sairler
 from sozler.models import Sozler
 from userPanel.form import KayitOlFormu,LoginForm
 from userPanel.models import CustomUserManager
+from django.views.decorators.http import require_GET
 import requests
 import random
 from django import forms
@@ -134,10 +135,15 @@ def cikis(request):
     logout(request)
 
     return redirect('home')
-def robots(request):
-    with open('robots.txt', 'r') as f:
-        robots_content = f.read()
-    return HttpResponse(robots_content, content_type='text/plain')
+@require_GET
+def robots_txt(request):
+    return HttpResponse(robots_txt_content, content_type="text/plain")
+
+robots_txt_content = """
+User-agent: *
+Disallow: /iletisim/
+Sitemap: /sitemap.xml
+"""
 
 
 
