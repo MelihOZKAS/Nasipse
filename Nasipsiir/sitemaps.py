@@ -41,6 +41,7 @@ class HikayeAltKategoriSitemap(Sitemap):
     def items(self):
         return HikayeAltKategori.objects.all()
 
+
     def location(self, obj):
         return reverse('hikaye:alt_kategori_detail', args=[obj.slug])
 
@@ -51,6 +52,8 @@ class HikayelerSitemap(Sitemap):
 
     def items(self):
         return Hikayeler.objects.all()
+    def lastmod(self, obj):
+        return obj.guncelleme_tarihi
 
     def location(self, obj):
         return reverse('hikaye:hikaye_slug', args=[obj.slug])
@@ -63,6 +66,9 @@ class SairlerSitemap(Sitemap):
     def items(self):
         return Sairler.objects.all()
 
+    def lastmod(self, obj):
+        return obj.guncelleme_tarihi
+
     def location(self, obj):
         return reverse('sairler:sair_detail', args=[obj.slug])
 
@@ -73,6 +79,8 @@ class SozlerSitemap(Sitemap):
 
     def items(self):
         return Sozler.objects.all()
+    def lastmod(self, obj):
+        return obj.guncelleme_tarihi
 
     def location(self, obj):
         return reverse('sozler:soz_slug', args=[obj.slug])
