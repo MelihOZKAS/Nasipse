@@ -19,7 +19,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
-from django.contrib.sitemaps.views import sitemap,index
+from django.contrib.sitemaps.views import index, sitemap
 from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap
 from django.views.generic.base import TemplateView
 
