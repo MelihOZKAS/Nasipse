@@ -19,7 +19,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps.views import sitemap,index
 from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap
 from django.views.generic.base import TemplateView
 
@@ -44,7 +44,8 @@ urlpatterns = [
     path("sms-kontrol/",views.SMSKontrol, name="sms-kontrol"),
     path("cikis-yap/",views.cikis, name="cikis-yap"),
     path("robots.txt",views.robots_txt, name="robots"),
-    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    path('sitemap.xml', index, {'sitemaps': sitemaps}),
+    path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps}),
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
