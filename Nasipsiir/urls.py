@@ -45,7 +45,7 @@ urlpatterns = [
     path("cikis-yap/",views.cikis, name="cikis-yap"),
     path("robots.txt",views.robots_txt, name="robots"),
     path('sitemap.xml', index, {'sitemaps': sitemaps}),
-    path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps}),
+    path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
 
 
