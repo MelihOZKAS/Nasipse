@@ -13,7 +13,7 @@ class SiirAltKategoriSitemap(Sitemap):
         return obj.guncelleme_tarihi
 
     def location(self, obj):
-        return reverse('siir_alt_kategori_detail', args=[obj.slug])
+        return reverse('alt_kategori_detail', args=[obj.slug])
 
 class SiirlerSitemap(Sitemap):
     changefreq = "weekly"
