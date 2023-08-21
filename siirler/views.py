@@ -141,7 +141,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'sairRandomsag': sairRandomsag,
 
     }
-    return render(request, 'system/siir/coklu_sayfa.html', context)
+    return render(request, 'system/siir/altkategoridetay.html', context)
 
 
 
