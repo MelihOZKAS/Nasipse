@@ -134,7 +134,9 @@ def cikis(request):
     logout(request)
 
     return redirect('home')
+def robots(request):
 
+    return redirect('robots')
 
 
 
