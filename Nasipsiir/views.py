@@ -135,8 +135,9 @@ def cikis(request):
 
     return redirect('home')
 def robots(request):
-
-    return redirect('robots')
+    with open('robots.txt', 'r') as f:
+        robots_content = f.read()
+    return HttpResponse(robots_content, content_type='text/plain')
 
 
 
