@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'hikayeler',
     'userPanel',
     "ckeditor",
+    "django.contrib.sitemaps",
 ]
 
 MIDDLEWARE = [

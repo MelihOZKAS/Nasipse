@@ -19,6 +19,16 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap
+
+sitemaps = {
+    'siir_alt_kategoriler': SiirAltKategoriSitemap,
+    'siirler': SiirlerSitemap,
+}
+
+
+
 
 urlpatterns = [
     path("yonetici/", admin.site.urls),
@@ -32,6 +42,7 @@ urlpatterns = [
     path("giris-yap/",views.girisyap, name="giris-yap"),
     path("sms-kontrol/",views.SMSKontrol, name="sms-kontrol"),
     path("cikis-yap/",views.cikis, name="cikis-yap"),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
