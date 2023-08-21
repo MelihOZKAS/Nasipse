@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.contrib.sitemaps.views import index, sitemap
-from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap,HikayeAltKategoriSitemap,HikayelerSitemap,SairlerSitemap,SozlerSitemap
+from .sitemaps import SiirAltKategoriSitemap, SiirlerSitemap,HikayeAltKategoriSitemap,HikayelerSitemap,SairlerSitemap,SozlerSitemap,CustomUserSitemap
 from django.views.generic.base import TemplateView
 
 sitemaps = {
@@ -30,6 +30,7 @@ sitemaps = {
     'hikayeler': HikayelerSitemap,
     'sairler': SairlerSitemap,
     'sozler': SozlerSitemap,
+    'diger-yazar': CustomUserSitemap,
 }
 
 
