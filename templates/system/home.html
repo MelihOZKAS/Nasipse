@@ -121,7 +121,7 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        <!-- <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         {% if sbanr.usermi %}
                                             <a href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}"><img
                                                     src="{{ sbanr.yazi.kapak_resmi.url }}" alt="{{ sbanr.title }}"></a>
@@ -195,7 +195,7 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                        <!--   <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         {% if soneklenensiir.usermi %}
                                             <a href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}"><img
                                                     src="{{ soneklenensiir.yazar.kapak_resmi.url }}"
@@ -318,7 +318,7 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                    <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         <a href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}"><img
                                                 src="{{ pSozler.sair.kapak_resmi.url }}" alt="{{ pSozler.title }}"></a>
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
@@ -383,7 +383,7 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                        <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+                                    <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         <a href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}"><img
                                                 src="{{ soneklenensozler.sair.kapak_resmi.url }}"
                                                 alt="{{ soneklenensozler.title }}"></a>

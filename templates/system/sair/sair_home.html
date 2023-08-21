@@ -3,18 +3,18 @@
 
 
 {% block title %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
-{% block description %}{{ siir.meta_description }}{% endblock %}
-{% block keywords %}{{ siir.keywords }}{% endblock %}
-{% block ogtitle %}{{ siir.title }}{% endblock %}
-{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block description %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
+{% block keywords %}şairler,ünlü şairler,yazarlar,amatör yazarlar,şiirler,anlamlı sözler{% endblock %}
+{% block ogtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
+{% block ogDes %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ siir.title }}{% endblock %}
-{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
+{% block twdesc %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
@@ -97,7 +97,9 @@
                     {% for KategoriPopuler in tum_banner_alt_kategoriler %}
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
-                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}"> aria-label="{{ KategoriPopuler.alt_kategori_adi }}" </div>
+                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.alt_kategori_adi }}"> </div>
+
+
                                 <div class="featured__content">
                                     <h4 class="title tgcommon__hover"><a
                                             href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
