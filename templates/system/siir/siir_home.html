@@ -300,7 +300,7 @@
                             <div class="widget sidebar-widget">
                                 <div class="sidePost-active">
                                     {% for randonsiir in siirRandom %}
-                                        {% if randonsiir %}
+                                        {% if randonsiir.usermi %}
                                             <div class="sidePost__item"
                                                  data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                                         {% else %}
