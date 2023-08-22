@@ -325,13 +325,14 @@
                                     <div class="sidePost-active">
                                         {% for randonsair in sairRandomsag %}
 
-                                          {% if randonsair.usermi %}
-                                                <div class="sidePost__item" data-background="{{ randonsair.yazar.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
-                                                </div>
-                                          {% else %}
-                                                <div class="sidePost__item" data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
-                                                </div>
-                                          {% endif %}
+                                           {% if randonsair.usermi %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
+                                        {% else %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
+
+                                        {% endif %}
 
 
                                         <div class="sidePost__content">
