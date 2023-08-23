@@ -95,4 +95,4 @@ class CustomUserSitemap(Sitemap):
         return CustomUser.objects.filter(is_active=True)
 
     def location(self, obj):
-        return reverse('konsol:blog-yazar-detay', args=[obj.username])
+        return reverse('konsol:blog-yazar-detay', args=[obj.slug])
