@@ -3,6 +3,7 @@
 
 
 {% for alt_kategori in alt_kategoriler %}
+    {{ alt_kategori.slug }} {{ kategori_slug }}
     {% if alt_kategori.slug == kategori_slug %}
         {% with title=alt_kategori.title description=alt_kategori.meta_description keywords=alt_kategori.keywords %}
             {% if forloop.last %}
