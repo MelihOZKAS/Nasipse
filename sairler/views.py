@@ -17,7 +17,8 @@ def sair_home_detail(request, ):
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairpopuler = Sairler.objects.filter(aktif=True, small_banner=True, status="Yayinda").order_by('?')[:15]
-    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
+    tum_banner_alt_kategoriler_soz = SiirAltKategori.objects.filter(banner=True,soz=True)
 
     context = {
         'CokOkunanSiirler': CokOkunanSiirler,
@@ -26,6 +27,7 @@ def sair_home_detail(request, ):
         'sairRandomsag': sairRandomsag,
         'sairpopuler': sairpopuler,
         'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'tum_banner_alt_kategoriler_soz': tum_banner_alt_kategoriler_soz,
         'populersiir': populersiir
     }
     return render(request, 'system/sair/sair_home.html', context)
