@@ -2,27 +2,26 @@
 {% load static %}
 
 
-{% block title %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
+{% block title %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız | www.enguzelsiirler.com{% endblock %}
 {% block description %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
 {% block keywords %}şairler,ünlü şairler,yazarlar,amatör yazarlar,şiirler,anlamlı sözler{% endblock %}
 {% block ogtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
 {% block ogDes %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
 {% block twdesc %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 
 {% block content %}
 
     <!-- main-area -->
     <main>
+    <h1 class="text-center">Tüm Şair ve Yazarlarımız</h1>
         <!-- trending-area -->
         <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
             <div class="container">
@@ -343,8 +342,6 @@
             </div>
         </section>
         <!--  En son eklenen Şiirler -end -->
-
-
     </main>
     <!-- main-area-end -->
 

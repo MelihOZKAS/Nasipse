@@ -86,7 +86,7 @@ class SozlerSitemap(Sitemap):
     def location(self, obj):
         return reverse('sozler:soz_slug', args=[obj.slug])
 
-
+#TODO buraya Sözler site maps eklenecek args ise muhakkak sözler?Slug olanını girmen lazım unutma sakin cnaım Benim.
 class CustomUserSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.5
