@@ -7,7 +7,7 @@
     {% if alt_kategori.slug == kategori_slug %}
         {% with title=alt_kategori.sozler_title description=alt_kategori.meta_description_soz keywords=alt_kategori.keywords_soz %}
             {% if forloop.last %}
-                {% block title %}{{ title }}{% endblock %}
+                {% block title %}1{{ title }}{% endblock %}
                 {% block description %}{{ description }}{% endblock %}
                 {% block keywords %}{{ keywords }}{% endblock %}
                 {% block ogtitle %}{{ title }}{% endblock %}
