@@ -72,6 +72,17 @@ class SiirAltKategori(models.Model):
         verbose_name="Anahtar Kelimeler",
         help_text=HELP_TEXTS["keywords"]
     )
+    meta_description_soz = models.TextField(
+        blank=True,
+        verbose_name="Meta Açıklama Söz",
+        help_text=HELP_TEXTS["meta_description"]
+    )
+    keywords_soz = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Anahtar Kelimeler Söz",
+        help_text=HELP_TEXTS["keywords"]
+    )
     siir = models.BooleanField(default=False,null=True,blank=True)
     soz = models.BooleanField(default=False,null=True,blank=True)
     aktif = models.BooleanField(default=True)
