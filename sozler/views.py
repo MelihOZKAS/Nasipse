@@ -110,7 +110,7 @@ def TumSozler(request,  sair_slug):
 
 
 def alt_kategori_detail(request,  alt_kategori_slug):
-    siirler = Siirler.objects.get(id=1)
+    siirler = Siirler.objects.get(id=2)
     alt_kategoriler = siirler.alt_kategorisi.all()
 
     alt_kategori = get_object_or_404(SiirAltKategori, sozler_slug=alt_kategori_slug)
