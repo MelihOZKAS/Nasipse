@@ -3,7 +3,7 @@
 
 
 {% for alt_kategori in tum_banner_alt_kategoriler %}
-    <h1> {{ alt_kategori.slug }} {{ kategori_slug }} </h1>
+    <h1> {{ alt_kategori.slug }}-{{ kategori_slug }} </h1>
     {% if alt_kategori.slug == kategori_slug %}
         {% with title=alt_kategori.title description=alt_kategori.meta_description keywords=alt_kategori.keywords %}
             {% if forloop.last %}
@@ -54,7 +54,7 @@
                                         <h1 class="section__main-title">{{ sayfa_adi }}</h1>
 
                                         {% for foo in tum_banner_alt_kategoriler %}
-                                            {{ foo }}
+                                            {{ foo.slug }} - {{ kategori_slug }} <br>
 
                                         {% endfor %}
 
