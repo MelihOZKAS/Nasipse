@@ -64,7 +64,7 @@ def TumSozlerSade(request):
 
 
 def all_Kategori(request):
-    tum_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
+    tum_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,soz=True)
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
@@ -121,7 +121,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
 
-    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,soz=True)
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
@@ -155,7 +155,7 @@ def bunlarLazim(Sairmi):
 def soz_detail(request,  soz_slug):
     siir = get_object_or_404(Sozler, slug=soz_slug)
     siir.okundu()
-    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,soz=True)
     siirRandomsag, sairRandomsag, sozRandom, siirRandom, yazarRandom, hikayeRandom=bunlarLazim(siir)
 
     if not isinstance(request.user, AnonymousUser):
