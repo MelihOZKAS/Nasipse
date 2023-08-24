@@ -74,12 +74,14 @@ class SiirAltKategori(models.Model):
     )
     meta_description_soz = models.TextField(
         blank=True,
+        null=True,
         verbose_name="Meta Açıklama Söz",
         help_text=HELP_TEXTS["meta_description"]
     )
     keywords_soz = models.CharField(
         max_length=255,
         blank=True,
+        null=True,
         verbose_name="Anahtar Kelimeler Söz",
         help_text=HELP_TEXTS["keywords"]
     )
