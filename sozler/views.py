@@ -110,9 +110,6 @@ def TumSozler(request,  sair_slug):
 
 
 def alt_kategori_detail(request,  alt_kategori_slug):
-
-
-
     alt_kategori = get_object_or_404(SiirAltKategori, sozler_slug=alt_kategori_slug)
     siir = Sozler.objects.filter(alt_kategorisi=alt_kategori).order_by('-olusturma_tarihi')
     sayfa_adi = alt_kategori.sozler_title
@@ -124,7 +121,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
 
-    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,soz=True)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(soz=True)
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
