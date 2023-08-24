@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+<h1> {{ alt_kategori.slug }}-{{ kategori_slug }} </h1>
 {% for alt_kategori in tum_banner_alt_kategoriler %}
     <h1> {{ alt_kategori.slug }}-{{ kategori_slug }} </h1>
     {% if alt_kategori.slug == kategori_slug %}
         {% with title=alt_kategori.sozler_title description=alt_kategori.meta_description_soz keywords=alt_kategori.keywords_soz %}
             {% if forloop.last %}
-
                 {% block title %}{{ title }}{% endblock %}
                 {% block description %}{{ description }}{% endblock %}
                 {% block keywords %}{{ keywords }}{% endblock %}
