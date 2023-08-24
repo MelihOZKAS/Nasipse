@@ -72,7 +72,8 @@ class SiirAltKategori(models.Model):
         verbose_name="Anahtar Kelimeler",
         help_text=HELP_TEXTS["keywords"]
     )
-
+    siir = models.BooleanField(default=False,null=True,blank=True)
+    soz = models.BooleanField(default=False,null=True,blank=True)
     aktif = models.BooleanField(default=True)
     banner = models.BooleanField(default=False)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
