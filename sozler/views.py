@@ -58,7 +58,7 @@ def TumSozlerSade(request):
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
     }
-    return render(request, 'system/sozler/coklu_sayfa.html', context)
+    return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
 
 
@@ -104,12 +104,15 @@ def TumSozler(request,  sair_slug):
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
     }
-    return render(request, 'system/sozler/coklu_sayfa.html', context)
+    return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
 
 
 
 def alt_kategori_detail(request,  alt_kategori_slug):
+    siirler = Siirler.objects.get(id=1)
+    alt_kategoriler = siirler.alt_kategorisi.all()
+
     alt_kategori = get_object_or_404(SiirAltKategori, sozler_slug=alt_kategori_slug)
     siir = Sozler.objects.filter(alt_kategorisi=alt_kategori).order_by('-olusturma_tarihi')
     sayfa_adi = alt_kategori.sozler_title
@@ -134,9 +137,11 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'kategori_slug': alt_kategori.slug,
+        'alt_kategoriler': alt_kategoriler,
 
     }
-    return render(request, 'system/sozler/coklu_sayfa.html', context)
+    return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
 
 

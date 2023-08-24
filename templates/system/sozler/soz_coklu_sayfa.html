@@ -2,23 +2,31 @@
 {% load static %}
 
 
+{% for alt_kategori in alt_kategoriler %}
+    {% if alt_kategori.slug == kategori_slug %}
+        {% with title=alt_kategori.title description=alt_kategori.meta_description keywords=alt_kategori.keywords %}
+            {% break %}
+        {% endwith %}
+    {% endif %}
+{% endfor %}
 
-{% block title %}{{ icerik.title }}{% endblock %}
-{% block description %}{{ icerik.meta_description }}{% endblock %}
-{% block keywords %}{{ icerik.keywords }}{% endblock %}
-{% block ogtitle %}{{ icerik.title }}{% endblock %}
-{% block ogDes %}{{ icerik.meta_description }}{% endblock %}
+
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ icerik.title }}{% endblock %}
-{% block twdesc %}{{ icerik.meta_description }}{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
-
 
 
 
@@ -38,7 +46,7 @@
                             <div class="row align-items-end">
                                 <div class="col-sm-6">
                                     <div class="section__title">
-                                        <h3 class="section__main-title">{{ sayfa_adi }}</h3>
+                                        <h1 class="section__main-title">{{ sayfa_adi }}</h1>
                                     </div>
                                 </div>
                             </div>
