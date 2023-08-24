@@ -199,8 +199,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="section__read-more text-start text-sm-end">
-                                <a href="{% url 'sozler:tum-soz-kategorileri' %}">Tüm Söz Kategorileri<i
-                                        class="far fa-long-arrow-right"></i></a>
+                                <a href="{% url 'sozler:tum-soz-kategorileri' %}">Tüm Söz Kategorileri<i class="far fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -211,9 +210,7 @@
                             <div class="featured__post">
                                 <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ randonsair.title }}"> </div>
                                 <div class="featured__content">
-                                    <h4 class="title tgcommon__hover"><a
-                                            href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">{{ KategoriPopuler.sozler_title }}</a>
-                                    </h4>
+                                    <h4 class="title tgcommon__hover"><a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">{{ KategoriPopuler.sozler_title }}</a> </h4>
                                 </div>
                             </div>
                         </div>
