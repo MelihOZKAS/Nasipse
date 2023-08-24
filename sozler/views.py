@@ -64,7 +64,7 @@ def TumSozlerSade(request):
 
 
 def all_Kategori(request):
-    tum_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,soz=True)
+    tum_alt_kategoriler = SiirAltKategori.objects.filter(aktif=True,soz=True)
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
