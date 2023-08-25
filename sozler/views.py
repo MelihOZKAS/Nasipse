@@ -11,8 +11,6 @@ from django.contrib.auth.models import AnonymousUser
 
 # Create your views here.
 def yazar_home_detail(request, ):
-    # tum_alt_kategoriler = SiirAltKategori.objects.all()
-
     populersiir = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True)[:15]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
     son_eklenen_sozler = Sozler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
@@ -127,16 +125,15 @@ def alt_kategori_detail(request,  alt_kategori_slug):
 
     context = {
         'icerik': icerik,
-        'alt_kategori': alt_kategori,
+        'title': alt_kategori.sozler_title,
+        'description': alt_kategori.meta_description_soz,
+        'keywords': alt_kategori.keywords_soz,
         'sayfa_adi': sayfa_adi,
         'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
-        'kategori_slug': alt_kategori.slug,
-
-
     }
     return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
