@@ -141,7 +141,7 @@ def robots_txt(request):
 
 robots_txt_content = """
 User-agent: *
-Disallow: /iletisim/
+Allow: /
 Sitemap: /sitemap.xml
 """
 
