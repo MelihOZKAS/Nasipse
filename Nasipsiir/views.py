@@ -139,8 +139,7 @@ def cikis(request):
 def robots_txt(request):
     return HttpResponse(robots_txt_content, content_type="text/plain")
 
-robots_txt_content = """
-User-agent: *
+robots_txt_content = """User-agent: *
 Allow: /
 Sitemap: /sitemap.xml
 """
