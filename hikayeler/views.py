@@ -32,6 +32,10 @@ def alt_kategori_detail(request, alt_kategori_slug):
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
+    title = "!!!Bunun KonusuNe değişicek büyük ihtimalle"
+    description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
+    keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
+
     context = {
         'icerik': icerik,
         'alt_kategori': alt_kategori,
@@ -41,7 +45,9 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
-
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/hikaye/hikaye_coklu_sayfa.html', context)
 
@@ -145,15 +151,27 @@ def coklu_sayfa(request):
     if url_name == 'populer-hikayeler':
         siir = Hikayeler.objects.filter(small_banner=True,status="Yayinda",aktif=True).order_by('?')
         sayfa_adi = "Popüler Hikayeler"
+        title = "Popüler Hikayeler"
+        description = "Popüler olan hikayeleri okuyabilir sevdiklerinizle paylaşabilir dilerseniz kendinizde hikayeler yazabilirsiniz."
+        keywords = "güzel hikayeler, kısa hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
     elif url_name == 'cok-okunan-hikaye':
         siir = Hikayeler.objects.filter(small_banner=True,status="Yayinda",aktif=True).order_by('-okunma_sayisi')
         sayfa_adi = "En Çok Okunan Hikayeler"
+        title = "En Çok Okunan Hikayeler"
+        description = "En çok okunan hikayeler takip edebilir dilerseniz bu zevkli maratona sizlerde hikayelerinizi paylaşıp katılabilirsiniz."
+        keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, uzun hikayeler, etkileyici hikayeler, komik hikayeler"
     elif url_name == 'en-son-eklenen-hikaye':
         siir = Hikayeler.objects.filter(status="Yayinda",aktif=True).order_by('-olusturma_tarihi')
         sayfa_adi = "En Son Eklenen Hikayeler"
+        title = "En Son Eklnen Hikayeler"
+        description = "En son eklenen hikayeleri buradan takip edebilirsiniz dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
+        keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
     elif url_name == 'cok-begeni-alan-hikayeler':
         siir = Hikayeler.objects.filter(status="Yayinda",aktif=True).annotate(begeni_sayisi=Count('begenihikayeler')).order_by('-begeni_sayisi')
-        sayfa_adi = "En Son Eklenen Hikayeler"
+        sayfa_adi = "En Çok Beğeni Alan Hikayeler"
+        title = "En Çok Beğeni Alan Hikayeler"
+        description = "Kullanıcılar tarafından en çok beğeni alan hikayeler dilerseniz kendi hikayelerinizi paylaşabilir sizde bu heyecanı yaşıyabilirsiniz."
+        keywords = "dini hikayeler, romantik aşk hikayeler, aşk hikayeleri, gerçek hikayeler, ibretlik hikayeler, etkileyici hikayeler, meşhur aşk hikayeleri"
 
 
 
@@ -178,6 +196,9 @@ def coklu_sayfa(request):
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/hikaye/hikaye_coklu_sayfa.html', context)
 

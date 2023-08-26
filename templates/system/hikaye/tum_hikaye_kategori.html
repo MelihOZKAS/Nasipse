@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-{% block title %}Tüm Şiir Kategorileri{% endblock %}
-{% block description %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en güzel şiirleri keşfedin.{% endblock %}
-{% block keywords %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, islam, atatürk{% endblock %}
-{% block ogtitle %}Tüm Şiir Kategorileri{% endblock %}
-{% block ogDes %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en güzel şiirleri keşfedin.{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
 {% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk{% endblock %}
-{% block twdesc %}şiir, kategori, aşk, özlem, sevgi, dini, Peygamber, İslam, atatürk gibi farklı kategorilerdeki en güzel şiirleri keşfedin.{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
 {% block twimage %}{{ request.scheme }}://{{ request.get_host }}
     {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
