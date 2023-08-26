@@ -138,6 +138,7 @@ def cikis(request):
 @require_GET
 def robots_txt(request):
     content = "User-agent: *\nAllow: /\nSitemap: /sitemap.xml"
+    content = content.decode("utf-8")
     return HttpResponse(content, content_type="text/plain")
 
 

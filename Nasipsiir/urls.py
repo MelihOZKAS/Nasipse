@@ -35,7 +35,6 @@ sitemaps = {
 
 
 
-
 urlpatterns = [
     path("yonetici/", admin.site.urls),
     path("", views.home, name="home"),
