@@ -137,7 +137,7 @@ def cikis(request):
     return redirect('home')
 @require_GET
 def robots_txteski(request):
-    content = "User-agent: *\nAllow: /"
+    content = "User-agent: *\nAllow2: /"
     return HttpResponse(content, content_type="text/plain; charset=utf-8")
 
 
