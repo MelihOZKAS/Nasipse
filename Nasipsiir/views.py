@@ -136,15 +136,17 @@ def cikis(request):
 
     return redirect('home')
 @require_GET
-def robots_txteski(request):
-    content = "User-agent: *\nAllow2: /"
-    return HttpResponse(content, content_type="text/plain; charset=utf-8")
-
-
-
-@require_GET
 def robots_txt(request):
-    return render(request,'system/robot.html')
+    return HttpResponse(robots_txt_content, content_type="text/plain")
+
+robots_txt_content = """
+User-agent: *
+Allow: /
+Sitemap: https://www.enguzelsiirler.com/sitemap.xml
+"""
+
+
+
 
 def girisyap1(request):
     if request.method == 'POST':
