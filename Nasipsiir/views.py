@@ -137,10 +137,9 @@ def cikis(request):
     return redirect('home')
 @require_GET
 def robots_txt(request):
-    content = "User-agent: *\nAllow: /\nSitemap: /sitemap.xml"
-    content = content.decode("utf-8")
+    content = "User-agent: *\nAllow: /"
+    content = content.decode("latin-1")
     return HttpResponse(content, content_type="text/plain; charset=utf-8")
-
 
 
 def girisyap1(request):
