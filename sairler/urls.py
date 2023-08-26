@@ -20,10 +20,12 @@ from . import views
 app_name = 'sairler'
 urlpatterns = [
     path("", views.sair_home_detail, name="home"),
+
     path('begen/<int:siir_id>/', views.begen, name='begen'),  # Coklu Sayfa
     path('begen-kaldir/<int:siir_id>/', views.begen_kaldir, name='begen-kaldir'),  # Coklu Sayfa
     path('favori/<int:siir_id>/', views.favori, name='favori'),  # Coklu Sayfa
     path('favori-kaldir/<int:siir_id>/', views.favori_kaldir, name='favori-kaldir'),  # Coklu Sayfa
+
     path('populer-sairler/', views.populer_sair_detail, name='populer-sairler'),  # Coklu Sayfa
     path('<str:sair_slug>/', views.sair_detail, name='sair_detail'),
     #  path('kategori/<str:alt_kategori_slug>/', views.alt_kategori_detail, name='alt_kategori_detail'),

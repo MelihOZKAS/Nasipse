@@ -80,13 +80,19 @@ def populer_sair_detail(request):
     paginator = Paginator(sairler, 12)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
+    title = "Popüler Şairler"
+    description = "Popüler şairlerimizin ve yazarlarımızın listesi aradığınız tüm şair ve yazarların özet bilgileri ve tüm bilgileri yer almaktadır."
+    keywords = "en sevilen şairler, en çok okunan yazarlar, sevilen yazarlar, popüler yazarlar, şairler, yazarlar"
 
 
     context = {
         'icerik': icerik,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
 
     }
-    return render(request, 'system/sair/populer_sair.html', context)
+    return render(request, 'system/sair/sair_listesi.html', context)
 
 
 @login_required
