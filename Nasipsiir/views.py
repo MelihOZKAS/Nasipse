@@ -136,11 +136,15 @@ def cikis(request):
 
     return redirect('home')
 @require_GET
-def robots_txt(request):
+def robots_txteski(request):
     content = "User-agent: *\nAllow: /"
-    content = content.decode("latin-1")
     return HttpResponse(content, content_type="text/plain; charset=utf-8")
 
+
+
+@require_GET
+def robots_txt(request):
+    return render(request,'system/robot.html')
 
 def girisyap1(request):
     if request.method == 'POST':
