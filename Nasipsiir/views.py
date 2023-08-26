@@ -133,8 +133,10 @@ def SMSKontrol(request):
 
 def cikis(request):
     logout(request)
-
     return redirect('home')
+
+
+
 @require_GET
 def robots_txt(request):
     return HttpResponse(robots_txt_content, content_type="text/plain")

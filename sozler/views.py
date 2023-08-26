@@ -40,8 +40,14 @@ def TumSozlerSade(request):
     url_name = request.resolver_match.url_name
     if url_name == "populer-guzel-sozler":
         siir = Sozler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('-olusturma_tarihi')
+        title = "Popüler Güzel Sözler"
+        description = "En güzel sözlerin paylaşıldığı hem şairlerin hem üyelerimizin kıymetli paylaşımları"
+        keywords = "kısa sözler, özlü sözler, anlamlı sözler, cuma mesajı sözleri, baba sözler"
     elif url_name == "en-son-eklenen-guzel-sozler":
         siir = Sozler.objects.all().order_by('-olusturma_tarihi')
+        title = "En Son Eklenen Güzel Sözler"
+        description = "En son eklenen güzel sözler hem şair hem üyelerimizin en kıymetli paylaşımları"
+        keywords = "anlamlı sözler, ilginç sözler, özlü sözler, güzel sözler, en güzel sözler"
 
 
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
@@ -55,6 +61,9 @@ def TumSozlerSade(request):
         'icerik': icerik,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
@@ -88,19 +97,23 @@ def TumSozler(request,  sair_slug):
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
-
-   #random_populer = Siirler.objects.filter(small_banner=True).order_by('?')[:6]
-   #CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
-
-   # tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
     siirRandom = Siirler.objects.order_by('?')[:8]
     sairRandomsag = Sairler.objects.order_by('?')[:8]
+    title = "En Güzel Sözler"
+    description = "Aradığınız en anlamlı tüm sözler yok yok hemen takip edip paylaşabilirsiniz."
+    keywords = "anlamlı sözler, ilginç sözler, özlü sözler, güzel sözler, en güzel sözler"
+
+
+
 
     context = {
         'icerik': icerik,
         'sayfa_adi': sayfa_adi,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
