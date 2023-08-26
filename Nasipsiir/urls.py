@@ -53,7 +53,7 @@ urlpatterns = [
     path("sms-kontrol/",views.SMSKontrol, name="sms-kontrol"),
     path("cikis-yap/",views.cikis, name="cikis-yap"),
     #re_path(r'^robots\.txt$', serve, {'path': 'robots.txt', 'document_root': settings.BASE_DIR}),
-    path("robots.txt",views.robots_txteski, name="robots"),
+    path("robots.txt",views.robots_txt, name="robots"),
     path('sitemap.xml', index, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
