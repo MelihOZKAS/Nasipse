@@ -2,18 +2,18 @@
 {% load static %}
 
 
-{% block title %}{{ siir.title }}{% endblock %}
-{% block description %}{{ siir.meta_description }}{% endblock %}
-{% block keywords %}{{ siir.keywords }}{% endblock %}
-{% block ogtitle %}{{ siir.title }}{% endblock %}
-{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
 {% block ogimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ siir.kapak_resmi.url }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ siir.title }}{% endblock %}
-{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
 {% block twimage %}{{ request.build_absolute_uri|slice:":-1" }}{{ siir.kapak_resmi.url }}{% endblock %}
 
 

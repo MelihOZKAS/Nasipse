@@ -56,6 +56,10 @@ def hikaye_home(request):
 
     CokBeginiAlan = Hikayeler.objects.annotate(begeni_sayisi=Count('begenihikayeler')).order_by('-begeni_sayisi')[:15]
 
+    title = "Hikayeler"
+    description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
+    keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
+
     context = {
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,#popülerKategoriler
         'populersiir': hikayePopuler,
@@ -64,6 +68,9 @@ def hikaye_home(request):
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
         'CokBeginiAlan': CokBeginiAlan,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/hikaye/hikaye_home.html', context)
 
