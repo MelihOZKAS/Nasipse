@@ -237,8 +237,14 @@
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
                                             <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
-                                            <a href="{% url 'hikaye:hikaye_slug'  hikaye_slug=pSiir.slug %}"><img
+                                            {% if pSiir.yazar.kapak_resmi %}
+                                                <a href="{% url 'hikaye:hikaye_slug'  hikaye_slug=pSiir.slug %}"><img
                                                     src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
+                                            {% else %}
+                                                <a href="{% url 'hikaye:hikaye_slug'  hikaye_slug=pSiir.slug %}"><img
+                                                    src="{% static 'assets/img/others/Siirlerin_resmi.png' %}" alt="{{ pSiir.title }}"></a>
+
+                                            {% endif %}
                                             <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                         </div>
                                         <div class="trending__post-content">
