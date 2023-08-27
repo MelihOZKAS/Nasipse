@@ -55,8 +55,6 @@ model_tipi = (
 class HikayeAltKategori(models.Model):
     alt_kategori_adi = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    sozler_title = models.CharField(max_length=255, blank=True)
-    sozler_slug = models.SlugField(max_length=255, blank=True)
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
                                     help_text=HELP_TEXTS["kapak_resmi"])
     meta_description = models.TextField(
