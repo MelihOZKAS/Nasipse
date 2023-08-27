@@ -32,9 +32,9 @@ def alt_kategori_detail(request, alt_kategori_slug):
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
-    title = "!!!Bunun KonusuNe değişicek büyük ihtimalle"
-    description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
-    keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
+    #title = "!!!Bunun KonusuNe değişicek büyük ihtimalle"
+    #description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
+    #keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
 
     context = {
         'icerik': icerik,
@@ -45,9 +45,9 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
-        'title': title,
-        'description': description,
-        'keywords': keywords,
+        'title': alt_kategori.alt_kategori_adi,
+        'description': alt_kategori.meta_description,
+        'keywords': alt_kategori.keywords,
     }
     return render(request, 'system/hikaye/hikaye_coklu_sayfa.html', context)
 
