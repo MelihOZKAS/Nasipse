@@ -3,7 +3,7 @@ from .models import Hikayeler,HikayeAltKategori
 # Register your models here.
 class HikayeAltKategoriAdmin(admin.ModelAdmin):
     list_display = ("alt_kategori_adi","aktif","banner",)
-    prepopulated_fields = {'slug': ('alt_kategori_adi',), 'sozler_slug': ('sozler_title',)}
+    prepopulated_fields = {'slug': ('alt_kategori_adi',)}
     search_fields = ("alt_kategori_adi",)
     list_filter = ("alt_kategori_adi","aktif","banner",)
     list_editable = ("aktif","banner",)
