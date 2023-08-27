@@ -7,16 +7,14 @@
 {% block keywords %}{{ siir.keywords }}{% endblock %}
 {% block ogtitle %}{{ siir.title }}{% endblock %}
 {% block ogDes %}{{ siir.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ siir.title }}{% endblock %}
 {% block twdesc %}{{ siir.meta_description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 
 
