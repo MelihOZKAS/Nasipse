@@ -10,8 +10,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="En güzel şiirlere kayıt olma paneli">
-    <meta name="keywords" content="şiir,masal,hikaye,yazar,şair,en güzel sözler">
+    <meta name="description" content="En güzel şiirlere kayıt olma paneli. Kayıt oldukta sonra şiir, hikaye, söz paylaşamı yapabilirsiniz.">
+    <meta name="keywords" content="şiir,masal,hikaye,yazar,şair,en güzel sözler, kısa hikayeler">
+
+
+    <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
+    <meta property="og:title" content="En Güzel Şiirler - Kayıt OL">
+    <meta property="og:description" content="En güzel şiirlere kayıt olma paneli. Kayıt oldukta sonra şiir, hikaye, söz paylaşamı yapabilirsiniz.">
+    <meta property="og:image" content="{% block ogimage %}OG IMAGE{% endblock %}">
+    <meta property="og:url" content="{% block ogurl %}OG url{% endblock %}">
+
+
+    <!-- Twitter Card Etiketleri -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{% block twaccountsite %}tw accounts{% endblock %}">
+    <meta name="twitter:creator" content="{% block twcreator %}tw creator{% endblock %}">
+    <meta name="twitter:title" content="En Güzel Şiirler - Kayıt OL">
+    <meta name="twitter:description" content="En güzel şiirlere kayıt olma paneli. Kayıt oldukta sonra şiir, hikaye, söz paylaşamı yapabilirsiniz.">
+    <meta name="twitter:image" content="{% block twimage %}tw IMAGE{% endblock %}">
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'assetsPanel/img/favicon.png' %}">
