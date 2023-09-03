@@ -10,6 +10,7 @@ from userPanel.models import CustomUser
 class SiirAltKategoriSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.3
+    protocol = 'https'
 
     def items(self):
         return SiirAltKategori.objects.all()
@@ -24,6 +25,7 @@ class SiirAltKategoriSitemap(Sitemap):
 class SiirlerSitemap(Sitemap):
     changefreq = "daily"
     priority = 1.0
+    protocol = 'https'
 
     def items(self):
         return Siirler.objects.filter(aktif=True)
@@ -38,6 +40,7 @@ class SiirlerSitemap(Sitemap):
 class HikayeAltKategoriSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.3
+    protocol = 'https'
 
     def items(self):
         return HikayeAltKategori.objects.all()
@@ -50,6 +53,7 @@ class HikayeAltKategoriSitemap(Sitemap):
 class HikayelerSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.8
+    protocol = 'https'
 
     def items(self):
         return Hikayeler.objects.all()
@@ -63,6 +67,7 @@ class HikayelerSitemap(Sitemap):
 class SairlerSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.8
+    protocol = 'https'
 
     def items(self):
         return Sairler.objects.all()
@@ -77,6 +82,7 @@ class SairlerSitemap(Sitemap):
 class SozlerSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.8
+    protocol = 'https'
 
     def items(self):
         return Sozler.objects.all()
@@ -90,6 +96,7 @@ class SozlerSitemap(Sitemap):
 class SozlerAltKategoriSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.3
+    protocol = 'https'
 
     def items(self):
         return SiirAltKategori.objects.all()
@@ -104,6 +111,7 @@ class SozlerAltKategoriSitemap(Sitemap):
 class CustomUserSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.5
+    protocol = 'https'
 
     def items(self):
         return CustomUser.objects.filter(is_active=True)
