@@ -62,8 +62,8 @@ def hikaye_home(request):
 
     CokBeginiAlan = Hikayeler.objects.annotate(begeni_sayisi=Count('begenihikayeler')).order_by('-begeni_sayisi')[:15]
 
-    title = "Hikayeler"
-    description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
+    title = "En Güzel Hikayeler"
+    description = "Aradığınız her konuya ait aşk, sevgi, dini, atatürk, vatan hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
     keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
 
     context = {
