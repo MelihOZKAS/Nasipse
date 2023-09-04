@@ -85,8 +85,8 @@ class SiirAltKategori(models.Model):
         verbose_name="Anahtar Kelimeler Söz",
         help_text=HELP_TEXTS["keywords"]
     )
-    siir = models.BooleanField(default=False,null=True,blank=True)
-    soz = models.BooleanField(default=False,null=True,blank=True)
+    siir = models.BooleanField(default=False)
+    soz = models.BooleanField(default=False)
     aktif = models.BooleanField(default=True)
     banner = models.BooleanField(default=False)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
