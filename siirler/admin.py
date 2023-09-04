@@ -8,11 +8,11 @@ from .models import Siirler,AnasayfaKeyler,SiirAltKategori
 
 
 class SiirAltKategoriAdmin(admin.ModelAdmin):
-    list_display = ("alt_kategori_adi","aktif","banner",)
+    list_display = ("alt_kategori_adi","siir","soz","aktif","banner",)
     prepopulated_fields = {'slug': ('alt_kategori_adi',), 'sozler_slug': ('sozler_title',)}
     search_fields = ("alt_kategori_adi",)
     list_filter = ("alt_kategori_adi","aktif","banner",)
-    list_editable = ("aktif","banner",)
+    list_editable = ("aktif","banner","siir","soz",)
 
 
 
