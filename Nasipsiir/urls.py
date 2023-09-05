@@ -42,16 +42,16 @@ sitemaps = {
     'diger-yazar': CustomUserSitemap,
 }
 
-#def handler404(request, *args, **argv):
-#    response = render(request, '404.html')
-#    response.status_code = 404
-#    return response
+def handler404(request, *args, **argv):
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response
 
 
 urlpatterns = [
     path("yonetici/", admin.site.urls),
     path("", views.home, name="home"),
-    #path('404/', handler404, name='404'),
+    path('404/', handler404, name='404'),
     path("siir/", include("siirler.urls")),
     path("sairler/", include("sairler.urls")),
     path("sozler/", include("sozler.urls")),
