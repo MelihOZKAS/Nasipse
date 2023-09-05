@@ -26,6 +26,8 @@ from django.views.generic.base import TemplateView
 from django.views.static import serve
 from django.conf import settings
 from django.urls import re_path
+from django.http import Http404
+from django.shortcuts import render
 
 
 sitemaps = {
@@ -39,11 +41,14 @@ sitemaps = {
     'diger-yazar': CustomUserSitemap,
 }
 
+def handler404(request, *args, **kwargs):
+  return render(request, '404.html')
 
 
 urlpatterns = [
     path("yonetici/", admin.site.urls),
     path("", views.home, name="home"),
+    path('404/', handler404, name='404'),
     path("siir/", include("siirler.urls")),
     path("sairler/", include("sairler.urls")),
     path("sozler/", include("sozler.urls")),
