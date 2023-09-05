@@ -42,7 +42,7 @@ sitemaps = {
 }
 
 def handler404(request, *args, **kwargs):
-  return render(request, '404.html')
+  return serve(request, 'static/', document_root=settings.STATIC_ROOT)
 
 
 urlpatterns = [
