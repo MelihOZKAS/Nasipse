@@ -21,7 +21,10 @@
         </p>
         <div class="btn-group">
             <a href="{% url 'home' %}" class="btn btn-primary me-2">Ana Sayfa</a>
-
+            <a href="{% url 'siir:alt_kategori_detail' alt_kategori_slug="ask-siirleri" %}" class="btn btn-primary me-2">Aşk Şiirleri</a>
+            <a href="{% url 'siir:alt_kategori_detail' alt_kategori_slug="anne-siirleri" %}" class="btn btn-primary me-2">Anne Şiirleri</a>
+            <a href="{% url 'hikaye:home' %}" class="btn btn-primary me-2">Hikayeler</a>
+            <a href="{% url 'sairler:home' %}" class="btn btn-primary me-2">Şairler</a>
         </div>
 
     </div>

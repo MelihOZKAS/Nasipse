@@ -28,6 +28,8 @@ from django.conf import settings
 from django.urls import re_path
 from django.http import Http404
 from django.shortcuts import render
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 
 sitemaps = {
@@ -41,8 +43,10 @@ sitemaps = {
     'diger-yazar': CustomUserSitemap,
 }
 
-def handler404(request, *args, **kwargs):
-  return serve(request, 'static/', document_root=settings.STATIC_ROOT)
+def handler404(request, *args, **argv):
+    response = render_to_response('404.html', {}, context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
 
 
 urlpatterns = [
