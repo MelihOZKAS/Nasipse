@@ -136,9 +136,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / 'static'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'siirler/static'),
-    os.path.join(BASE_DIR, 'userPanel/static'),
+    os.path.join(BASE_DIR, 'siirler/static/assets'),
 ]
 
 MEDIA_URL = "/media/"
