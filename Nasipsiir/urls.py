@@ -42,10 +42,10 @@ sitemaps = {
     'diger-yazar': CustomUserSitemap,
 }
 
-def handler404(request, *args, **argv):
-    response = render(request, '404.html')
-    response.status_code = 404
-    return response
+#def handler404(request, *args, **argv):
+#    response = render(request, '404.html')
+#    response.status_code = 404
+#    return response
 
 
 urlpatterns = [
