@@ -51,7 +51,7 @@ def handler404(request, *args, **argv):
 urlpatterns = [
     path("yonetici/", admin.site.urls),
     path("", views.home, name="home"),
-    path('404/', handler404, name='404'),
+    #path('404/', handler404, name='404'),
     path("siir/", include("siirler.urls")),
     path("sairler/", include("sairler.urls")),
     path("sozler/", include("sozler.urls")),
