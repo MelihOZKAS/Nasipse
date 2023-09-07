@@ -166,6 +166,12 @@ if DEBUG:
         os.path.join(BASE_DIR, 'userPanel/static'),
     ]
 
+    STORAGES = {
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
+    }
+
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -183,6 +189,11 @@ else:
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
+    }
+    STORAGES = {
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
     }
 
     STATICFILES_LOCATION = 'static'
