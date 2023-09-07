@@ -17,7 +17,7 @@ def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
     # Dosya uzantısını koru
-    uzanti = 'webp'  # webp formatına dönüştür
+    uzanti = 'avif'  # avif formatına dönüştür
     # Yeni dosya adını döndür
     return f"kapak_resimleri/{yeni_ad}.{uzanti}"
 
@@ -102,6 +102,16 @@ class SiirAltKategori(models.Model):
     class Meta:
         verbose_name_plural = "Tüm Alt Kategoriler"
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        if self.kapak_resmi:
+            img = Image.open(self.kapak_resmi.path)
+            if img.height > 300 or img.width > 300:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                img.save(self.kapak_resmi.path, 'AVIF', quality=70)
+
     def __str__(self):
         return self.alt_kategori_adi
 
@@ -176,12 +186,7 @@ class Siirler(models.Model):
             yazar_adi = f"{self.yazar.first_name} {self.yazar.last_name}"
             self.slug = slugify(f"{yazar_adi} - {self.title}-siiri")
             self.title = f"{yazar_adi} - {self.title}"
-        if self.kapak_resmi:
-            img = Image.open(self.kapak_resmi.path)
-            if img.height > 300 or img.width > 300:
-                output_size = (300, 300)
-                img.thumbnail(output_size)
-                img.save(self.kapak_resmi.path, 'webp', quality=70)
+
 
         super().save(*args, **kwargs)
 
