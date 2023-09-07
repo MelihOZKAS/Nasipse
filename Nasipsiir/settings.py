@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'userPanel',
     "ckeditor",
     "django.contrib.sitemaps",
-    'whitenoise.runserver_nostatic',
+    "whitenoise.runserver_nostatic",
 
 ]
 
