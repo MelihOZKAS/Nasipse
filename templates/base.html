@@ -3,6 +3,8 @@
 <html class="no-js" lang="tr">
 
 <head>
+    <script src="{% static 'assets/js/main.js' %}" defer></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -30,6 +32,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/spacing.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+
 
 
 
@@ -166,7 +169,7 @@
                                     <a href="#"><i class="flaticon-menu-bar"></i></a>
                                 </div>
                                 <div class="logo">
-                                    <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/en-guzel.png' %}"
+                                    <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/en-guzel.png' %}" loading="lazy"
                                                                     alt="Logo"></a>
                                 </div>
                             </div>
@@ -210,10 +213,10 @@
                             <div class="nav-logo">
                                 <a href="{% url 'home' %}" class="logo-dark"><img
                                         src="{% static 'assets/img/logo/en-guzel.png' %}"
-                                        alt="Logo"></a>
+                                        loading="lazy" alt="Logo"></a>
                                 <a href="{% url 'home' %}" class="logo-light"><img
                                         src="{% static 'assets/img/logo/en-guzel.png' %}"
-                                        alt="Logo"></a>
+                                        loading="lazy" alt="Logo"></a>
                             </div>
 
                             <div class="tgmobile__menu-outer">
@@ -246,9 +249,9 @@
             <div class="offCanvas__content">
                 <div class="offCanvas__logo logo">
                     <a href="{% url 'home' %}" class="logo-dark"><img src="{% static 'assets/img/logo/en-guzel.png' %}"
-                                                                alt="Logo"></a>
+                                                               loading="lazy" alt="Logo"></a>
                     <a href="{% url 'home' %}" class="logo-light"><img src="{% static 'assets/img/logo/en-guzel.png' %}"
-                                                                 alt="Logo"></a>
+                                                                loading="lazy" alt="Logo"></a>
                 </div>
                 <p>Sitemize Hoş Geldiniz</p>
               <!--  <ul class="offCanvas__instagram list-wrap">
