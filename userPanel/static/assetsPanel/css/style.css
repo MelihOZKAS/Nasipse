@@ -723,7 +723,7 @@ body,
   width: auto;
   height: auto;
   padding: 5px 15px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   background-color: #09D1DE;
@@ -1020,7 +1020,7 @@ body,
 .dropdown-menu.style--three a span {
   width: 20px;
   height: 20px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
@@ -1056,7 +1056,7 @@ body,
 .dropdown-menu.style--four a span {
   width: 20px;
   height: 20px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
@@ -1786,7 +1786,7 @@ svg text.c3-chart-arcs-title {
   border: 2px solid #ffffff;
   width: 30px;
   height: 30px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
@@ -3681,7 +3681,7 @@ user agent stylesheet div {
   height: 40px;
   position: relative;
   z-index: 1;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
@@ -3701,9 +3701,7 @@ user agent stylesheet div {
 
 .btn-circle:after {
   background-color: #6F51FF;
-  background-color: -moz-linear-gradient(left, #6F51FF 0%, #6045E2 100%);
-  background-color: -webkit-linear-gradient(left, #6F51FF 0%, #6045E2 100%);
-  background-color: linear-gradient(to right, #6F51FF 0%, #6045E2 100%);
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6F51FF', endColorstr='#6045E2',GradientType=1);
 }
 
@@ -3809,7 +3807,7 @@ user agent stylesheet div {
   background-color: #CCF5F8;
   width: 50px;
   height: 50px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -3921,7 +3919,6 @@ user agent stylesheet div {
   width: 40px;
   height: 40px;
   background-color: #FFE2E6;
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -4138,7 +4135,7 @@ table.cart_table tr td:last-child a {
 @media only screen and (max-width: 1399px) {
   table.cart_table tr td:last-child a {
     float: none;
-    display: -webkit-inline-box;
+
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-align: center;
@@ -4185,7 +4182,7 @@ table.style--four td {
 table.style--four td .country-flag {
   width: 30px;
   height: 30px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -4299,7 +4296,7 @@ table.invoice-list-table.style-two td input, table.style-two.contact-list-table 
 
 table.invoice-list-table.style-two td .tr-close, table.style-two.contact-list-table td .tr-close, table.invoice-list.style-two td .tr-close {
   position: relative;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-left: 60px;
@@ -4484,16 +4481,14 @@ table.table-bordered th:last-child, table.table-bordered td:last-child {
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
-  width: -webkit-max-content;
-  width: -moz-max-content;
+
   width: max-content;
   font-size: 14px;
 }
 
 .ProgressBar-wrap2 .ProgressBar-percentage {
   font-size: 36px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
+
   width: max-content;
   display: block;
   position: absolute;
@@ -6009,7 +6004,7 @@ body.sidebar-folded.open-sidebar-folded .header .main-header {
   background-color: #2b3c57;
   width: 50px;
   height: 50px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
@@ -7298,7 +7293,7 @@ body.sidebar-folded .main-content {
   margin-left: 20px;
   -ms-flex-preferred-size: 90px;
   flex-basis: 90px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -7349,8 +7344,7 @@ body.sidebar-folded .main-content {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
+
   min-width: max-content;
 }
 
@@ -7785,8 +7779,7 @@ body.sidebar-folded .main-content {
 }
 
 .assign_to:hover .assign-content {
-  width: -webkit-max-content;
-  width: -moz-max-content;
+
   width: max-content;
   padding: 1px 26px;
   overflow: visible;
@@ -7996,7 +7989,6 @@ body.sidebar-folded .main-content {
 
 .fc-event-container .fc-content .fc-time:after {
   position: absolute;
-  right: -10;
   content: "m";
   bottom: 0;
 }
@@ -8032,7 +8024,7 @@ body.sidebar-folded .main-content {
 }
 
 .m_style label {
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 10px;
@@ -8091,8 +8083,7 @@ body.sidebar-folded .main-content {
 }
 
 #createEventModal .calendar-modal-checkbox label {
-  width: -webkit-max-content;
-  width: -moz-max-content;
+
   width: max-content;
   cursor: pointer;
 }
@@ -8134,7 +8125,6 @@ body.sidebar-folded .main-content {
 #fullCalModal .calendar-modal-location .icon,
 #fullCalModal .calendar-modal-visibility .icon {
   width: 10px;
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 10px;
@@ -8144,7 +8134,6 @@ body.sidebar-folded .main-content {
   width: 10px;
   height: 10px;
   background-color: #4F9DF8;
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 10px;
@@ -8264,13 +8253,6 @@ body.sidebar-folded .main-content {
   color: #E9E7FF;
 }
 
-.invoice-left .list-invoice li.location:before {
-  content: url("../../assets/img/svg/location-icon.svg");
-}
-
-.invoice-left .list-invoice li.call:before {
-  content: url("../../assets/img/svg/call-icon.svg");
-}
 
 .invoice-right .status-list li:not(:last-child) {
   margin-bottom: 8px;
@@ -8324,22 +8306,11 @@ body.sidebar-folded .main-content {
 
 .list-invoice li.location:before, .list-invoice li.call:before, .list-invoice li.mail:before, .list-invoice li.user:before {
   position: absolute;
-  content: url("../../assets/img/svg/location-icon1.svg");
   left: 0;
   top: 2px;
 }
 
-.list-invoice li.call:before {
-  content: url("../../assets/img/svg/call-icon1.svg");
-}
 
-.list-invoice li.user:before {
-  content: url("../../assets/img/svg/user-icon.svg");
-}
-
-.list-invoice li.mail:before {
-  content: url("../../assets/img/svg/mail-icon.svg");
-}
 
 .invoice.edit input {
   max-width: 290px;
@@ -8547,8 +8518,6 @@ body.sidebar-folded .main-content {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  height: -webkit-min-content;
-  height: -moz-min-content;
   height: min-content;
   position: relative;
 }
@@ -8809,7 +8778,7 @@ body.sidebar-folded .main-content {
   width: auto;
   height: auto;
   padding: 5px 10px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   background-color: rgba(155, 155, 155, 0.5);
@@ -10308,7 +10277,7 @@ select#locale {
   margin-left: 20px;
   margin-right: 20px;
   width: 80px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
@@ -10806,7 +10775,6 @@ select#locale {
 08.2: Icons
 ********************* */
 .icon {
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -11100,7 +11068,7 @@ select#locale {
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
   background-color: #E9E7FF;
   border-radius: 50px;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 5px 10px;
@@ -11379,8 +11347,6 @@ select#locale {
   bottom: 20px;
   padding: 8px 15px;
   z-index: 1;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
 }
 
@@ -11547,7 +11513,7 @@ select#locale {
   width: 40px;
   height: 40px;
   background-color: #E9E7FF;
-  display: -webkit-inline-box;
+
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -11773,7 +11739,6 @@ select#locale {
   cursor: pointer;
   position: relative;
   z-index: 2;
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
@@ -12396,8 +12361,7 @@ select#locale {
 
 .blockUI.blockMsg.blockElement > span, .blockUI.blockMsg.blockElement > div {
   display: block;
-  width: -webkit-max-content;
-  width: -moz-max-content;
+
   width: max-content;
 }
 
