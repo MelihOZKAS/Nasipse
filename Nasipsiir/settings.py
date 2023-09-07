@@ -144,12 +144,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'userPanel/static'),
 ]
 
-#STORAGES = {
-    ## ...
-    #"staticfiles": {
-        #"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    #},
-#}
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
