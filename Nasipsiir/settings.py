@@ -141,6 +141,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'siirler/static'),
     os.path.join(BASE_DIR, 'userPanel/static'),
 ]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
