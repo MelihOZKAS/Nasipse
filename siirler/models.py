@@ -5,6 +5,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
+
+from Nasipsiir.custom_storages import ImageSettingStorage
 from sairler.models import Sairler
 from django.conf import settings
 
@@ -59,7 +61,10 @@ class SiirAltKategori(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     sozler_title = models.CharField(max_length=255, blank=True)
     sozler_slug = models.SlugField(max_length=255, blank=True)
+    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
+    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
+                                    storage=ImageSettingStorage(),
                                     help_text=HELP_TEXTS["kapak_resmi"])
     meta_description = models.TextField(
         blank=True,

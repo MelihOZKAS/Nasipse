@@ -1,6 +1,10 @@
 from django.db import models
 from django.conf import settings
 from ckeditor.fields import RichTextField
+
+from Nasipsiir.custom_storages import ImageSettingStorage
+
+
 #from django.utils.text import slugify
 
 # Create your models here.
@@ -55,7 +59,9 @@ model_tipi = (
 class HikayeAltKategori(models.Model):
     alt_kategori_adi = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
+    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
+                                    storage=ImageSettingStorage(),
                                     help_text=HELP_TEXTS["kapak_resmi"])
     meta_description = models.TextField(
         blank=True,

@@ -3,6 +3,9 @@ from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
 
+from Nasipsiir.custom_storages import ImageSettingStorage
+
+
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
@@ -55,7 +58,9 @@ class CustomUser(AbstractBaseUser):
     Kayit_Tarihi =models.DateTimeField(auto_now_add=True)
     Son_Giris_Tarihi =models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,blank=True,null=True)
+    # kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
+    kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
+                                    storage=ImageSettingStorage())
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
 
     objects = CustomUserManager()
