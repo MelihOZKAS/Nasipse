@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.conf import settings
 from PIL import Image
+import pillow_avif
 from Nasipsiir.custom_storages import ImageSettingStorage
 
 
