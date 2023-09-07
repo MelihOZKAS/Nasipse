@@ -9,13 +9,15 @@ from django.utils.text import slugify
 from Nasipsiir.custom_storages import ImageSettingStorage
 from sairler.models import Sairler
 from django.conf import settings
+from PIL import Image
+
 
 
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
     # Dosya uzantısını koru
-    uzanti = filename.split('.')[-1]
+    uzanti = 'webp'  # webp formatına dönüştür
     # Yeni dosya adını döndür
     return f"kapak_resimleri/{yeni_ad}.{uzanti}"
 
@@ -174,6 +176,12 @@ class Siirler(models.Model):
             yazar_adi = f"{self.yazar.first_name} {self.yazar.last_name}"
             self.slug = slugify(f"{yazar_adi} - {self.title}-siiri")
             self.title = f"{yazar_adi} - {self.title}"
+        if self.kapak_resmi:
+            img = Image.open(self.kapak_resmi.path)
+            if img.height > 300 or img.width > 300:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                img.save(self.kapak_resmi.path, 'webp', quality=70)
 
         super().save(*args, **kwargs)
 
