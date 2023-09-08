@@ -132,7 +132,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
 
-    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(soz=True)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner = True, soz = True)
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
