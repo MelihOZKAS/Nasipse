@@ -1,0 +1,17 @@
+{% load static %}
+<div class="widget sidebar-widget widget_categories">
+    <h4 class="widget-title">Kategoriler</h4>
+    <ul class="list-wrap">
+        {% for KategoriPopuler in TumSiirBannerKategorileri %}
+            <li>
+                <div class="thumb"><a
+                        href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}"><img
+                        src="{{ KategoriPopuler.kapak_resmi.url }}"
+                        alt="{{ KategoriPopuler.sozler_title }}"></a></div>
+                <a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">{{ KategoriPopuler.sozler_title }}</a>
+
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
