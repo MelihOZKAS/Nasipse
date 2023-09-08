@@ -4,6 +4,9 @@ from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.conf import settings
 
+from Nasipsiir.custom_storages import ImageSettingStorage
+
+
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
@@ -76,8 +79,11 @@ class Sairler(models.Model):
         help_text=HELP_TEXTS["keywords"]
     )
 
+    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
+                                    storage=ImageSettingStorage(),
                                     help_text=HELP_TEXTS["kapak_resmi"])
+
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak",
                               help_text=HELP_TEXTS["status"])
     usermi = models.BooleanField(default=False)
@@ -94,6 +100,9 @@ class Sairler(models.Model):
     def okundu(self):
         self.okunma_sayisi += 1
         self.save()
+
+
+
 
     class Meta:
         verbose_name_plural = "Tüm Şairler"
