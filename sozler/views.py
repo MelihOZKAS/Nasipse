@@ -142,11 +142,12 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'description': alt_kategori.meta_description_soz,
         'keywords': alt_kategori.keywords_soz,
         'sayfa_adi': f"En Güzel {sayfa_adi}",
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+
     }
     return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 
