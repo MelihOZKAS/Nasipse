@@ -6,7 +6,8 @@
 {% block keywords %}{{ siir.keywords }}{% endblock %}
 {% block ogtitle %}{{ siir.title }}{% endblock %}
 {% block ogDes %}{{ siir.meta_description }}{% endblock %}
-
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
@@ -14,7 +15,8 @@
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ siir.title }}{% endblock %}
 {% block twdesc %}{{ siir.meta_description }}{% endblock %}
-
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 
 
@@ -197,6 +199,15 @@
                                     </div>
                                 </div>
 
+
+
+
+
+
+
+
+
+
                                 {% if siir.hakkinda %}
                                     <div class="section__title-wrap mb-40">
                                         <div class="row align-items-end">
@@ -285,7 +296,7 @@
                                         </div>
                                         <div class="col-xl-6 col-md-5">
                                             <div class="blog-details-share">
-                                                <h6 class="share-title">Paylaş</h6>
+                                                <h6 class="share-title">Share Now:</h6>
                                                 <ul class="list-wrap mb-0">
                                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -307,14 +318,28 @@
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <aside class="blog-sidebar">
                                 {% include 'parcali/KisaYollar/bizi_takip.html' %}
-
+                                {% include 'parcali/KisaYollar/sag_kategori_siir.html' %}
                                 {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
-                                {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
+                                <div class="widget sidebar-widget">
+                                    <div class="sidePost-active">
+                                        {% for randonsair in sairRandomsag %}
+                                            <div class="sidePost__item"
+                                                 data-background="{{ randonsair.kapak_resmi.url }}"
+                                                 aria-label="{{ randonsair.title }}">
+                                                <div class="sidePost__content">
+                                                    <h5 class="title tgcommon__hover"><a
+                                                            href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
+                                                        - Hayatı</a></h5>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
                             </aside>
                         </div>
                     </div>
                 </div>
-
         </section>
         <!-- blog-details-area-end -->
 
