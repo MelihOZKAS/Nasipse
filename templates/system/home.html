@@ -23,8 +23,8 @@
     <!-- assets/img/bg/banner_bg.jpg    Arka Plan rengi istersen değiştrebilrsin -->
     <section class="slider__area slider__style-two fix" data-background="{% static 'assets/img/bg/banner_bg.jpg' %}">
         <div class="container">
-        <h1 class="text-center" style="font-size: 14px;">enguzelsiirler.com - Şiir, Şair, Hikaye, Söz, Blog</h1>
-        <br>
+            <h1 class="text-center" style="font-size: 14px;">enguzelsiirler.com - Şiir, Şair, Hikaye, Söz, Blog</h1>
+            <br>
             <div class="slider-active">
                 {% for banner in Banner %}
                     <div class="slider__item">
@@ -133,12 +133,6 @@
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                     </div>
                                     <div class="trending__post-content">
-                                        <ul class="tgbanner__content-meta list-wrap">
-                                            <!--  <li class="category"><a
-                                                    href="{% url 'siir:home' %}">{{ sbanr.kategorisi }}</a>
-                                            </li> -->
-
-                                        </ul>
                                         <h4 class="title tgcommon__hover"><a
                                                 href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}">{{ sbanr.title }}</a>
                                         </h4>
@@ -209,12 +203,6 @@
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                     </div>
                                     <div class="trending__post-content">
-                                        <ul class="tgbanner__content-meta list-wrap">
-                                            <!--  <li class="category"><a
-                                                    href="{% url 'siir:home' %}">{{ soneklenensiir.kategorisi }}</a>
-                                            </li> -->
-
-                                        </ul>
                                         <h4 class="title tgcommon__hover"><a
                                                 href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}">{{ soneklenensiir.title }}</a>
                                         </h4>
@@ -261,7 +249,8 @@
                 {% for PopulerS_ in Populer_sair %}
                     <div class="col-lg-4 col-sm-6">
                         <div class="featured__post">
-                            <div class="featured__thumb" data-background="{{ PopulerS_.kapak_resmi.url }}" aria-label="{{ PopulerS_.title }}">
+                            <div class="featured__thumb" data-background="{{ PopulerS_.kapak_resmi.url }}"
+                                 aria-label="{{ PopulerS_.title }}">
                             </div>
                             <div class="featured__content">
                                 <ul class="tgbanner__content-meta list-wrap">
@@ -318,15 +307,12 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                    <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
+                                        <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         <a href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}"><img
                                                 src="{{ pSozler.sair.kapak_resmi.url }}" alt="{{ pSozler.title }}"></a>
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                     </div>
                                     <div class="trending__post-content">
-                                        <ul class="tgbanner__content-meta list-wrap">
-
-                                        </ul>
                                         <h4 class="title tgcommon__hover"><a
                                                 href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}">{{ pSozler.title }}</a>
                                         </h4>
@@ -383,16 +369,13 @@
                             <div class="swiper-slide">
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
-                                    <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
+                                        <!--    <a href="#" class="addWish"><i class="fal fa-heart"></i></a>   -->
                                         <a href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}"><img
                                                 src="{{ soneklenensozler.sair.kapak_resmi.url }}"
                                                 alt="{{ soneklenensozler.title }}"></a>
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                     </div>
                                     <div class="trending__post-content">
-                                        <ul class="tgbanner__content-meta list-wrap">
-
-                                        </ul>
                                         <h4 class="title tgcommon__hover"><a
                                                 href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}">{{ soneklenensozler.title }}</a>
                                         </h4>
