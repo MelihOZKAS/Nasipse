@@ -103,7 +103,7 @@ class Sairler(models.Model):
         self.save()
 
     def save(self, *args, **kwargs):
-
+        super().save(*args, **kwargs)
 
         if self.kapak_resmi:
             img = Image.open(self.kapak_resmi.path)
@@ -111,7 +111,6 @@ class Sairler(models.Model):
                 output_size = (300, 300)
                 img.thumbnail(output_size)
                 img.save(self.kapak_resmi.path, 'avif', quality=70)
-        super().save(*args, **kwargs)
 
 
     class Meta:
