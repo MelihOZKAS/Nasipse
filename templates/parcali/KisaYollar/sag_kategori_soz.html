@@ -8,10 +8,9 @@
                         href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}"><img
                         src="{{ KategoriPopuler.kapak_resmi.url }}"
                         alt="{{ KategoriPopuler.sozler_title }}"></a></div>
-                <a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">En Güzel {{ KategoriPopuler.sozler_title }}</a>
-
+                <a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">En
+                    Güzel {{ KategoriPopuler.sozler_title }}</a>
             </li>
         {% endfor %}
-
     </ul>
 </div>

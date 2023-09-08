@@ -6,8 +6,7 @@
 {% block keywords %}{{ siir.keywords }}{% endblock %}
 {% block ogtitle %}{{ siir.title }}{% endblock %}
 {% block ogDes %}{{ siir.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
 
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
@@ -15,8 +14,7 @@
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ siir.title }}{% endblock %}
 {% block twdesc %}{{ siir.meta_description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
 
 
 
@@ -117,7 +115,8 @@
                                     <p>{{ random_Soz.icerik|safe }}</p>
                                     <div class="blockquote-cite">
                                         <div class="image">
-                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}" alt="{{ random_Soz.title }}">
+                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}"
+                                                 alt="{{ random_Soz.title }}">
                                         </div>
                                         <div class="info">
                                             <h5>{{ random_Soz.sair }}</h5>
@@ -198,15 +197,6 @@
                                     </div>
                                 </div>
 
-
-
-
-
-
-
-
-
-
                                 {% if siir.hakkinda %}
                                     <div class="section__title-wrap mb-40">
                                         <div class="row align-items-end">
@@ -232,16 +222,22 @@
                             <div class="blog-avatar-wrap">
                                 <div class="blog-avatar-img">
                                     {% if siir.usermi %}
-                                        <a href="#"><i class="far fa-check"></i><img src="{{ siir.yazar.kapak_resmi.url }}" alt="{{ siir.yazar }} - şiirleri, sözleri"></a>
+                                        <a href="#"><i class="far fa-check"></i><img
+                                                src="{{ siir.yazar.kapak_resmi.url }}"
+                                                alt="{{ siir.yazar }} - şiirleri, sözleri"></a>
                                     {% else %}
-                                        <a href="#"><i class="far fa-check"></i><img src="{{ siir.sair.kapak_resmi.url }}" alt="{{ siir.sair.title }}"></a>
-                                    {% endif %} 
+                                        <a href="#"><i class="far fa-check"></i><img
+                                                src="{{ siir.sair.kapak_resmi.url }}" alt="{{ siir.sair.title }}"></a>
+                                    {% endif %}
 
                                 </div>
                                 {% if siir.usermi %}
-                                    <div class="blog-avatar-content">{{ siir.yazar.hakkinda_ozet|safe }} <br> <h5 class="name">{{ siir.yazar.first_name|title }} {{ siir.yazar.last_name|upper }}</h5>  <h5 class="name">{{ siir.sair.title }}</h5>
+                                    <div class="blog-avatar-content">{{ siir.yazar.hakkinda_ozet|safe }} <br>
+                                    <h5 class="name">{{ siir.yazar.first_name|title }} {{ siir.yazar.last_name|upper }}</h5>
+                                    <h5 class="name">{{ siir.sair.title }}</h5>
                                 {% else %}
-                                    <div class="blog-avatar-content">{{ siir.sair.SairOzet|safe }} <h5 class="name">{{ siir.sair.title }}</h5>
+                                    <div class="blog-avatar-content">{{ siir.sair.SairOzet|safe }}
+                                    <h5 class="name">{{ siir.sair.title }}</h5>
 
                                 {% endif %}
 
@@ -257,114 +253,68 @@
 
                                 <div class="button-group">
                                     {% if siir.usermi %}
-                                        <a href="{% url 'konsol:blog-yazar-detay' yazar=siir.yazar.slug %}" class="btn btn-primary">Yazar Detayı</a>
-                                        <a href="{% url 'konsol:blog-yazar-eserleri' yazar=siir.yazar.slug %}" class="btn btn-secondary">Tüm Eserleri</a>
+                                        <a href="{% url 'konsol:blog-yazar-detay' yazar=siir.yazar.slug %}"
+                                           class="btn btn-primary">Yazar Detayı</a>
+                                        <a href="{% url 'konsol:blog-yazar-eserleri' yazar=siir.yazar.slug %}"
+                                           class="btn btn-secondary">Tüm Eserleri</a>
 
                                     {% else %}
-                                        <a href="{% url 'sairler:sair_detail' sair_slug=siir.sair.slug %}" class="btn btn-primary">Şair Detayı</a>
-                                        <a href="{% url 'siir:sair-eserleri' sair_slug=siir.sair.slug %}" class="btn btn-secondary">Tüm Eserleri</a>
+                                        <a href="{% url 'sairler:sair_detail' sair_slug=siir.sair.slug %}"
+                                           class="btn btn-primary">Şair Detayı</a>
+                                        <a href="{% url 'siir:sair-eserleri' sair_slug=siir.sair.slug %}"
+                                           class="btn btn-secondary">Tüm Eserleri</a>
                                     {% endif %}
 
                                 </div>
 
 
-                            </div>
+                                </div>
 
-                            <div class="blog-details-bottom">
-                                <div class="row align-items-baseline">
-                                    <div class="col-xl-6 col-md-7">
-                                        <div class="blog-details-tags">
-                                            <ul class="list-wrap mb-0">
-                                                {% for altKategorieri in siir.alt_kategorisi.all %}
-                                                    <li>
-                                                        <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=altKategorieri.slug %}">{{ altKategorieri.alt_kategori_adi }}</a>
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
+                                <div class="blog-details-bottom">
+                                    <div class="row align-items-baseline">
+                                        <div class="col-xl-6 col-md-7">
+                                            <div class="blog-details-tags">
+                                                <ul class="list-wrap mb-0">
+                                                    {% for altKategorieri in siir.alt_kategorisi.all %}
+                                                        <li>
+                                                            <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=altKategorieri.slug %}">{{ altKategorieri.alt_kategori_adi }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-5">
-                                        <div class="blog-details-share">
-                                            <h6 class="share-title">Share Now:</h6>
-                                            <ul class="list-wrap mb-0">
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                            </ul>
+                                        <div class="col-xl-6 col-md-5">
+                                            <div class="blog-details-share">
+                                                <h6 class="share-title">Paylaş</h6>
+                                                <ul class="list-wrap mb-0">
+                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- alt kucuk rastgele baslangic -->
+                                {% include 'parcali/rastgele.html' %}
+                                <!-- alt kucuk rastgele baslangic bitis -->
+
                             </div>
-
-                            <!-- alt kucuk rastgele baslangic -->
-                            {% include 'parcali/rastgele.html' %}
-                            <!-- alt kucuk rastgele baslangic bitis -->
-
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <aside class="blog-sidebar">
+                                {% include 'parcali/KisaYollar/bizi_takip.html' %}
+                                {% include 'parcali/KisaYollar/sag_kategori_siir.html' %}
+                                {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
+                                {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
+                            </aside>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <aside class="blog-sidebar">
-                            {% include 'parcali/bizi_takip.html' %}
-                            <div class="widget sidebar-widget widget_categories">
-                                <h4 class="widget-title">Kategoriler</h4>
-                                <ul class="list-wrap">
-                                    {% for KategoriPopuler in TumSiirBannerKategorileri %}
-                                        <li>
-                                            <div class="thumb"><a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}"><img
-                                                    src="{{ KategoriPopuler.kapak_resmi.url }}"
-                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
-                                            <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
-
-                                        </li>
-                                    {% endfor %}
-
-                                </ul>
-                            </div>
-                            <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsiir in siirRandomsag %}
-                                        {% if randonsiir.usermi %}
-                                        <div class="sidePost__item" data-background="{{ randonsiir.yazar.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
-                                            {% else %}
-                                            <div class="sidePost__item" data-background="{{ randonsiir.sair.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
-                                        {% endif %} 
-
-                                            <div class="sidePost__content">
-                                                <h5 class="title tgcommon__hover"><a
-                                                        href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-
-
-                                </div>
-
-                            </div>
-                            <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsair in sairRandomsag %}
-                                        <div class="sidePost__item"
-                                             data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
-                                            <div class="sidePost__content">
-                                                <h5 class="title tgcommon__hover"><a
-                                                        href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
-                                                    - Hayatı</a></h5>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-
-
-                                </div>
-
-                            </div>
-
-                        </aside>
-                    </div>
                 </div>
-            </div>
+
         </section>
         <!-- blog-details-area-end -->
 

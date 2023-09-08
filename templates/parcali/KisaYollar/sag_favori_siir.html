@@ -1,0 +1,24 @@
+{% load static %}
+<div class="widget sidebar-widget">
+    <div class="sidePost-active">
+        {% for randonsiir in siirRandomsag %}
+            {% if randonsiir.usermi %}
+                <div class="sidePost__item"
+                     data-background="{{ randonsiir.yazar.kapak_resmi.url }}"
+                     aria-label="{{ randonsiir.title }}">
+            {% else %}
+                <div class="sidePost__item"
+                     data-background="{{ randonsiir.sair.kapak_resmi.url }}"
+                     aria-label="{{ randonsiir.title }}">
+            {% endif %}
+
+        <div class="sidePost__content">
+            <h5 class="title tgcommon__hover"><a
+                    href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
+            </h5>
+        </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
