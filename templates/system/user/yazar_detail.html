@@ -35,8 +35,7 @@
                                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Ana Sayfa</a></li>
                                     <li class="breadcrumb-item"><a href="{% url 'sairler:home' %}">{{ sair.Model }}</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ sair.title }}
-                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ sair.first_name }} {{ sair.last_name }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -82,17 +81,16 @@
                         <div class="blog-details-wrap">
                             <ul class="tgbanner__content-meta list-wrap">
                                 <li class="category"><a href="{% url 'sairler:home' %}">{{ sair.Model }}</a></li>
-                                <li><span class="by">Yazar</span> <a href="blog.html">{{ sair.yazar }}</a></li>
                                 <li>Oluşturma Tarihi: {{ sair.olusturma_tarihi|date:"d F Y" }}</li>
                                 <li>Son Güncelleme Tarihi: {{ sair.guncelleme_tarihi|date:"d F Y" }}</li>
                             </ul>
-                            <h2 class="title">{{ sair.title }}</h2>
+                            <h1 class="title">{{ sair.first_name|title }} {{ sair.last_name|upper }}</h1>
                             <div class="blog-details-thumb" style="text-align: center;">
                                 <img src="{{ sair.kapak_resmi.url }}" alt="{{ sair.title }}">
                             </div>
                             <div class="blog-details-content">
 
-                                <div>{{ sair.title }} Hayatını okumaya başlamadan hemen önce...<br/>
+                                <div>{{ sair.first_name }} {{ sair.last_name }} Hayatını okumaya başlamadan hemen önce...<br/>
                                     <em> <strong> “ {{ sozbasligi }} ” <br/> </strong> </em>
                                     Diye düşünüp aşadaki satırları sizlerle paylaşmayı istedik...
                                 </div>
@@ -112,7 +110,7 @@
 
 
                                 <div>
-                                    <h3 class="text-center">{{ sair.first_name|title }} {{ sair.last_name|upper }} Bilgileri</h3>
+                                    <h2 class="text-center">{{ sair.first_name|title }} {{ sair.last_name|upper }} Bilgileri</h2>
                                 </div>
 
 
