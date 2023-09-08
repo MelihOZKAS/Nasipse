@@ -141,7 +141,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'title': alt_kategori.sozler_title,
         'description': alt_kategori.meta_description_soz,
         'keywords': alt_kategori.keywords_soz,
-        'sayfa_adi': sayfa_adi,
+        'sayfa_adi': f"En Güzel {sayfa_adi}",
         'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
