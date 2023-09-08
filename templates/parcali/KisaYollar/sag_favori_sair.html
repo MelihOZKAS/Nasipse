@@ -3,8 +3,7 @@
     <div class="sidePost-active">
         {% for randonsair in sairRandomsag %}
             <div class="sidePost__item"
-                 data-background="{{ randonsair.kapak_resmi.url }}"
-                 aria-label="{{ randonsair.title }}">
+                 data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
                 <div class="sidePost__content">
                     <h5 class="title tgcommon__hover"><a
                             href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }} - Hayatı</a></h5>
