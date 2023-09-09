@@ -110,6 +110,8 @@ def coklu_sayfa(request):
 
 
 
+
+
     paginator = Paginator(siir, 10) # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
@@ -120,6 +122,8 @@ def coklu_sayfa(request):
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
     siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
+
+    description = f"{description} - Sayfa {page_number}"
 
     context = {
         'icerik': icerik,
@@ -132,6 +136,7 @@ def coklu_sayfa(request):
         'title': title,
         'description': description,
         'keywords': keywords,
+
     }
     return render(request, 'system/siir/coklu_sayfa.html', context)
 

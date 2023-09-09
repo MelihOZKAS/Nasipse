@@ -9,16 +9,13 @@
 {% block keywords %}{{ keywords }}{% endblock %}
 {% block ogtitle %}{{ title }}{% endblock %}
 {% block ogDes %}{{ description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ title }}{% endblock %}
 {% block twdesc %}{{ description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
 
 
 
