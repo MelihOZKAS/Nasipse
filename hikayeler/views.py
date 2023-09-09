@@ -211,12 +211,20 @@ def all_Kategori(request):
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
+    title = "Tüm Hikaye Kategorileri, Aşk Hikayeleri"
+    description = "Tüm hikayelerin konu başlıkları, aşk hikayeleri, dini hikayeler ve çok daha fazla hikaye kategorisi, hadi sizde hikayelerinizi bizimle paylaşın"
+    keywords = "dini hikayeler, romantik aşk hikayeler, kısa hikayeler, uzun hikayeler, aşk hikayeleri, gerçek hikayeler, ibretlik hikayeler, etkileyici hikayeler, meşhur aşk hikayeleri"
+
+
     context = {
         'tum_alt_kategoriler': tum_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': cok_okunan_Hikaye,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
 
     }
     return render(request, 'system/hikaye/tum_hikaye_kategori.html', context)
