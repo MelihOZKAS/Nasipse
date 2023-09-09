@@ -227,9 +227,9 @@
                                 <ul class="list-wrap">
                                     {% for KategoriPopuler in TumSiirBannerKategorileri %}
                                         <li>
-                                            <div class="thumb"><a href="blog.html"><img
+                                            <div class="thumb"><img
                                                     src="{{ KategoriPopuler.kapak_resmi.url }}"
-                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
+                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></div>
                                             <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
 
                                         </li>
