@@ -14,8 +14,6 @@ from django.db.models import Count
 
 
 
-
-
 def alt_kategori_detail(request, alt_kategori_slug):
     alt_kategori = get_object_or_404(HikayeAltKategori, slug=alt_kategori_slug)
     Hikaye = Hikayeler.objects.filter(alt_kategorisi=alt_kategori).order_by('?')
