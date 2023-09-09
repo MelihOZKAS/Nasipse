@@ -107,16 +107,16 @@ def coklu_sayfa(request):
     CokOkunanSiirler = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
-    siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
     context = {
         'icerik': icerik,
         'sayfa_adi': sayfa_adi,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': title,
         'description': description,
