@@ -42,6 +42,7 @@ def all_Kategori(request):
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:6]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('-okunma_sayisi')[:15]
 
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True, aktif=True, siir=True)
     siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
@@ -49,7 +50,8 @@ def all_Kategori(request):
         'tum_alt_kategoriler': tum_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,  # popülerKategoriler
+        'siirRandomsag': siirRandom,
         'sairRandomsag': sairRandomsag,
 
     }
