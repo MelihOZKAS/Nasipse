@@ -160,6 +160,9 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
+    if page_number is None:
+        page_number = 1
+
     context = {
         'icerik': icerik,
         'alt_kategori': alt_kategori,
@@ -169,6 +172,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'random_populer': random_populer,
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
+        'page_number': page_number,
 
     }
     return render(request, 'system/siir/altkategoridetay.html', context)
