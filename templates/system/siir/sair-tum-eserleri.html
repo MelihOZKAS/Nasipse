@@ -2,21 +2,22 @@
 {% load static %}
 
 
-{% block title %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block description %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block keywords %}{{ alt_kategori.keywords }}{% endblock %}
-{% block ogtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block ogDes %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
+{% block title %}En Güzel {{ siir.title }}{% endblock %}
+{% block description %}{{ siir.meta_description }}{% endblock %}
+{% block keywords %}{{ siir.keywords }}{% endblock %}
+{% block ogtitle %}En Güzel {{ siir.title }}{% endblock %}
+{% block ogDes %}{{ siir.meta_description }}{% endblock %}
+
+
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block twdesc %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twtitle %}En Güzel {{ siir.title }}{% endblock %}
+{% block twdesc %}{{ siir.meta_description }}{% endblock %}
+
+
 
 
 
@@ -35,7 +36,7 @@
                             <div class="row align-items-end">
                                 <div class="col-sm-6">
                                     <div class="section__title">
-                                        <h3 class="section__main-title">{{ sayfa_adi }}</h3>
+                                        <h1 class="section__main-title">{{ sayfa_adi }}</h1>
                                     </div>
                                 </div>
                             </div>
@@ -69,9 +70,7 @@
                                             <li>Türü: {{ siir.Model }}</li>
                                             <li>Ekleme Tarihi: {{ siir.olusturma_tarihi|date }}</li>
                                         </ul>
-                                        <h3 class="title tgcommon__hover">
-
-
+                                        <h2 class="title tgcommon__hover">
 
                                             {% if siir.Model == "Şiirler" %}
                                                 <a href="{% url 'siir:siir_detail' siir_slug=siir.slug %}">{{ siir.title }}</a>
@@ -81,7 +80,7 @@
                                                 <a href="{% url 'hikaye:hikaye_slug' hikaye_slug=siir.slug %}">{{ siir.title }}</a>
                                             {% endif %}
 
-                                        </h3>
+                                        </h2>
                                         <p>{{ siir.title|truncatechars:50 }}</p>
                                     </div>
                                 </div>
@@ -111,65 +110,15 @@
 
 
                     </div>
-
-
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
-                            <div class="widget sidebar-widget widget_categories">
-                                <h4 class="widget-title">Kategoriler</h4>
-                                <ul class="list-wrap">
-                                    {% for KategoriPopuler in TumSiirBannerKategorileri %}
-                                        <li>
-                                            <div class="thumb"><a href="blog.html"><img
-                                                    src="{{ KategoriPopuler.kapak_resmi.url }}"
-                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
-                                            <a href="blog.html">{{ KategoriPopuler.alt_kategori_adi }}</a>
-
-                                        </li>
-                                    {% endfor %}
-
-                                </ul>
-                            </div>
+                            {% include 'parcali/KisaYollar/sag_kategori_siir.html' %}
                             <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsiir in siirRandom %}
-                                        {% if randonsiir.usermi %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}"  aria-label="{{ randonsiir.title }}">
-                                        {% else %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}"  aria-label="{{ randonsiir.title }}">
-                                        {% endif %}
-                                    <div class="sidePost__content">
-                                        <h5 class="title tgcommon__hover"><a
-                                                href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
-                                        </h5>
-                                    </div>
-                                    </div>
-                                    {% endfor %}
+                                {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
+                                {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
+                            </div>
 
-
-                                    </div>
-
-                                </div>
-                                <div class="widget sidebar-widget">
-                                    <div class="sidePost-active">
-                                        {% for randonsair in sairRandomsag %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
-                                                <div class="sidePost__content">
-                                                    <h5 class="title tgcommon__hover"><a
-                                                            href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
-                                                        - Hayatı</a></h5>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-
-
-                                    </div>
-
-                                </div>
                         </aside>
                     </div>
                 </div>

@@ -140,7 +140,7 @@ def coklu_sayfa(request):
 def alt_kategori_detail(request,  alt_kategori_slug):
     alt_kategori = get_object_or_404(SiirAltKategori, slug=alt_kategori_slug)
     siir = Siirler.objects.filter(alt_kategorisi=alt_kategori).order_by('?')
-    sayfa_adi = alt_kategori.alt_kategori_adi
+    sayfa_adi = f"En Güzel {alt_kategori.alt_kategori_adi}"
 
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
@@ -150,17 +150,17 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     CokOkunanSiirler = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
-    siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
     context = {
         'icerik': icerik,
         'alt_kategori': alt_kategori,
         'sayfa_adi': sayfa_adi,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
 
     }
@@ -184,17 +184,24 @@ def sairTumeserleri(request,  sair_slug):
     CokOkunanSiirler = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
-    siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
+
+    title = f"{BulunanSair.title} Tüm Şiir ve Sözleri"
+    description = f"{BulunanSair.meta_description}"
+    keywords = f"{BulunanSair.keywords}"
 
     context = {
         'icerik': icerik,
         'sayfa_adi': sayfa_adi,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
 
     }
     return render(request, 'system/siir/sair-tum-eserleri.html', context)
