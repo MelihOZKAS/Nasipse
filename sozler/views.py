@@ -14,7 +14,7 @@ def yazar_home_detail(request, ):
     populersiir = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True)[:15]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
     son_eklenen_sozler = Sozler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairpopuler = Sairler.objects.filter(aktif=True, small_banner=True, status="Yayinda").order_by('?')[:15]
     tum_banner_alt_kategoriler_soz = SiirAltKategori.objects.filter(banner=True,soz=True)
@@ -23,10 +23,10 @@ def yazar_home_detail(request, ):
 
         'CokOkunanSiirler': CokOkunanSiirler,
         'son_eklenen_sozler': son_eklenen_sozler,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'sairpopuler': sairpopuler,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler_soz,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler_soz,
         'populersiir': populersiir
     }
     return render(request, 'system/sozler/sozler_home.html', context)
