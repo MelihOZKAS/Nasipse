@@ -191,6 +191,7 @@ def coklu_sayfa(request):
         'sayfa_adi': sayfa_adi,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
+
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
