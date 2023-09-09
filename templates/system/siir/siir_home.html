@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ keyler.title }}{% endblock %}
-{% block description %}{{ keyler.meta_description }}{% endblock %}
-{% block keywords %}{{ keyler.keywords }}{% endblock %}
-{% block ogtitle %}{{ keyler.title }}{% endblock %}
-{% block ogDes %}{{ keyler.meta_description }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}{{ keyler.title }}{% endblock %}
-{% block twdesc %}{{ keyler.meta_description }}{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
 
 
 {% block content %}
