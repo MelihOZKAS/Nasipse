@@ -36,7 +36,7 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'icerik': icerik,
         'alt_kategori': alt_kategori,
         'sayfa_adi': sayfa_adi,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
         'siirRandomsag': siirRandomsag,
