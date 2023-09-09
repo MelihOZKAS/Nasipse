@@ -27,6 +27,7 @@ def yazar_home_detail(request, ):
         'sairRandomsag': sairRandomsag,
         'sairpopuler': sairpopuler,
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler_soz,
+        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler_soz,
         'populersiir': populersiir
     }
     return render(request, 'system/sozler/sozler_home.html', context)
