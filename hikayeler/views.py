@@ -51,7 +51,7 @@ def hikaye_home(request):
     hikayePopuler = Hikayeler.objects.filter(small_banner=True)[:15]
     CokOkunanHikayeler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
     son_eklenen_Hikayeler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     CokBeginiAlan = Hikayeler.objects.annotate(begeni_sayisi=Count('begenihikayeler')).order_by('-begeni_sayisi')[:15]
@@ -65,7 +65,7 @@ def hikaye_home(request):
         'populersiir': hikayePopuler,
         'CokOkunanSiirler': CokOkunanHikayeler,
         'son_eklenen_siirler': son_eklenen_Hikayeler,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'CokBeginiAlan': CokBeginiAlan,
         'title': title,
