@@ -18,6 +18,10 @@ def sair_home_detail(request, ):
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True,siir=True)
     tum_banner_alt_kategoriler_soz = SiirAltKategori.objects.filter(banner=True,soz=True)
 
+    title = "Türk Edebiyatı'nın En Ünlü Şairleri Eserleri ve Biyografileri"
+    description = "Şairlerimizin eserleri ve biyografilerine ulaşabilirsiniz. Ünlü şairlerimizin şiirlerini ve hayat hikayelerini keşfedebilir, en büyük şairlerin eserlerine buradan ulaşabilirsiniz."
+    keywords = "şiir, şair, en ünlü şairler, türk edebiyatı, şair biyografileri, türk ünlü şairler, türk şairler, kadın şairler"
+
     context = {
         'CokOkunanSiirler': CokOkunanSiirler,
         'son_eklenen_Yazarlar': son_eklenen_Yazarlar,
@@ -27,7 +31,10 @@ def sair_home_detail(request, ):
         'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'tum_banner_alt_kategoriler_soz': tum_banner_alt_kategoriler_soz,
-        'populersiir': populersiir
+        'populersiir': populersiir,
+        'title' : title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/sair/sair_home.html', context)
 

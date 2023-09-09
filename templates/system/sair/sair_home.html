@@ -2,34 +2,32 @@
 {% load static %}
 
 
-{% block title %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız | www.enguzelsiirler.com{% endblock %}
-{% block description %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
-{% block keywords %}şairler,ünlü şairler,yazarlar,amatör yazarlar,şiirler,anlamlı sözler{% endblock %}
-{% block ogtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
-{% block ogDes %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}Şiir, Hikaye, Söz ve Dahası Tüm Yazarlarımız{% endblock %}
-{% block twdesc %}Milletimizin tüm şair ve yazarlarının hakkında detaylı sürekli güncellenen bir sayfa şairlerin ya da yazarların tüm eserlerine direk erişim sağlanabilir{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
 
 
 {% block content %}
 
     <!-- main-area -->
     <main>
-    <h1 class="text-center">Tüm Şair ve Yazarlarımız</h1>
         <!-- trending-area -->
         <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
             <div class="container">
+                <h1 class="text-center" style="font-size: 14px;">Türk Edebiyatı'nın En Ünlü Şairlerinin Eserleri ve Biyografileri</h1>
                 <div class="section__title-wrap mb-40">
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">Popüler Yazarlar</h3>
+                                <h2 class="section__main-title">Popüler Yazarlar</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -49,8 +47,8 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-
-                                            <a href="{% url 'sairler:sair_detail'  sair_slug=pSair.slug %}"><img src="{{ pSair.kapak_resmi.url }}" alt="{{ pSair.title }}"></a>
+                                            <a href="{% url 'sairler:sair_detail'  sair_slug=pSair.slug %}"><img
+                                                    src="{{ pSair.kapak_resmi.url }}" alt="{{ pSair.title }}"></a>
                                             <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                         </div>
                                         <div class="trending__post-content">
@@ -96,13 +94,12 @@
                     {% for KategoriPopuler in tum_banner_alt_kategoriler %}
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
-                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.alt_kategori_adi }}"> </div>
-
-
+                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}"
+                                     aria-label="{{ KategoriPopuler.alt_kategori_adi }}"></div>
                                 <div class="featured__content">
-                                    <h4 class="title tgcommon__hover"><a
-                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
-                                    </h4>
+                                    <h2 class="title tgcommon__hover"><a
+                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -115,10 +112,6 @@
         <!-- Popüler Şiir Kategorileri Bitis -->
 
 
-
-
-
-
         <!-- En çok okunan şiirler -->
         <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
             <div class="container">
@@ -126,7 +119,7 @@
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">En Çok Okunan Şiirler</h3>
+                                <h2 class="section__main-title">En Çok Okunan Şiirler</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -146,11 +139,12 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-
                                             {% if pSiir.usermi %}
-                                            <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
-                                                {% else %}
-                                                <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img src="{{ pSiir.sair.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
+                                                <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
+                                                        src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
+                                            {% else %}
+                                                <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
+                                                        src="{{ pSiir.sair.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
                                             {% endif %}
 
                                             <span class="is_trend"><i class="fas fa-bolt"></i></span>
@@ -159,9 +153,9 @@
                                             <ul class="tgbanner__content-meta list-wrap">
 
                                             </ul>
-                                            <h4 class="title tgcommon__hover"><a
+                                            <h2 class="title tgcommon__hover"><a
                                                     href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}">{{ pSiir.title }}</a>
-                                            </h4>
+                                            </h2>
                                             <ul class="tgbanner__content-meta list-wrap">
                                                 <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
@@ -187,19 +181,20 @@
         <!-- En çok okunan şiirler -->
 
 
-            <!-- Popüler Soz Kategorileri -->
+        <!-- Popüler Soz Kategorileri -->
         <section class="featured-post-area section__hover-line pt-75">
             <div class="container">
                 <div class="section__title-wrap mb-40">
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">Popüler Söz Kategorileri</h3>
+                                <h2 class="section__main-title">Popüler Söz Kategorileri</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="section__read-more text-start text-sm-end">
-                                <a href="{% url 'sozler:tum-soz-kategorileri' %}">Tüm Söz Kategorileri<i class="far fa-long-arrow-right"></i></a>
+                                <a href="{% url 'sozler:tum-soz-kategorileri' %}">Tüm Söz Kategorileri<i
+                                        class="far fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -208,9 +203,12 @@
                     {% for KategoriPopuler in tum_banner_alt_kategoriler_soz %}
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
-                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ randonsair.title }}"> </div>
+                                <div class="featured__thumb" data-background="{{ KategoriPopuler.kapak_resmi.url }}"
+                                     aria-label="{{ randonsair.title }}"></div>
                                 <div class="featured__content">
-                                    <h4 class="title tgcommon__hover"><a href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">{{ KategoriPopuler.sozler_title }}</a> </h4>
+                                    <h2 class="title tgcommon__hover"><a
+                                            href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">En Güzel {{ KategoriPopuler.sozler_title }}</a>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +221,6 @@
         <!-- Popüler Soz Kategorileri Bitis -->
 
 
-
         <!-- En son eklenen Şiirler -->
         <section class="latest-post-area pt-80 pb-80">
             <div class="container">
@@ -233,13 +230,13 @@
                             <div class="row align-items-end">
                                 <div class="col-sm-6">
                                     <div class="section__title">
-                                        <h3 class="section__main-title">Popüler Şairler</h3>
+                                        <h2 class="section__main-title">Popüler Şairler</h2>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="section__read-more text-start text-sm-end">
                                         <a href="{% url 'sairler:populer-sairler' %}">Popüler Şairlerin Tümü<i
-                                                    class="far fa-long-arrow-right"></i></a>
+                                                class="far fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +246,9 @@
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
 
-                                        <a href="{% url 'sairler:sair_detail' sair_slug=soneklenensiir.slug %}"><img src="{{ soneklenensiir.kapak_resmi.url }}" alt="{{ soneklenensiir.title }}"></a>
+                                        <a href="{% url 'sairler:sair_detail' sair_slug=soneklenensiir.slug %}"><img
+                                                src="{{ soneklenensiir.kapak_resmi.url }}"
+                                                alt="{{ soneklenensiir.title }}"></a>
                                     </div>
                                     <div class="latest__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
@@ -257,9 +256,9 @@
 
                                             <li>Ekleme Tarihi: {{ soneklenensiir.olusturma_tarihi|date }}</li>
                                         </ul>
-                                        <h3 class="title tgcommon__hover"><a
+                                        <h2 class="title tgcommon__hover"><a
                                                 href="{% url 'sairler:sair_detail' sair_slug=soneklenensiir.slug %}">{{ soneklenensiir.title }}</a>
-                                        </h3>
+                                        </h2>
                                         <p>{{ soneklenensiir.title|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
