@@ -208,7 +208,8 @@ def all_Kategori(request):
     cok_okunan_Hikaye = Hikayeler.objects.filter(small_banner=True,status="Yayinda",aktif=True).order_by('-okunma_sayisi')[:8]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(aktif=True, banner=True)
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     title = "Tüm Hikaye Kategorileri, Aşk Hikayeleri"
@@ -220,7 +221,8 @@ def all_Kategori(request):
         'tum_alt_kategoriler': tum_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': cok_okunan_Hikaye,
-        'siirRandom': siirRandom,
+        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': title,
         'description': description,
