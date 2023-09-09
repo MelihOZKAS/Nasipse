@@ -198,8 +198,12 @@ def sairTumeserleri(request,  sair_slug):
     siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
+
+    if page_number is None:
+        page_number = 1
+
     title = f"{BulunanSair.title} Tüm Şiir ve Sözleri"
-    description = f"{BulunanSair.meta_description}"
+    description = f"{BulunanSair.meta_description} - Sayfa {page_number}"
     keywords = f"{BulunanSair.keywords}"
 
     context = {

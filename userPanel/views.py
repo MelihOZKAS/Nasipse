@@ -254,6 +254,11 @@ def yazar_tum_eserleri(request,  yazar):
     siirRandom = Siirler.objects.order_by('?')[:8]
     sairRandomsag = Sairler.objects.order_by('?')[:8]
 
+
+    if page_number is None:
+        page_number = 1
+
+
     context = {
         'icerik': icerik,
         'sayfa_adi': sayfa_adi,
@@ -262,6 +267,7 @@ def yazar_tum_eserleri(request,  yazar):
         'random_populer': random_populer,
         'siirRandom': siirRandom,
         'sairRandomsag': sairRandomsag,
+        'page_number': page_number,
 
     }
     return render(request, 'system/user/yazar-tum-eserleri.html', context)

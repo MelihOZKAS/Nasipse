@@ -30,6 +30,9 @@ def alt_kategori_detail(request, alt_kategori_slug):
     siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
+
+    if page_number is None:
+        page_number = 1
     context = {
         'icerik': icerik,
         'alt_kategori': alt_kategori,
@@ -40,7 +43,7 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': alt_kategori.alt_kategori_adi,
-        'description': alt_kategori.meta_description,
+        'description': f"{alt_kategori.meta_description} - Sayfa {page_number}",
         'keywords': alt_kategori.keywords,
     }
     return render(request, 'system/hikaye/hikaye_coklu_sayfa.html', context)
@@ -179,6 +182,10 @@ def coklu_sayfa(request):
     tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(aktif=True,banner=True)
     siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+
+    if page_number is None:
+        page_number = 1
+    description = f"{description} - Sayfa {page_number}"
 
     context = {
         'icerik': icerik,

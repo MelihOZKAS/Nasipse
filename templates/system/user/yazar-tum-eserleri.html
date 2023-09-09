@@ -3,20 +3,17 @@
 
 
 {% block title %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block description %}{{ alt_kategori.meta_description }}{% endblock %}
+{% block description %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
 {% block keywords %}{{ alt_kategori.keywords }}{% endblock %}
 {% block ogtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block ogDes %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogDes %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ alt_kategori.alt_kategori_adi }}{% endblock %}
-{% block twdesc %}{{ alt_kategori.meta_description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twdesc %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
+
 
 
 

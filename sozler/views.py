@@ -60,6 +60,10 @@ def TumSozlerSade(request):
     siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
+    if page_number is None:
+        page_number = 1
+    description = f"{description} - Sayfa {page_number}"
+
 
     context = {
         'icerik': icerik,
@@ -112,7 +116,9 @@ def TumSozler(request,  sair_slug):
     keywords = "anlamlı sözler, ilginç sözler, özlü sözler, güzel sözler, en güzel sözler"
 
 
-
+    if page_number is None:
+        page_number = 1
+    description = f"{description} - Sayfa {page_number}"
 
     context = {
         'icerik': icerik,
@@ -144,10 +150,14 @@ def alt_kategori_detail(request,  alt_kategori_slug):
     siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
+
+    if page_number is None:
+        page_number = 1
+
     context = {
         'icerik': icerik,
         'title': alt_kategori.sozler_title,
-        'description': alt_kategori.meta_description_soz,
+        'description': f"{alt_kategori.meta_description_soz} - Sayfa {page_number}",
         'keywords': alt_kategori.keywords_soz,
         'sayfa_adi': f"En Güzel {sayfa_adi}",
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
