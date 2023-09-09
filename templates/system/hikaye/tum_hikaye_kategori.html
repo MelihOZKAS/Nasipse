@@ -35,7 +35,7 @@
                                         </div>
                                     <div class="featured__content">
                                         <h4 class="title tgcommon__hover"><a
-                                                href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
+                                                href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -45,7 +45,6 @@
             </div>
         </section>
         <!-- featured-area-end -->
-
 
         <!-- En son eklenen Şiirler -->
         <section class="latest-post-area pt-80 pb-80">
@@ -79,9 +78,9 @@
 
                                             <li>Ekleme Tarihi: {{ populersiir.olusturma_tarihi|date }}</li>
                                         </ul>
-                                        <h3 class="title tgcommon__hover"><a
+                                        <h2 class="title tgcommon__hover"><a
                                                 href="{% url 'hikaye:hikaye_slug' hikaye_slug=populersiir.slug %}">{{ populersiir.title }}</a>
-                                        </h3>
+                                        </h2>
                                         <p>{{ populersiir.title|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->

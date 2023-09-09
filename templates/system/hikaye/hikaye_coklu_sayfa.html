@@ -54,9 +54,9 @@
 
                                             <li>Ekleme Tarihi: {{ siir.olusturma_tarihi|date }}</li>
                                         </ul>
-                                        <h3 class="title tgcommon__hover"><a
+                                        <h2 class="title tgcommon__hover"><a
                                                 href="{% url 'hikaye:hikaye_slug' hikaye_slug=siir.slug %}">{{ siir.title }}</a>
-                                        </h3>
+                                        </h2>
                                         <p>{{ siir.title|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
@@ -93,7 +93,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
@@ -108,13 +107,6 @@
             </div>
         </section>
         <!--  En son eklenen Şiirler -end -->
-
-
     </main>
     <!-- main-area-end -->
-
-
-
-
-
 {% endblock %}

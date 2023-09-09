@@ -214,7 +214,7 @@ def all_Kategori(request):
         'tum_alt_kategoriler': tum_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': cok_okunan_Hikaye,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': title,
