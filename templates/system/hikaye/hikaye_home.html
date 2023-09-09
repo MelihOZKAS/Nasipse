@@ -186,7 +186,7 @@
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                                 {% for alt_kategori in pSiir.alt_kategorisi.all %}
                                                     <li>
-                                                        <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
+                                                        <a href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
                                                     </li>
                                                 {% endfor %}
 
@@ -256,7 +256,7 @@
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                                 {% for alt_kategori in pSiir.alt_kategorisi.all %}
                                                     <li>
-                                                        <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
+                                                        <a href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=alt_kategori.slug %}">{{ alt_kategori.alt_kategori_adi }}</a>
                                                     </li>
                                                 {% endfor %}
 
