@@ -46,7 +46,6 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-                                            <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
                                             {% if pSiir.usermi %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
@@ -100,7 +99,7 @@
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">Popüler Kategoriler</h3>
+                                <h2 class="section__main-title">Popüler Şiir Kategorileri</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -119,9 +118,9 @@
                                      data-background="{{ KategoriPopuler.kapak_resmi.url }}"
                                      aria-label="{{ KategoriPopuler.alt_kategori_adi }}"></div>
                                 <div class="featured__content">
-                                    <h4 class="title tgcommon__hover"><a
-                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
-                                    </h4>
+                                    <h2 class="title tgcommon__hover"><a
+                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +140,7 @@
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">En Çok Okunan Şiirler</h3>
+                                <h2 class="section__main-title">En Çok Okunan Şiirler</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -161,7 +160,7 @@
                                 <div class="swiper-slide">
                                     <div class="trending__post">
                                         <div class="trending__post-thumb tgImage__hover">
-                                            <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
+
                                             {% if pSiir.usermi %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>

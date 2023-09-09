@@ -62,9 +62,9 @@
 
                                             <li>Ekleme Tarihi: {{ siir.olusturma_tarihi|date }}</li>
                                         </ul>
-                                        <h3 class="title tgcommon__hover"><a
+                                        <h2 class="title tgcommon__hover"><a
                                                 href="{% url 'siir:siir_detail' siir_slug=siir.slug %}">{{ siir.title }}</a>
-                                        </h3>
+                                        </h2>
                                         <p>{{ siir.title|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
