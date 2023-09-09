@@ -123,6 +123,8 @@ def coklu_sayfa(request):
     siirRandomsag = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
+    if page_number is None:
+        page_number = 1
     description = f"{description} - Sayfa {page_number}"
 
     context = {
