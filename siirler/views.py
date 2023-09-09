@@ -91,19 +91,19 @@ def coklu_sayfa(request):
 
     if url_name == 'populer-siirler':
         siir = Siirler.objects.filter(small_banner=True).order_by('?')
-        sayfa_adi = "Popüler Şiirler"
-        title = "Popüler Şiirler"
+        sayfa_adi = "Popüler Şiirler - enguzelsiirler.com"
+        title = "En Popüler Şiirler - enguzelsiirler.com"
         description = "Değerli şairlerimizin popüler şiirleri dev şiir arşivi"
         keywords = "şiir, meşhur şiirler, pöpüler şiirler, aşk şiirleri, atatürk şiirleri"
     elif url_name == 'cok-okunan-siirler':
         siir = Siirler.objects.filter(small_banner=True).order_by('-okunma_sayisi')
-        sayfa_adi = "En Çok Okunan Şiirler"
+        sayfa_adi = "En Çok Okunan Şiirler - enguzelsiirler.com"
         title = "En Çok Okunan Şiirler"
         description = "Değerli şairlerimizin en çok okunan şiirlerinin listesi"
         keywords = "şiir, kısa aşk şiirleri, az bilinen aşk şiirleri, romantik şiirler, sevgiliye şiir"
     elif url_name == 'en-son-eklenen-siirler':
         siir = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('-olusturma_tarihi')
-        sayfa_adi = "En Son Eklenen Şiirler"
+        sayfa_adi = "En Son Eklenen Şiirler - enguzelsiirler.com"
         title = "En Son Eklenen Şiirler"
         description = "Sitemize en son eklenen şiirlerin sıralaması aradığınız tüm şiirler burada"
         keywords = "şiir, meşhur şiirler, pöpüler şiirler, aşk şiirleri, atatürk şiirleri"

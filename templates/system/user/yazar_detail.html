@@ -81,7 +81,7 @@
                                 <li class="category"><a href="{% url 'sairler:home' %}">Ana Sayfa</a></li>
                                 <li>Oluşturma Tarihi: {{ sair.Kayit_Tarihi|date:"d F Y" }}</li>
                             </ul>
-                            <h1 class="title">{{ sair.first_name|title }} {{ sair.last_name|upper }}</h1>
+                            <h1 class="title">{{ sair.first_name|title }} {{ sair.last_name|upper }} Hakkında</h1>
                             <div class="blog-details-thumb" style="text-align: center;">
                                 <img src="{{ sair.kapak_resmi.url }}" alt="Şiir Yazarı {{ sair.first_name|title }}">
                             </div>
