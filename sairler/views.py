@@ -55,6 +55,7 @@ def sair_detail(request,  sair_slug):
 
 
     siirRandomsag, sairRandomsag, sozRandom, siirRandom, yazarRandom, hikayeRandom = bunlarLazim(siir)
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True, soz=True)
 
     quotes = [
         "Sözlerin gücü, insanların kalplerini fetheden ve dünyayı değiştiren güzellikte gizlidir.",
@@ -76,6 +77,7 @@ def sair_detail(request,  sair_slug):
         'siirRandom': siirRandom,
         'yazarRandom': yazarRandom,
         'hikayeRandom': hikayeRandom,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
     }
