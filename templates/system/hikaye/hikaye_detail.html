@@ -7,14 +7,16 @@
 {% block keywords %}{{ siir.keywords }}{% endblock %}
 {% block ogtitle %}{{ siir.title }}{% endblock %}
 {% block ogDes %}{{ siir.meta_description }}{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}{{ siir.title }}{% endblock %}
 {% block twdesc %}{{ siir.meta_description }}{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
+    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 
 
 
@@ -92,7 +94,8 @@
                                     <p>{{ random_Soz.icerik|safe }}</p>
                                     <div class="blockquote-cite">
                                         <div class="image">
-                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}" alt="{{ random_Soz.title }}">
+                                            <img src="{{ random_Soz.sair.kapak_resmi.url }}"
+                                                 alt="{{ random_Soz.title }}">
                                         </div>
                                         <div class="info">
                                             <h5>{{ random_Soz.sair }}</h5>
@@ -219,6 +222,7 @@
 
                         </div>
                     </div>
+
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
@@ -226,7 +230,7 @@
                             <div class="widget sidebar-widget">
                                 {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
                                 {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
-
+                            </div>
                         </aside>
                     </div>
                 </div>
