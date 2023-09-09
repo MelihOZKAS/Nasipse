@@ -26,7 +26,7 @@
         <!-- featured-area -->
         <section class="featured-post-area section__hover-line pt-75">
             <div class="container">
-                <h4 class="widget-title">Tüm Güzel Sözler Kategorileri</h4>
+                <h1 class="widget-title">Tüm Güzel Sözler Kategorileri</h1>
                 <div class="row">
                     {% for KategoriPopuler in tum_alt_kategoriler %}
                         <div class="col-lg-4 col-sm-6">
@@ -35,9 +35,9 @@
                                      data-background="{{ KategoriPopuler.kapak_resmi.url }}" aria-label="{{ KategoriPopuler.sozler_title }}">
                                 </div>
                                 <div class="featured__content">
-                                    <h4 class="title tgcommon__hover"><a
-                                            href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}">{{ KategoriPopuler.sozler_title }}</a>
-                                    </h4>
+                                    <h2 class="title tgcommon__hover"><a
+                                            href="{% url 'sozler:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.sozler_slug %}"> En Güzel {{ KategoriPopuler.sozler_title }}</a>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                 <div class="col-sm-6">
                                     <div class="section__title">
 
-                                        <h1 class="section__main-title">Pöpüler Şiirler</h1>
+                                        <h2 class="section__main-title">Pöpüler Şiirler</h2>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
