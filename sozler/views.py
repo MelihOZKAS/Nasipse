@@ -78,14 +78,17 @@ def all_Kategori(request):
     random_populer = Siirler.objects.filter(aktif=True,status="Yayinda",small_banner=True).order_by('?')[:8]
     CokOkunanSiirler = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True, soz=True)
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     context = {
         'tum_alt_kategoriler': tum_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
 
     }
@@ -96,7 +99,6 @@ def TumSozler(request,  sair_slug):
     BulunanSair = get_object_or_404(Sairler, slug=sair_slug)
     siir = Sozler.objects.filter(sair=BulunanSair).order_by('-olusturma_tarihi')
     sayfa_adi = f"Tüm {BulunanSair.title} Eserleri"
-
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
