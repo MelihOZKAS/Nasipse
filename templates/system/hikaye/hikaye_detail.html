@@ -223,23 +223,7 @@
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
                             {% include 'parcali/KisaYollar/sag_kategori_hikaye.html' %}
-                            <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsiir in siirRandomsag %}
-                                        <div class="sidePost__item"
-                                             data-background="{{ randonsiir.kapak_resmi.url }}" aria-label="{{ randonsiir.title }}">
-                                            <div class="sidePost__content">
-                                                <h5 class="title tgcommon__hover"><a
-                                                        href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-
-
-                                </div>
-
-                            </div>
+                            {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
                             <div class="widget sidebar-widget">
                                 <div class="sidePost-active">
                                     {% for randonsair in sairRandomsag %}
