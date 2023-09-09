@@ -350,13 +350,11 @@
                                 <ul class="list-wrap">
                                     {% for KategoriPopuler in TumSiirBannerKategorileri %}
                                         <li>
-                                            <!-- Hata -->
                                             <div class="thumb"><a
                                                     href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}"><img
                                                     src="{{ KategoriPopuler.kapak_resmi.url }}"
                                                     alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
                                             <a href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
-
                                         </li>
                                     {% endfor %}
 

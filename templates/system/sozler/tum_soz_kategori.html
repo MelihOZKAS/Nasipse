@@ -7,16 +7,13 @@
 {% block keywords %}aşk sözleri, baba sözler, kısa sözler,anlamlı sözler,giderli sözler, atarlı sözler{% endblock %}
 {% block ogtitle %}Tüm Söz Kategorileri | www.enguzelsiirler.com{% endblock %}
 {% block ogDes %}Söz kategorileri ünlü yazar ve şairlerin veya kişilerin kendi yazdıkları sözlerin paylaşıldığı yeni nesil paylaşım yeri{% endblock %}
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
 {% block twtitle %}Tüm Söz Kategorileri | www.enguzelsiirler.com{% endblock %}
 {% block twdesc %}Söz kategorileri ünlü yazar ve şairlerin veya kişilerin kendi yazdıkları sözlerin paylaşıldığı yeni nesil paylaşım yeri{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
+
 
 
 
@@ -45,8 +42,6 @@
                             </div>
                         </div>
                     {% endfor %}
-
-
                 </div>
             </div>
         </section>

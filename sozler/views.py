@@ -43,11 +43,13 @@ def TumSozlerSade(request):
         title = "Popüler Güzel Sözler"
         description = "En güzel sözlerin paylaşıldığı hem şairlerin hem üyelerimizin kıymetli paylaşımları"
         keywords = "kısa sözler, özlü sözler, anlamlı sözler, cuma mesajı sözleri, baba sözler"
+        sayfa_adi = "Popüler Güzel Sözler"
     elif url_name == "en-son-eklenen-guzel-sozler":
         siir = Sozler.objects.all().order_by('-olusturma_tarihi')
         title = "En Son Eklenen Güzel Sözler"
         description = "En son eklenen güzel sözler hem şair hem üyelerimizin en kıymetli paylaşımları"
         keywords = "anlamlı sözler, ilginç sözler, özlü sözler, güzel sözler, en güzel sözler"
+        sayfa_adi = "En Son Eklenen Güzel Sözler"
 
 
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
@@ -64,6 +66,7 @@ def TumSozlerSade(request):
         'title': title,
         'description': description,
         'keywords': keywords,
+        'sayfa_adi': sayfa_adi,
     }
     return render(request, 'system/sozler/soz_coklu_sayfa.html', context)
 

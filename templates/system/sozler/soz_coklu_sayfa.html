@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}{{ title }}{% endblock %}
 {% block description %}{{ description }}{% endblock %}
 {% block keywords %}{{ keywords }}{% endblock %}
@@ -25,12 +24,10 @@
 
 
 {% block content %}
-
     <!-- main-area -->
     <main>
         <!-- En son eklenen Şiirler -->
         <section class="latest-post-area pt-80 pb-80">
-
             <!-- Reklam Eklenebilir uzun Banner şeklinde -->
             <div class="container">
                 <div class="row justify-content-center">
@@ -44,7 +41,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="latest__post-wrap">
                             {% for siir in icerik %}
                                 <div class="latest__post-item">
