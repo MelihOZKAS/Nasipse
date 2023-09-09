@@ -19,7 +19,7 @@ from django.db.models import Count
 def alt_kategori_detail(request, alt_kategori_slug):
     alt_kategori = get_object_or_404(HikayeAltKategori, slug=alt_kategori_slug)
     Hikaye = Hikayeler.objects.filter(alt_kategorisi=alt_kategori).order_by('?')
-    sayfa_adi = alt_kategori.alt_kategori_adi
+    sayfa_adi = f"En Güzel {alt_kategori.alt_kategori_adi}"
 
     paginator = Paginator(Hikaye, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
@@ -29,12 +29,8 @@ def alt_kategori_detail(request, alt_kategori_slug):
     CokOkunanSiirler = Hikayeler.objects.filter(aktif=True, status="Yayinda").order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = HikayeAltKategori.objects.filter(banner=True)
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
-
-    #title = "!!!Bunun KonusuNe değişicek büyük ihtimalle"
-    #description = "Aradığınız her konuya ait hikayelerimizi okuyabilir dilerseniz kendi hikayelerinizi paylaşabilirsiniz."
-    #keywords = "dini hikayeler, ilginç hikayeler, aşk hikayeleri, cocuk hikayeleri, ibretlik hikayeler, etkileyici hikayeler, komik hikayeler"
 
     context = {
         'icerik': icerik,
@@ -43,7 +39,7 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': alt_kategori.alt_kategori_adi,
         'description': alt_kategori.meta_description,
