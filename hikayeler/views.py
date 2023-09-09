@@ -42,7 +42,7 @@ def alt_kategori_detail(request, alt_kategori_slug):
         'random_populer': random_populer,
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
-        'title': alt_kategori.alt_kategori_adi,
+        'title': f"{alt_kategori.meta_description} - {page_number}",
         'description': f"{alt_kategori.meta_description} - Sayfa {page_number}",
         'keywords': alt_kategori.keywords,
     }
@@ -185,6 +185,7 @@ def coklu_sayfa(request):
 
     if page_number is None:
         page_number = 1
+    title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
 
     context = {

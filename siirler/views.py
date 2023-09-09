@@ -125,6 +125,8 @@ def coklu_sayfa(request):
 
     if page_number is None:
         page_number = 1
+
+    title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
 
     context = {
@@ -202,7 +204,7 @@ def sairTumeserleri(request,  sair_slug):
     if page_number is None:
         page_number = 1
 
-    title = f"{BulunanSair.title} Tüm Şiir ve Sözleri"
+    title = f"{BulunanSair.title} Tüm Şiir ve Sözleri - {page_number}"
     description = f"{BulunanSair.meta_description} - Sayfa {page_number}"
     keywords = f"{BulunanSair.keywords}"
 

@@ -2,16 +2,16 @@
 {% load static %}
 
 
-{% block title %}En Güzel {{ alt_kategori.alt_kategori_adi }}{% endblock %}
+{% block title %}En Güzel {{ alt_kategori.alt_kategori_adi }} - {{ page_number }}{% endblock %}
 {% block description %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
 {% block keywords %}{{ alt_kategori.keywords }}{% endblock %}
-{% block ogtitle %}En Güzel {{ alt_kategori.alt_kategori_adi }}{% endblock %}
+{% block ogtitle %}En Güzel {{ alt_kategori.alt_kategori_adi }} - {{ page_number }}{% endblock %}
 {% block ogDes %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}En Güzel {{ alt_kategori.alt_kategori_adi }}{% endblock %}
+{% block twtitle %}En Güzel {{ alt_kategori.alt_kategori_adi }} - {{ page_number }}{% endblock %}
 {% block twdesc %}{{ alt_kategori.meta_description }} - Sayfa {{ page_number }}{% endblock %}
 
 

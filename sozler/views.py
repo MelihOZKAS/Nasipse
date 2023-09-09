@@ -62,6 +62,7 @@ def TumSozlerSade(request):
 
     if page_number is None:
         page_number = 1
+    title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
 
 
@@ -118,6 +119,8 @@ def TumSozler(request,  sair_slug):
 
     if page_number is None:
         page_number = 1
+
+    title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
 
     context = {
@@ -156,7 +159,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
 
     context = {
         'icerik': icerik,
-        'title': alt_kategori.sozler_title,
+        'title': f"{alt_kategori.sozler_title} - {page_number}",
         'description': f"{alt_kategori.meta_description_soz} - Sayfa {page_number}",
         'keywords': alt_kategori.keywords_soz,
         'sayfa_adi': f"En Güzel {sayfa_adi}",
