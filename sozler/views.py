@@ -55,13 +55,15 @@ def TumSozlerSade(request):
     paginator = Paginator(siir, 10)  # 10 kayıtlık sayfalar oluştur
     page_number = request.GET.get('sayfa')
     icerik = paginator.get_page(page_number)
-    siirRandom = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
+    tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True, soz=True)
+    siirRandomsag = Siirler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
 
     context = {
         'icerik': icerik,
-        'siirRandom': siirRandom,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'title': title,
         'description': description,
