@@ -18,13 +18,22 @@ def siir_home_detail(request):
     siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
     sairRandomsag = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?')[:8]
 
+
+    title = "En Güzel Şiirler"
+    description = "En Güzel Şiirler’ deki şiir koleksiyonumuzda, farklı şairlerin şiir ve sözlerini keşfedin. Her bir şiir, duyguları ve düşünceleri benzersiz bir şekilde ifade eder."
+    keywords = "şiir, aşk şiirleri, atatürk şiirleri, 10 kasım şiirleri, sevgiliye şiirler, anne şiirleri, baba şiirleri, kısa şiirler, kısa aşk şiirleri"
+
+
     context = {
         'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,#popülerKategoriler
         'CokOkunanSiirler': CokOkunanSiirler,
         'son_eklenen_siirler': son_eklenen_siirler,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandom,
         'sairRandomsag': sairRandomsag,
-        'populersiir': populersiir
+        'populersiir': populersiir,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
     }
     return render(request, 'system/siir/siir_home.html', context)
 

@@ -1,47 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-{% block title %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block description %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş
-    ya da meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
-{% block keywords %}şiir, aşk şiirleri, atatürk şiirleri, 10 kasım şiirleri, sevgiliye şiirler, anne şiirleri, baba
-    şiirleri{% endblock %}
-{% block ogtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block ogDes %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş ya da
-    meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
-
-{% block ogimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
-
+{% block title %}{{ keyler.title }}{% endblock %}
+{% block description %}{{ keyler.meta_description }}{% endblock %}
+{% block keywords %}{{ keyler.keywords }}{% endblock %}
+{% block ogtitle %}{{ keyler.title }}{% endblock %}
+{% block ogDes %}{{ keyler.meta_description }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 
 {% block twaccountsite %}@Melih{% endblock %}
 {% block twcreator %}@Melih{% endblock %}
-{% block twtitle %}Aradığınız Tüm Şiirler | www.enguzelsiirler.com{% endblock %}
-{% block twdesc %}Tüm şiirlerin en yeni adresi ister paylaşılan şiirleri gör ister kendi yazdığın şiirleri paylaş ya da
-    meşhur şairlerimizin şiirlerini oku ve sevdiklerinle paylaş{% endblock %}
-{% block twimage %}{{ request.scheme }}://{{ request.get_host }}
-    {% static 'assets/img/others/Siirlerin_resmi.png' %}{% endblock %}
-
-
-
+{% block twtitle %}{{ keyler.title }}{% endblock %}
+{% block twdesc %}{{ keyler.meta_description }}{% endblock %}
 
 
 {% block content %}
 
     <!-- main-area -->
     <main>
-
-
         <!-- trending-area -->
         <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
             <div class="container">
+            <h1 class="text-center" style="font-size: 14px;">En Güzel Aşk Şiirleri - enguzelsiirler.com</h1>
                 <div class="section__title-wrap mb-40">
                     <div class="row align-items-end">
                         <div class="col-sm-6">
                             <div class="section__title">
-                                <h3 class="section__main-title">Popüler Şiirler</h3>
+                                <h2 class="section__main-title">Popüler Şiirler</h2>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -287,66 +272,12 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
-                            <div class="widget sidebar-widget widget_categories">
-                                <h4 class="widget-title">Kategoriler</h4>
-                                <ul class="list-wrap">
-                                    {% for KategoriPopuler in TumSiirBannerKategorileri %}
-                                        <li>
-                                            <div class="thumb"><a
-                                                    href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}"><img
-                                                    src="{{ KategoriPopuler.kapak_resmi.url }}"
-                                                    alt="{{ KategoriPopuler.alt_kategori_adi }}"></a></div>
-                                            <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">{{ KategoriPopuler.alt_kategori_adi }}</a>
-
-                                        </li>
-                                    {% endfor %}
-
-                                </ul>
-                            </div>
+                            {% include 'parcali/KisaYollar/sag_kategori_siir.html' %}
                             <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsiir in siirRandom %}
-                                        {% if randonsiir.usermi %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.yazar.kapak_resmi.url }}"
-                                                 aria-label="{{ randonsair.title }}">
-                                        {% else %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsiir.sair.kapak_resmi.url }}"
-                                                 aria-label="{{ randonsair.title }}">
+                                {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
+                                {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
+                            </div>
 
-                                        {% endif %}
-
-                                    <div class="sidePost__content">
-                                        <h5 class="title tgcommon__hover"><a
-                                                href="{% url 'siir:siir_detail' siir_slug=randonsiir.slug %}">{{ randonsiir.title }}</a>
-                                        </h5>
-                                    </div>
-                                    </div>
-                                    {% endfor %}
-
-
-                                    </div>
-
-                                </div>
-                                <div class="widget sidebar-widget">
-                                    <div class="sidePost-active">
-                                        {% for randonsair in sairRandomsag %}
-                                            <div class="sidePost__item"
-                                                 data-background="{{ randonsair.kapak_resmi.url }}"
-                                                 aria-label="{{ randonsair.title }}">
-                                                <div class="sidePost__content">
-                                                    <h5 class="title tgcommon__hover"><a
-                                                            href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
-                                                        - Hayatı</a></h5>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-
-
-                                    </div>
-
-                                </div>
                         </aside>
                     </div>
                 </div>
