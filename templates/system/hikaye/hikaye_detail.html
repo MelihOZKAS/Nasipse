@@ -223,24 +223,9 @@
                         <aside class="blog-sidebar">
                             {% include 'parcali/KisaYollar/bizi_takip.html' %}
                             {% include 'parcali/KisaYollar/sag_kategori_hikaye.html' %}
-                            {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
                             <div class="widget sidebar-widget">
-                                <div class="sidePost-active">
-                                    {% for randonsair in sairRandomsag %}
-                                        <div class="sidePost__item"
-                                             data-background="{{ randonsair.kapak_resmi.url }}" aria-label="{{ randonsair.title }}">
-                                            <div class="sidePost__content">
-                                                <h5 class="title tgcommon__hover"><a
-                                                        href="{% url 'sairler:sair_detail' sair_slug=randonsair.slug %}">{{ randonsair.title }}
-                                                    - Hayatı</a></h5>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-
-
-                                </div>
-
-                            </div>
+                                {% include 'parcali/KisaYollar/sag_favori_siir.html' %}
+                                {% include 'parcali/KisaYollar/sag_favori_sair.html' %}
 
                         </aside>
                     </div>
