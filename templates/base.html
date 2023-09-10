@@ -165,6 +165,15 @@
                 <div class="col-12">
                     <div class="tgmenu__wrap">
                         <nav class="tgmenu__nav">
+                            <div class="d-flex gap-4 align-items-center">
+                                <div class="offcanvas-toggle">
+                                    <a href="#"><i class="flaticon-menu-bar" style="font-size:14px;" aria-label="Menüyü Aç">Menü</i></a>
+                                </div>
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/en-guzel.png' %}" loading="lazy"
+                                                                    alt="Logo"></a>
+                                </div>
+                            </div>
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
                                 <ul class="navigation">
                                     <li><a href="{% url 'home' %}">Ana Sayfa</a></li>
@@ -183,6 +192,7 @@
                                             <span class="switcher__btn dark-mode"><i class="flaticon-moon"></i></span>
                                         </nav>
                                     </li>
+
                                 </ul>
                             </div>
                         </nav>
