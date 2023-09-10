@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render,redirect,get_object_or_404
-from .models import AnasayfaKeyler,Siirler,SiirAltKategori,Begeni,Favori
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
+from .models import AnasayfaKeyler,Siirler,SiirAltKategori,Begeni,Favori,WhatsappReklam
 import random
 from sairler.models import Sairler
 from sozler.models import Sozler
@@ -8,6 +8,7 @@ from sozler.views import bunlarLazim
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import AnonymousUser
+from django.views.decorators.csrf import csrf_exempt
 from itertools import chain
 def siir_home_detail(request):
    # tum_alt_kategoriler = SiirAltKategori.objects.all()
@@ -262,5 +263,17 @@ def siir_detail(request,  siir_slug):
         'sairRandomsag': sairRandomsag,
     }
     return render(request, 'system/siir/siir_detail.html', context)
+@csrf_exempt
+def toplu_ekleme_wp(request):
+    TelefonNoList = ["5524144444", "5359671616", "5444065252"]
+    MesajListesi = ["EnGuzelsiirler", "EnTatlıSiirler", "Enguzeller", "SadeceSanaÖzel"]
 
+    reklamlar = []
+    for telefon_no in TelefonNoList:
+        mesaj = random.choice(MesajListesi)
+        reklam = WhatsappReklam(TelefonNo=telefon_no, Mesaj=mesaj)
+        reklamlar.append(reklam)
+
+    WhatsappReklam.objects.bulk_create(reklamlar)
+    return HttpResponse("ŞükürlerOlsun bitti")
 
