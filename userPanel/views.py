@@ -251,7 +251,7 @@ def yazar_tum_eserleri(request,  yazar):
     CokOkunanSiirler = Siirler.objects.order_by('-okunma_sayisi')[:15]
 
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True)
-    siirRandom = Siirler.objects.order_by('?')[:8]
+    siirRandomsag = Siirler.objects.order_by('?')[:8]
     sairRandomsag = Sairler.objects.order_by('?')[:8]
 
 
@@ -262,10 +262,10 @@ def yazar_tum_eserleri(request,  yazar):
     context = {
         'icerik': icerik,
         'sayfa_adi': sayfa_adi,
-        'tum_banner_alt_kategoriler': tum_banner_alt_kategoriler,
+        'TumSiirBannerKategorileri': tum_banner_alt_kategoriler,
         'CokOkunanSiirler': CokOkunanSiirler,
         'random_populer': random_populer,
-        'siirRandom': siirRandom,
+        'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'page_number': page_number,
 
