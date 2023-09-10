@@ -21,7 +21,7 @@
         <!-- trending-area -->
         <section class="trending-post-area white-bg section__hover-line pt-75 pb-80">
             <div class="container">
-            <h1 class="text-center" style="font-size: 14px;">En Güzel Aşk Şiirleri - enguzelsiirler.com</h1>
+                <h1 class="text-center" style="font-size: 14px;">En Güzel Aşk Şiirleri - enguzelsiirler.com</h1>
                 <div class="section__title-wrap mb-40">
                     <div class="row align-items-end">
                         <div class="col-sm-6">
@@ -49,11 +49,11 @@
                                             {% if pSiir.usermi %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
-                                                
+
                                             {% else %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.sair.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
-                                                
+
                                             {% endif %}
 
                                         </div>
@@ -68,7 +68,7 @@
                                                     href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}">{{ pSiir.title }}</a>
                                             </h4>
                                             <ul class="tgbanner__content-meta list-wrap">
-                                                 <!-- İkonu burada koyduk -->
+                                                <!-- İkonu burada koyduk -->
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                                 {% for alt_kategori in pSiir.alt_kategorisi.all %}
                                                     <li>
@@ -114,12 +114,16 @@
                     {% for KategoriPopuler in TumSiirBannerKategorileri %}
                         <div class="col-lg-4 col-sm-6">
                             <div class="featured__post">
-                                <div class="featured__thumb"
-                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}"
-                                     aria-label="{{ KategoriPopuler.alt_kategori_adi }}" aria-role="img"></div>
+                                <div class="featured__post">
+                                    <div class="featured__thumb"
+                                         data-background="{{ KategoriPopuler.kapak_resmi.url }}"
+                                         aria-label="{{ KategoriPopuler.alt_kategori_adi }}" role="img"></div>
+                                </div>
+
                                 <div class="featured__content">
                                     <h2 class="title tgcommon__hover"><a
-                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
+                                            href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En
+                                        Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
                                     </h2>
                                 </div>
                             </div>
@@ -164,11 +168,11 @@
                                             {% if pSiir.usermi %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.yazar.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
-                                                
+
                                             {% else %}
                                                 <a href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}"><img
                                                         src="{{ pSiir.sair.kapak_resmi.url }}" alt="{{ pSiir.title }}"></a>
-                                                
+
                                             {% endif %}
                                         </div>
                                         <div class="trending__post-content">
@@ -182,7 +186,7 @@
                                                     href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}">{{ pSiir.title }}</a>
                                             </h4>
                                             <ul class="tgbanner__content-meta list-wrap">
-                                                 <!-- İkonu burada koyduk -->
+                                                <!-- İkonu burada koyduk -->
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                                 {% for alt_kategori in pSiir.alt_kategorisi.all %}
                                                     <li>
