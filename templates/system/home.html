@@ -136,7 +136,7 @@
                                                 href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}">{{ sbanr.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in sbanr.alt_kategorisi.all %}
                                                 <li>
@@ -206,7 +206,7 @@
                                                 href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}">{{ soneklenensiir.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in soneklenensiir.alt_kategorisi.all %}
                                                 <li>
@@ -316,7 +316,7 @@
                                                 href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}">{{ pSozler.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in pSozler.alt_kategorisi.all %}
                                                 <li>
@@ -379,7 +379,7 @@
                                                 href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}">{{ soneklenensozler.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in soneklenensozler.alt_kategorisi.all %}
                                                 <li>
@@ -401,8 +401,4 @@
         </div>
     </section>
     <!-- trending-area-end -->
-
-
-
-
 {% endblock %}
