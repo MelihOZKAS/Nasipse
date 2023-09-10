@@ -157,7 +157,7 @@
                                                     href="{% url 'siir:siir_detail'  siir_slug=pSiir.slug %}">{{ pSiir.title }}</a>
                                             </h2>
                                             <ul class="tgbanner__content-meta list-wrap">
-                                                <i class="fal fa-info-circle"> &nbsp;</i> <!-- İkonu burada koyduk -->
+
                                                 <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                                 {% for alt_kategori in pSiir.alt_kategorisi.all %}
                                                     <li>
