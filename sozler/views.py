@@ -61,7 +61,7 @@ def TumSozlerSade(request):
     sairRandomsag = Sairler.objects.filter(aktif=True, status="Yayinda").order_by('?')[:8]
 
     if page_number is None:
-        page_number = 1
+        page_number = ""
     title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
 
@@ -118,7 +118,7 @@ def TumSozler(request,  sair_slug):
 
 
     if page_number is None:
-        page_number = 1
+        page_number = ""
 
     title = f"{title} - {page_number}"
     description = f"{description} - Sayfa {page_number}"
@@ -155,7 +155,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
 
 
     if page_number is None:
-        page_number = 1
+        page_number = ""
 
     context = {
         'icerik': icerik,

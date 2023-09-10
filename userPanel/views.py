@@ -256,7 +256,7 @@ def yazar_tum_eserleri(request,  yazar):
 
 
     if page_number is None:
-        page_number = 1
+        page_number = ""
 
 
     context = {

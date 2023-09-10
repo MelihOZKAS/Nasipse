@@ -90,7 +90,7 @@ def populer_sair_detail(request):
     icerik = paginator.get_page(page_number)
 
     if page_number is None:
-        page_number = 1
+        page_number = ""
     title = f"Popüler Şairler - {page_number}"
     description = f"Popüler şairlerimizin ve yazarlarımızın listesi aradığınız tüm şair ve yazarların özet bilgileri ve tüm bilgileri yer almaktadır - Sayfa {page_number}"
     keywords = "en sevilen şairler, en çok okunan yazarlar, sevilen yazarlar, popüler yazarlar, şairler, yazarlar"
