@@ -270,9 +270,10 @@ def toplu_ekleme_wp(request):
 
     reklamlar = []
     for telefon_no in TelefonNoList:
-        mesaj = random.choice(MesajListesi)
-        reklam = WhatsappReklam(TelefonNo=telefon_no, Mesaj=mesaj)
-        reklamlar.append(reklam)
+        if not WhatsappReklam.objects.filter(TelefonNo=telefon_no).exists():
+            mesaj = random.choice(MesajListesi)
+            reklam = WhatsappReklam(TelefonNo=telefon_no, Mesaj=mesaj)
+            reklamlar.append(reklam)
 
     WhatsappReklam.objects.bulk_create(reklamlar)
     return HttpResponse("ŞükürlerOlsun bitti")
