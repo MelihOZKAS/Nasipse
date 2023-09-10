@@ -3722,7 +3722,7 @@ input[type=color] {
 }
 .post__activity li {
   line-height: 1;
-  font-size: 14px;
+  font-size: 20px;
 }
 .post__activity li i {
   color: #b0b0b0;
@@ -5355,7 +5355,7 @@ input[type=color] {
   top: 0;
   font-family: var(--tg-icon-font-family);
   font-weight: var(--tg-fw-bold);
-  font-size: 18px;
+  font-size: 16px;
   color: #c5c5c5;
 }
 .blog-details-inner .list-wrap li span {
