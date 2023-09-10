@@ -6,7 +6,7 @@
             <li>
                 <div class="thumb"><img
                         src="{{ KategoriPopuler.kapak_resmi.url }}"
-                        alt="{{ KategoriPopuler.alt_kategori_adi }}"></div>
+                        alt="{{ KategoriPopuler.alt_kategori_adi }}" role="img"></div>
                 <a href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=KategoriPopuler.slug %}">En Güzel {{ KategoriPopuler.alt_kategori_adi }}</a>
             </li>
         {% endfor %}
