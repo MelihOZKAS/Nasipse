@@ -65,7 +65,7 @@ class SiirAltKategori(models.Model):
     #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
                                     storage=ImageSettingStorage(),
-                                    help_text=HELP_TEXTS["kapak_resmi"])
+                                    help_text=HELP_TEXTS["kapak_resmi"], null=True, blank=True)
     meta_description = models.TextField(
         blank=True,
         verbose_name="Meta Açıklama",

@@ -60,7 +60,7 @@ class CustomUser(AbstractBaseUser):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     # kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
-                                    storage=ImageSettingStorage())
+                                    storage=ImageSettingStorage(), null=True, blank=True)
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
 
     objects = CustomUserManager()
