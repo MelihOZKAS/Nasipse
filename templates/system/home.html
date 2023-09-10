@@ -136,7 +136,7 @@
                                                 href="{% url 'siir:siir_detail'  siir_slug=sbanr.slug %}">{{ sbanr.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in sbanr.alt_kategorisi.all %}
                                                 <li>
@@ -206,7 +206,7 @@
                                                 href="{% url 'siir:siir_detail'  siir_slug=soneklenensiir.slug %}">{{ soneklenensiir.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in soneklenensiir.alt_kategorisi.all %}
                                                 <li>
@@ -248,10 +248,8 @@
                 {% for PopulerS_ in Populer_sair %}
                     <div class="col-lg-4 col-sm-6">
                         <div class="featured__post">
-                            <div class="featured__post">
-                                <div class="featured__thumb"
-                                     data-background="{{ KategoriPopuler.kapak_resmi.url }}"
-                                     aria-label="{{ KategoriPopuler.alt_kategori_adi }}" role="img"></div>
+                            <div class="featured__thumb" data-background="{{ PopulerS_.kapak_resmi.url }}"
+                                 aria-label="{{ PopulerS_.title }}" role="img">
                             </div>
                             <div class="featured__content">
                                 <ul class="tgbanner__content-meta list-wrap">
@@ -318,7 +316,7 @@
                                                 href="{% url 'sozler:soz_slug'  soz_slug=pSozler.slug %}">{{ pSozler.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in pSozler.alt_kategorisi.all %}
                                                 <li>
@@ -381,7 +379,7 @@
                                                 href="{% url 'sozler:soz_slug'  soz_slug=soneklenensozler.slug %}">{{ soneklenensozler.title }}</a>
                                         </h4>
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <!-- İkonu burada koyduk -->
+                                             <!-- İkonu burada koyduk -->
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in soneklenensozler.alt_kategorisi.all %}
                                                 <li>
