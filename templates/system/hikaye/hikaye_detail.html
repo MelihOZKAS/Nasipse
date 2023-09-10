@@ -195,7 +195,7 @@
                                             <ul class="list-wrap mb-0">
                                                 {% for altKategorieri in siir.alt_kategorisi.all %}
                                                     <li>
-                                                        <a href="{% url 'siir:alt_kategori_detail'  alt_kategori_slug=altKategorieri.slug %}">{{ altKategorieri.alt_kategori_adi }}</a>
+                                                        <a href="{% url 'hikaye:alt_kategori_detail'  alt_kategori_slug=altKategorieri.slug %}">{{ altKategorieri.alt_kategori_adi }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
