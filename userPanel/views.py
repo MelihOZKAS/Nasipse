@@ -193,7 +193,7 @@ def yazar_detail(request,  yazar):
     random_Soz = Sozler.objects.filter(small_banner=True).order_by('?').first()
     tum_banner_alt_kategoriler = SiirAltKategori.objects.filter(banner=True, aktif=True, siir=True)
     title = f"{sair.first_name} {sair.last_name} Şair Detay"
-    description = "Üyelerimizin eserleri ve biyografilerine ulaşabilirsiniz. Üyelerimizin şiirlerini ve hayat hikayelerini keşfedebilir, üyelerimizin eserlerine buradan ulaşabilirsiniz."
+    description = f"{sair.first_name} {sair.last_name} Üyelerimizin şiirlerine ve biyografilerine ulaşabilirsiniz. Üyelerimizin şiirlerini ve hayat hikayelerini keşfedebilir, üyelerimizin eserlerine buradan ulaşabilirsiniz."
     keywords = "şiir, aşk şiirleri, atatürk şiirleri, öğretmenler günü şiirleri, sevgiliye şiirler, anne şiirleri, baba şiirleri, kısa şiirler, kısa aşk şiirleri"
 
     if not isinstance(request.user, AnonymousUser):
