@@ -22,6 +22,7 @@ urlpatterns = [
     path("", views.siir_home_detail, name="home"),
     path('tum-siir-kategorileri/', views.all_Kategori, name='tum-siir-kategorileri'),
     path('toplu_ekleme_wp/', views.toplu_ekleme_wp, name='toplu_ekleme_wp'),
+    path('wp-cek/', views.wp_cek, name='wp-cek'),
     path('populer-siirler/', views.coklu_sayfa, name='populer-siirler'),#Coklu Sayfa
     path('begen/<int:siir_id>/', views.begen, name='begen'),
     path('begen-kaldir/<int:siir_id>/', views.begen_kaldir, name='begen-kaldir'),

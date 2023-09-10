@@ -278,3 +278,15 @@ def toplu_ekleme_wp(request):
     WhatsappReklam.objects.bulk_create(reklamlar)
     return HttpResponse("ŞükürlerOlsun bitti")
 
+
+def wp_cek(request):
+    reklam = WhatsappReklam.objects.filter(atildi=False).first()
+    if reklam is not None:
+        reklam.atildi = True
+        reklam.save()
+        return HttpResponse(f"{reklam.TelefonNo}|{reklam.Mesaj}")
+    else:
+        return HttpResponse("Tüm reklamlar gönderildi.")
+
+
+
