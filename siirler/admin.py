@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Siirler,AnasayfaKeyler,SiirAltKategori
+from .models import Siirler,AnasayfaKeyler,SiirAltKategori,WhatsappReklam
 
 # Register your models here.
 
@@ -37,8 +37,14 @@ class KeyAdmin(admin.ModelAdmin):
     list_display = ("title","meta_title",)
 
 
-
-
-
-
 admin.site.register(AnasayfaKeyler, KeyAdmin)
+
+
+
+class WhatsappReklamAdmin(admin.ModelAdmin):
+    list_display = ("TelefonNo","Mesaj","atildi",)
+    search_fields = ("TelefonNo","Mesaj",)
+    list_filter = ("atildi",)
+    list_editable = ("atildi",)
+
+admin.site.register(WhatsappReklam, WhatsappReklamAdmin)

@@ -227,3 +227,15 @@ class AnasayfaKeyler(models.Model):
 
     class Meta:
         verbose_name_plural = "AnaSayfaSeo Ayarları"
+
+
+
+
+class WhatsappReklam(models.Model):
+    TelefonNo = models.PositiveBigIntegerField(unique=True)
+    Mesaj = models.TextField()
+    atildi = models.BooleanField(default=False)
+    class Meta:
+        verbose_name_plural = "Whatsapp Reklam"
+
+
