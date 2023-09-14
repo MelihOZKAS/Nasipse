@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "whitenoise.runserver_nostatic",
     "storages",
-
 ]
 
 MIDDLEWARE = [
