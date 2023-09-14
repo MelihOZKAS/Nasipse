@@ -62,7 +62,7 @@
                                         <h2 class="title tgcommon__hover"><a
                                                 href="{% url 'siir:siir_detail' siir_slug=siir.slug %}">{{ siir.title }}</a>
                                         </h2>
-                                        <p>{{ siir.title|truncatechars:50 }}</p>
+                                        <p>{{ siir.icerik|safe|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in siir.alt_kategorisi.all %}
