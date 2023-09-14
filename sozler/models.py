@@ -10,7 +10,7 @@ from siirler.models import SiirAltKategori
 
 
 HELP_TEXTS = {
-    "title": "Şiirin başlığını girin.",
+    "title": "Eğer Bir Ünlü ise sadece 'Sözleri' yazman yeterli.",
     "Model": "Modele göre sılanma ve konumlandırılma olacaktır.",
     "yazar": "Şiiri yazan kullanıcıyı seçin.",
     "slug": "Şiirin URL'de görünecek kısmını girin.",

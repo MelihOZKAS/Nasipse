@@ -159,7 +159,7 @@ def alt_kategori_detail(request,  alt_kategori_slug):
 
     context = {
         'icerik': icerik,
-        'title': f"{alt_kategori.sozler_title} - {page_number}",
+        'title': f"En Güzel {alt_kategori.sozler_title} - {page_number}",
         'description': f"{alt_kategori.meta_description_soz} - Sayfa {page_number}",
         'keywords': alt_kategori.keywords_soz,
         'sayfa_adi': f"En Güzel {sayfa_adi}",

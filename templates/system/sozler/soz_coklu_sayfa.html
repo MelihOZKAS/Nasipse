@@ -35,7 +35,7 @@
                             {% for siir in icerik %}
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
-                                        <div class="featured__thumbMelih"
+                                        <div class="featured__thumb"
                                              data-background="{{ siir.sair.kapak_resmi.url }}"> {{ siir.title }}
 
                                         </div>
@@ -48,7 +48,7 @@
                                         <h3 class="title tgcommon__hover"><a
                                                 href="{% url 'sozler:soz_slug' soz_slug=siir.slug %}">{{ siir.title }}</a>
                                         </h3>
-                                        <p>{{ siir.title|truncatechars:50 }}</p>
+                                        <p>{{ siir.icerik|safe|truncatechars:50 }}</p>
                                         <ul class="post__activity list-wrap">
                                             <!-- Boşluk eklemek için boşluk karakterini (non-breaking space) kullandık -->
                                             {% for alt_kategori in siir.alt_kategorisi.all %}
