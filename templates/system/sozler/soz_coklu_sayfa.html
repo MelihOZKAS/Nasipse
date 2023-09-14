@@ -35,10 +35,9 @@
                             {% for siir in icerik %}
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
-                                        <div class="featured__thumb"
-                                             data-background="{{ siir.sair.kapak_resmi.url }}"> {{ siir.title }}
+                                     <a href="{% url 'sozler:soz_slug' soz_slug=siir.slug %}"><img src="{{ siir.sair.kapak_resmi.url }}" alt="{{ siir.title }}"></a>
 
-                                        </div>
+
                                     </div>
                                     <div class="latest__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
