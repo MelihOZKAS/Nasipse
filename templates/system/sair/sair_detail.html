@@ -55,27 +55,7 @@
                     <div class="col-lg-1">
                         <div class="blog-details-social">
 
-                            <ul class="list-wrap">
-                                <li class="list-inline-item"><a
-                                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a
-                                        href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a
-                                        href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a
-                                        href="https://www.behance.net/sharer?url={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-behance"></i></a></li>
-                                <li class="list-inline-item"><a
-                                        href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-                                <li class="list-inline-item"><a
-                                        href="https://www.instagram.com/sharer.php?u={{ request.build_absolute_uri }}"
-                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fas fa-share"></i></a></li>
-                            </ul>
+{% include 'parcali/KisaYollar/share.html' %}
 
 
                         </div>
