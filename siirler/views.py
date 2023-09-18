@@ -176,7 +176,6 @@ def alt_kategori_detail(request,  alt_kategori_slug):
         'siirRandomsag': siirRandomsag,
         'sairRandomsag': sairRandomsag,
         'page_number': page_number,
-
     }
     return render(request, 'system/siir/altkategoridetay.html', context)
 
