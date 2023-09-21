@@ -6,8 +6,8 @@
             <div class="pn-post-item next-post">
                 <div class="thumb">
                     <a href="{% url 'sozler:soz_slug' soz_slug=sozRandom.slug %}"><img
-                            src="{% static 'assets/img/others/rasgele_soz_getir_2.png' %}"
-                            alt="img"></a>
+                            src="{% static 'assets/img/others/söz.png' %}"
+                            alt="Başka Söz Getir"></a>
                 </div>
                 <div class="content">
 
@@ -20,8 +20,8 @@
             <div class="pn-post-item next-post">
                 <div class="thumb">
                     <a href="{% url 'siir:siir_detail' siir_slug=siirRandom.slug %}"><img
-                            src="{% static 'assets/img/others/rasgele_siir_getir_2.png' %}"
-                            alt="img"></a>
+                            src="{% static 'assets/img/others/şiir.png' %}"
+                            alt="Başka Şiir Getir"></a>
                 </div>
                 <div class="content">
 
@@ -34,8 +34,8 @@
             <div class="pn-post-item next-post">
                 <div class="thumb">
                     <a href="{% url 'sairler:sair_detail' sair_slug=yazarRandom.slug %}"><img
-                            src="{% static 'assets/img/others/rasgele_yazar_getir.png' %}"
-                            alt="img"></a>
+                            src="{% static 'assets/img/others/şair.png' %}"
+                            alt="Başka Şair Getir"></a>
                 </div>
                 <div class="content">
 
@@ -48,14 +48,14 @@
         <div class="col-xl-3 col-lg-3 col-md-3">
             <div class="pn-post-item next-post">
                 <div class="thumb">
-                    <a href="#"><img
-                            src="{% static 'assets/img/others/rasgele_hikaye_getir_2.png'%}"
-                            alt="img"></a>
+                    <a href="{% url 'hikaye:hikaye_slug' hikaye_slug=hikayeRandom.slug %}"><img
+                            src="{% static 'assets/img/others/şiir_hikaye.png'%}"
+                            alt="Başka Hikaye Getir"></a>
                 </div>
                 <div class="content">
 
                     <h5 class="title tgcommon__hover"><a
-                            href="#">Rastgele Hikaye Getir</a></h5>
+                            href="{% url 'hikaye:hikaye_slug' hikaye_slug=hikayeRandom.slug %}">Rastgele Hikaye Getir</a></h5>
                 </div>
             </div>
         </div>
