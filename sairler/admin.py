@@ -4,7 +4,7 @@ from .models import Sairler
 
 
 class SairlerAdmin(admin.ModelAdmin):
-    list_display = ("title","yazar","status","banner","small_banner","aktif",)
+    list_display = ("title","yazar","Model","okunma_sayisi","status","banner","small_banner","aktif",)
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ("title",)
     list_filter = ("yazar","status","aktif","banner","small_banner",)
