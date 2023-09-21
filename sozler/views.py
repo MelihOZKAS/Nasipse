@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from sairler.models import Sairler
 from .models import Sozler,BegeniSozler,FavoriSozler,SiirAltKategori
 from siirler.models import Siirler,SiirAltKategori
+from hikayeler.models import Hikayeler
 from django.core.paginator import Paginator
 import random
 from django.contrib.auth.decorators import login_required
@@ -181,7 +182,7 @@ def bunlarLazim(Sairmi):
     sozRandom = Sozler.objects.filter(aktif=True,status="Yayinda").order_by('?').first()
     siirRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?').first()
     yazarRandom = Sairler.objects.filter(aktif=True,status="Yayinda").order_by('?').first()
-    hikayeRandom = Siirler.objects.filter(aktif=True,status="Yayinda").order_by('?').first()
+    hikayeRandom = Hikayeler.objects.filter(aktif=True,status="Yayinda").order_by('?').first()
     return siirRandomsag,sairRandomsag,sozRandom,siirRandom, yazarRandom, hikayeRandom
 
 
