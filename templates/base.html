@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Site Başlığı{% endblock %}</title>
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
     <meta name="description" content="{% block description %}Site description{% endblock %}">
     <meta name="keywords" content="{% block keywords %}Site keywords{% endblock %}">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -87,7 +88,7 @@
             accurateTrackBounce:true
        });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/94684012" style="position:absolute; left:-9999px;" alt="enguzel şiirler" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/94684012" style="position:absolute; left:-9999px;" alt="en guzel şiirler" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
 
