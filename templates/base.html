@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Site Başlığı{% endblock %}</title>
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+
     <meta name="description" content="{% block description %}Site description{% endblock %}">
     <meta name="keywords" content="{% block keywords %}Site keywords{% endblock %}">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path }}"/>
 
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
