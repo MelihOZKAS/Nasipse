@@ -20,6 +20,7 @@ from . import views
 app_name = 'siir'
 urlpatterns = [
     path("", views.siir_home_detail, name="home"),
+    path("index-ver/", views.indexing_var_mi, name="indexver"),
     path('tum-siir-kategorileri/', views.all_Kategori, name='tum-siir-kategorileri'),
     path('toplu_ekleme_wp/', views.toplu_ekleme_wp, name='toplu_ekleme_wp'),
     path('wp-cek/', views.wp_cek, name='wp-cek'),
@@ -33,5 +34,5 @@ urlpatterns = [
     path('<str:siir_slug>/', views.siir_detail, name='siir_detail'),
     path('sair-eserleri/<str:sair_slug>/', views.sairTumeserleri, name='sair-eserleri'),
     path('kategori/<str:alt_kategori_slug>/', views.alt_kategori_detail, name='alt_kategori_detail'),
-    path("index-ver/", views.indexing_var_mi, name="indexver"),
+
 ]
