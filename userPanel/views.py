@@ -393,13 +393,4 @@ def begen_kaldir(request, yazar_id):
     return redirect('konsol:blog-yazar-detay', yazar=siir.slug)
 
 
-@csrf_exempt
-def indexing_var_mi(request):
-    post = Siirler.objects.filter(indexing=True, aktif=True, status="Yayinda").first()
-    if post is not None:
-        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
-        post.indexing = False
-        post.save()
-        return HttpResponse(f"https://www.enguzelsiirler.com/siir/{post.slug}/")
-    else:
-        return HttpResponse("post bulunamadı.")
+
