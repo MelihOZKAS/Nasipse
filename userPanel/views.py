@@ -1,9 +1,10 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
 from sairler.models import Sairler
 from siirler.models import Siirler,SiirAltKategori,Begeni,Favori
 from sozler.models import Sozler,FavoriSozler,BegeniSozler
 from hikayeler.models import Hikayeler,FavoriHikayeler,BegeniHikayeler
 from sozler.views import bunlarLazim
+from django.views.decorators.csrf import csrf_exempt
 from .models import CustomUser,FavoriSairUser,BegeniSairUser
 import random
 from django.core.paginator import Paginator
@@ -392,3 +393,13 @@ def begen_kaldir(request, yazar_id):
     return redirect('konsol:blog-yazar-detay', yazar=siir.slug)
 
 
+@csrf_exempt
+def indexing_var_mi(request):
+    post = Siirler.objects.filter(indexing=True, aktif=True, status="Yayinda").first()
+    if post is not None:
+        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
+        post.indexing = False
+        post.save()
+        return HttpResponse(f"https://www.enguzelsiirler.com/siir/{post.slug}/")
+    else:
+        return HttpResponse("post bulunamadı.")

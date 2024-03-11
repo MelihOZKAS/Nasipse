@@ -33,6 +33,5 @@ urlpatterns = [
     path('<str:siir_slug>/', views.siir_detail, name='siir_detail'),
     path('sair-eserleri/<str:sair_slug>/', views.sairTumeserleri, name='sair-eserleri'),
     path('kategori/<str:alt_kategori_slug>/', views.alt_kategori_detail, name='alt_kategori_detail'),
-
-
+    path("index-ver/", views.indexing_var_mi, name="indexver"),
 ]

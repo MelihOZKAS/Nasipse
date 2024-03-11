@@ -61,8 +61,8 @@ class SiirAltKategori(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     sozler_title = models.CharField(max_length=255, blank=True)
     sozler_slug = models.SlugField(max_length=255, blank=True)
-    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
-    #kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
+    # kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
+    # kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,help_text=HELP_TEXTS["kapak_resmi"])
     kapak_resmi = models.ImageField(upload_to=kapak_resmi_upload_to,
                                     storage=ImageSettingStorage(),
                                     help_text=HELP_TEXTS["kapak_resmi"], null=True, blank=True)
@@ -141,6 +141,8 @@ class Siirler(models.Model):
     usermi = models.BooleanField(default=False)
     aktif = models.BooleanField(default=False,
                                 help_text=HELP_TEXTS["aktif"])
+    indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
+
     banner = models.BooleanField(default=False,
                                  help_text=HELP_TEXTS["banner"])
     small_banner = models.BooleanField(default=False,
@@ -161,7 +163,6 @@ class Siirler(models.Model):
             self.yazar.save()
             self.sair.save()
 
-
     def save(self, *args, **kwargs):
         # Eğer şiirin şairi belirtilmişse ve şiir ilk kez kaydediliyorsa
         if self.sair and not self.pk:
@@ -179,7 +180,6 @@ class Siirler(models.Model):
 
     class Meta:
         verbose_name_plural = "Tüm Şiirler"
-
 
 
 class Favori(models.Model):
@@ -229,13 +229,10 @@ class AnasayfaKeyler(models.Model):
         verbose_name_plural = "AnaSayfaSeo Ayarları"
 
 
-
-
 class WhatsappReklam(models.Model):
     TelefonNo = models.PositiveBigIntegerField(unique=True)
     Mesaj = models.TextField()
     atildi = models.BooleanField(default=False)
+
     class Meta:
         verbose_name_plural = "Whatsapp Reklam"
-
-
