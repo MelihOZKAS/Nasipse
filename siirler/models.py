@@ -141,7 +141,7 @@ class Siirler(models.Model):
     usermi = models.BooleanField(default=False)
     aktif = models.BooleanField(default=False,
                                 help_text=HELP_TEXTS["aktif"])
-    indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
+    #indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
 
     banner = models.BooleanField(default=False,
                                  help_text=HELP_TEXTS["banner"])
