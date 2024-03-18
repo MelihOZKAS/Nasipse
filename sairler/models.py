@@ -99,7 +99,7 @@ class Sairler(models.Model):
 
     def okundu(self):
         self.okunma_sayisi += 1
-        self.save()
+        self.save(update_fields=['okunma_sayisi'])
 
 
 

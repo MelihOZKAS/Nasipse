@@ -71,7 +71,7 @@ class CustomUser(AbstractBaseUser):
 
     def okundu(self):
         self.okunma_sayisi += 1
-        self.save()
+        self.save(update_fields=['okunma_sayisi'])
     def __str__(self):
         return self.username
 

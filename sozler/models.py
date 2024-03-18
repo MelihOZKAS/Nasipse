@@ -92,10 +92,10 @@ class Sozler(models.Model):
 
     def okundu(self):
         self.okunma_sayisi += 1
-        self.save()
+        self.save(update_fields=['okunma_sayisi'])
         if self.sair:
             self.sair.okunma_sayisi += 1
-            self.sair.save()
+            self.sair.save(update_fields=['okunma_sayisi'])
 
     def save(self, *args, **kwargs):
         if self.sair and not self.pk:
